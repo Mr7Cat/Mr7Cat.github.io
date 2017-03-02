@@ -126,7 +126,7 @@ What we really want is the user experience of the native mobile platforms, combi
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -314,6 +314,8 @@ What we really want is the user experience of the native mobile platforms, combi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
+                <span class="post-meta-item-text">Posted on</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T13:30:30+08:00">
                 2017-02-09
               </time>
@@ -337,6 +339,8 @@ What we really want is the user experience of the native mobile platforms, combi
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -717,7 +721,7 @@ What we really want is the user experience of the native mobile platforms, combi
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Will</span>
 </div>
