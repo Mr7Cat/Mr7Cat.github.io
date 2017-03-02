@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ReduxPrerequisites：JS basic grammar, React Native basic concept；
+Best Practice：iReading
+Key words: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware
+Index
+[TOC]
+What">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux">
+<meta property="og:url" content="http://mr7cat.com/2016/11/20/Redux/index.html">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="ReduxPrerequisites：JS basic grammar, React Native basic concept；
+Best Practice：iReading
+Key words: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware
+Index
+[TOC]
+What">
+<meta property="og:updated_time" content="2016-12-05T05:51:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux">
+<meta name="twitter:description" content="ReduxPrerequisites：JS basic grammar, React Native basic concept；
+Best Practice：iReading
+Key words: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware
+Index
+[TOC]
+What">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mr7cat.com/2016/11/20/Redux/"/>
+
+
+
+
+
+  <title> Redux | Mr7Cat </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr7Cat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/11/20/Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Redux
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T14:20:43+08:00">
+                2016-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/11/20/Redux/" class="leancloud_visitors" data-flag-title="Redux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p><strong>Prerequisites</strong>：JS basic grammar, React Native basic concept；</p>
+<p><strong>Best Practice</strong>：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">iReading</a></p>
+<p><strong>Key words</strong>: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware</p>
+<p>Index</p>
+<p>[TOC]</p>
+<h2 id="What-is-Redux"><a href="#What-is-Redux" class="headerlink" title="What is Redux?"></a>What is Redux?</h2><blockquote>
+<p><a href="http://rackt.org/redux/" target="_blank" rel="external">Doc</a> and <a href="http://camsong.github.io/redux-in-chinese/" target="_blank" rel="external">中文翻译</a></p>
+<p><a href="http://cn.redux.js.org/index.html" target="_blank" rel="external">中文资料</a></p>
+</blockquote>
+<h3 id="单页面应用的痛点"><a href="#单页面应用的痛点" class="headerlink" title="单页面应用的痛点"></a>单页面应用的痛点</h3><p>对于复杂的单页面应用，状态（state）管理非常重要。state 可能包括：服务端的响应数据、本地对响应数据的缓存、本地创建的数据（比如，表单数据）以及一些 UI 的状态信息（比如，路由、选中的 tab、是否显示下拉列表、页码控制等等）。如果 state 变化不可预测，就会难于调试（state 不易重现，很难复现一些 bug）和不易于扩展（比如，优化更新渲染、服务端渲染、路由切换时获取数据等等）。</p>
+<p>Redux 就是用来确保 state 变化的可预测性，主要的约束有：</p>
+<ul>
+<li>state 以单一对象存储在 store 对象中</li>
+<li>state 只读</li>
+<li>使用纯函数 reducer 执行 state 更新</li>
+</ul>
+<blockquote>
+<p>state 为单一对象，使得 Redux 只需要维护一棵状态树，服务端很容易初始化状态，易于服务器渲染。state 只能通过 dispatch(action) 来触发更新，更新逻辑由 reducer 来执行。</p>
+<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。惟一改变 state 的办法是触发 action，一个描述发生什么的对象。为了描述 action 如何改变 state 树，你需要编写 reducers。</p>
+<p>如果你以前使用 Flux，那么你只需要注意一个重要的区别。Redux 没有 Dispatcher 且不支持多个 store。相反，只有一个单一的 store 和一个根级的 reduce 函数（reducer）。</p>
+</blockquote>
+<h3 id="Actions、Reducers-和-Store"><a href="#Actions、Reducers-和-Store" class="headerlink" title="Actions、Reducers 和 Store"></a>Actions、Reducers 和 Store</h3><p>action 可以理解为应用向 store 传递的数据信息（一般为用户交互信息）。在实际应用中，传递的信息可以约定一个固定的数据格式，比如: <a href="https://github.com/acdlite/flux-standard-action/" target="_blank" rel="external">Flux Standard Action</a>。<br>为了便于测试和易于扩展，Redux 引入了 Action Creator:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function addTodo(text) &#123;</div><div class="line">  return &#123;</div><div class="line">    type: ADD_TODO,</div><div class="line">    text,</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">store.dispatch(addTodo(text))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>dispatch(action) 是一个同步的过程：执行 reducer 更新 state -&gt; 调用 store 的监听处理函数。如果需要在 dispatch 时执行一些异步操作（fetch action data），可以通过引入 Middleware 解决。</p>
+</blockquote>
+<p>reducer 实际上就是一个函数：<code>(previousState, action) =&gt; newState</code>。用来执行根据指定 action 来更新 state 的逻辑。通过 combineReducers(reducers) 可以把多个 reducer 合并成一个 root reducer。</p>
+<blockquote>
+<p>reducer 不存储 state, reducer 函数逻辑中不应该直接改变 state 对象, 而是返回新的 state 对象（可以考虑使用 <a href="http://facebook.github.io/immutable-js/" target="_blank" rel="external">immutable-js</a>）。</p>
+</blockquote>
+<p>store 是一个单一对象：</p>
+<ul>
+<li>管理应用的 state</li>
+<li>通过 <code>store.getState()</code> 可以获取 state</li>
+<li>通过 <code>store.dispatch(action)</code> 来触发 state 更新</li>
+<li>通过 <code>store.subscribe(listener)</code> 来注册 state 变化监听器</li>
+<li>通过 <code>createStore(reducer, [initialState])</code> 创建</li>
+</ul>
+<blockquote>
+<p>在 Redux 应用中，只允许有一个 store 对象，可以通过 combineReducers(reducers) 来实现对 state 管理的逻辑划分（多个 reducer）。</p>
+</blockquote>
+<h3 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h3><p>middleware 其实就是高阶函数，作用于 dispatch 返回一个新的 dispatch（附加了该中间件功能）。可以形式化为：<code>newDispatch = middleware1(middleware2(...(dispatch)...))</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// thunk-middleware</div><div class="line">export default function thunkMiddleware(&#123; dispatch, getState &#125;) &#123;</div><div class="line">    return next =&gt; action =&gt;</div><div class="line">        typeof action === &apos;function&apos; ? action(dispatch, getState) : next(action)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 thunk-middleware 我们可以看出中间件的一般形式：中间件函数接受两个参数参数： dispatch 和 getState（也就是说中间件可以获取 state 以及 <code>dispatch new action</code>）。中间件一般返回 <code>next(action)</code>（thunk-middleware 比较特殊，它用于 dispatch 执行异步回调的 action）。store 的创建过程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const reducer = combineReducers(reducers)</div><div class="line">const finalCreateStore = applyMiddleware(promiseMiddleware, warningMiddleware,</div><div class="line">    loggerMiddleWare)(createStore)</div><div class="line">const store = finalCreateStore(reducer)</div></pre></td></tr></table></figure>
+<h3 id="异步-Actions"><a href="#异步-Actions" class="headerlink" title="异步 Actions"></a>异步 Actions</h3><p>单页面应用中充斥着大量的异步请求（ajax）。dispatch(action) 是同步的，如果要处理异步 action，需要使用一些中间件。<br><a href="https://github.com/gaearon/redux-thunk/" target="_blank" rel="external">redux-thunks</a> 和 <a href="https://github.com/aclite/redux-promise/" target="_blank" rel="external">redux-promise</a> 分别是使用异步回调和 Promise 来解决异步 action 问题的。</p>
+<p>最新的用法是使用<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">redux-saga</a>来实现异步任务，在下面的章节会有讲解。</p>
+<h2 id="为什么要用Redux"><a href="#为什么要用Redux" class="headerlink" title="为什么要用Redux"></a>为什么要用Redux</h2><blockquote>
+<p><a href="http://www.infoq.com/cn/news/2014/05/facebook-mvc-flux" target="_blank" rel="external">Facebook：MVC不适合大规模应用，改用Flux</a></p>
+</blockquote>
+<h2 id="如何使用Redux"><a href="#如何使用Redux" class="headerlink" title="如何使用Redux"></a>如何使用Redux</h2><blockquote>
+<ul>
+<li>参考项目：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></li>
+</ul>
+</blockquote>
+<h3 id="redux三大原则"><a href="#redux三大原则" class="headerlink" title="redux三大原则"></a>redux三大原则</h3><p>首先，我们明确一点：redux的核心思想就是FLux架构，单向数据流。</p>
+<h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><p>在redux中，所有的state最后都会被combine起来，变为一个大的state树，这个state树只存在于唯一的一个store中。这么做的好处是开发和调试都变得很方便，也很好理解。</p>
+<h3 id="state只读"><a href="#state只读" class="headerlink" title="state只读"></a>state只读</h3><p>改变state唯一的办法就是通过触发action，别无他法。这么做非常纯粹，确保没其他副作用，state不会被任意修改。</p>
+<h3 id="纯函数修改state"><a href="#纯函数修改state" class="headerlink" title="纯函数修改state"></a>纯函数修改state</h3><p>想要修改state，在action被触发之后，需要编写reducer来进行修改，reducer只是一些纯函数，它会接受到action和state，返回<strong>全新的state</strong>。</p>
+<h2 id="认识redux三要素"><a href="#认识redux三要素" class="headerlink" title="认识redux三要素"></a>认识redux三要素</h2><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>执行动作，把数据传递到store，触发它是用来改变state的，它是store的唯一数据来源。</p>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>纯函数，用来修改/更新state，action只是说明有动作发生了，但是具体产生什么样的作用（state如何变更），还是reducer说了算。在修改完state之后，通过Object.assign，或者…state或者immutable返回<strong>全新的state</strong></p>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>整个应用唯一维护state树的地方，<strong>是单一的</strong>。可以获取、更新state，还可以注册监听。</p>
+<p>这三个元素像齿轮一样运转起来，形成了FLux架构的单向数据流。</p>
+<h2 id="react-redux最新用法"><a href="#react-redux最新用法" class="headerlink" title="react-redux最新用法"></a>react-redux最新用法</h2><p>react-redux这个库，在redux和react结合使用的时候几乎是必用的。在经历过某次升级后，它的Provider组件用法发生了一点变化，最新的用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</div><div class="line"></div><div class="line">const Root = () =&gt; (</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &lt;App /&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="redux性能优化"><a href="#redux性能优化" class="headerlink" title="redux性能优化"></a>redux性能优化</h2><p>性能优化第一步，就是搞清楚action和reducer的关系。如果搞不清关系，就会像我之前一样，大量页面被过度渲染。它俩是什么关系呢？实际上它俩是多对多的关系。也就是说，一个action操作可能会造成state树中的一个或者某几个部分发生改变，就对应了一个或多个reducer，多个action操作也同理，这是我们必须明确的。</p>
+<p>如何避免引入redux之后造成页面过度渲染？</p>
+<p>首先我们要搞清楚，为什么会过度渲染。在一个引用了redux的rn app中，state树是唯一的。但是在某个页面中，控制它的状态只是整棵状态树的子集，也就是state树中的一部分。如果没搞清action和reducer的关系随便乱用，很容易造成一个reducer控制着多个页面的情况（也就是说页面组件和reducer的状态子集形成了多对多的关系），那就妥妥的过度渲染了。举个简单的例子：reducer A控制着页面C和D的状态，当发起了一个action之后，A改变了，那么C和D就会调用render方法进行无用渲染。但是这时候很可能C或D并不是正在展示的页面，这里就出现了过度渲染，如果页面多，就会造成卡顿情况。</p>
+<p>如何避免过度渲染？action是用来发起修改state操作的，具体怎么改是由reducer决定的，但是最终所有的reducer都会被combine成一个，那么reducer的拆分就是我们需要考虑的点。每一个reducer都控制了状态树的一个子集的变化，我们通过react-redux库的<code>connect</code>函数向组件注入状态，那么我们就需要把reducer拆分到较小的单元，使得一个页面的状态集合是由一个或多个reducer来控制，这里是一对多的关系，能做到这一点，就能避免过度渲染的问题。还是用刚才的例子，拆分后的reducer A只控制页面C，页面D由另一个reducer控制着，那么当A改变了，只会引起C的渲染，就能保证只渲染正在向用户展示的那个页面了。</p>
+<h2 id="redux周边设施"><a href="#redux周边设施" class="headerlink" title="redux周边设施"></a>redux周边设施</h2><h3 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h3><p>这个应该是首当其冲的了，在redux官方文档中都有提及，只要用react/react-native，引入redux，就会引入这个库打配合，简单好用。</p>
+<h3 id="redux-logger"><a href="#redux-logger" class="headerlink" title="redux-logger"></a>redux-logger</h3><p>这个库的用法很简单，它的作用是一次配置好，以后所有action触发了state的变化，都会用比较鲜艳的log日志打印出来，用chrome调试就可以很明显的看到，这样就能一清二楚每一个action最终都导致了state前后发生了什么样的变化。</p>
+<h3 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h3><p>这个库的作用主要是异步action。在我们引入redux之后，肯定会有很多异步操作，我们想把这些异步操作和组件剥离开，那么最直观的就是放入action中进行处理，通过thunk实现异步action。使用简单，理解起来也方便，很多刚入坑的同学处理异步action一般都会选用这个库。</p>
+<h3 id="redux-saga"><a href="#redux-saga" class="headerlink" title="redux-saga"></a>redux-saga</h3><blockquote>
+<p>教程：<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html</a></p>
+</blockquote>
+<p>这个库本质上也是处理异步action的，但是相对thunk来说，它就没那么直观没那么好理解了。这个库主要思想就是通过es6的generator，把异步promise操作变成了类似async和await的同步写法，但是saga更强大。saga主要运用了协程的思想，在异步操作变为同步写法的时候，提供了非常便利的可测试性，而且简化了action。在引入saga之后，action里的代码就变得非常纯粹了，什么都不干，只触发action，具体的处理，不管是同步还是异步统统挪到saga中，写法也变得非常简洁。相对测试来说，写UT也变得清晰了很多，因为saga天生就是支持步进的，那么action对应的测试就写在saga包中就可以，因为真正处理action逻辑的是saga。相比之下，thunk就不好写测试了，一般用thunk的，测试都是根据reducer来写的，thunk中的操作就变得不可控了。</p>
+<h3 id="immutable-js"><a href="#immutable-js" class="headerlink" title="immutable.js"></a>immutable.js</h3><p>这个库是Facebook的，主要是做deep clone，比较高效，和redux结合的地方就是reducer返回全新state的地方。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://obzooc3zl.bkt.clouddn.com/wechat_qr.png" alt="Will wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Contact me with Wechat</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/20/AndroidShell/" rel="next" title="Android Shell">
+                <i class="fa fa-chevron-left"></i> Android Shell
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/20/ShadowsocksVPN/" rel="prev" title="Shadowsocks VPN with Digitalocean VPS">
+                Shadowsocks VPN with Digitalocean VPS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Will" />
+          <p class="site-author-name" itemprop="name">Will</p>
+           
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">1.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Redux"><span class="nav-number">1.1.</span> <span class="nav-text">What is Redux?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单页面应用的痛点"><span class="nav-number">1.1.1.</span> <span class="nav-text">单页面应用的痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actions、Reducers-和-Store"><span class="nav-number">1.1.2.</span> <span class="nav-text">Actions、Reducers 和 Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Middleware"><span class="nav-number">1.1.3.</span> <span class="nav-text">Middleware</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步-Actions"><span class="nav-number">1.1.4.</span> <span class="nav-text">异步 Actions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Redux"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用Redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Redux"><span class="nav-number">1.3.</span> <span class="nav-text">如何使用Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redux三大原则"><span class="nav-number">1.3.1.</span> <span class="nav-text">redux三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单一数据源"><span class="nav-number">1.3.2.</span> <span class="nav-text">单一数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state只读"><span class="nav-number">1.3.3.</span> <span class="nav-text">state只读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯函数修改state"><span class="nav-number">1.3.4.</span> <span class="nav-text">纯函数修改state</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认识redux三要素"><span class="nav-number">1.4.</span> <span class="nav-text">认识redux三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">1.4.1.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer"><span class="nav-number">1.4.2.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store"><span class="nav-number">1.4.3.</span> <span class="nav-text">store</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux最新用法"><span class="nav-number">1.5.</span> <span class="nav-text">react-redux最新用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redux性能优化"><span class="nav-number">1.6.</span> <span class="nav-text">redux性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redux周边设施"><span class="nav-number">1.7.</span> <span class="nav-text">redux周边设施</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#react-redux"><span class="nav-number">1.7.1.</span> <span class="nav-text">react-redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redux-logger"><span class="nav-number">1.7.2.</span> <span class="nav-text">redux-logger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redux-thunk"><span class="nav-number">1.7.3.</span> <span class="nav-text">redux-thunk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redux-saga"><span class="nav-number">1.7.4.</span> <span class="nav-text">redux-saga</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#immutable-js"><span class="nav-number">1.7.5.</span> <span class="nav-text">immutable.js</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Will</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

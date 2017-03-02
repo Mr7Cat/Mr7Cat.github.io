@@ -1,0 +1,922 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Build React Native
+Base on Android
+
+NPM镜像配置1.通过config命令
+12npm config set registry https://registry.npm.taobao.org npm info underscore （如果上面配置正确这个命令会有字符串response）
+2.命令行指定
+1npm --registry https://regist">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BuildReactNative">
+<meta property="og:url" content="http://mr7cat.com/2016/12/26/BuildReactNative/index.html">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="Build React Native
+Base on Android
+
+NPM镜像配置1.通过config命令
+12npm config set registry https://registry.npm.taobao.org npm info underscore （如果上面配置正确这个命令会有字符串response）
+2.命令行指定
+1npm --registry https://regist">
+<meta property="og:updated_time" content="2016-12-28T03:09:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BuildReactNative">
+<meta name="twitter:description" content="Build React Native
+Base on Android
+
+NPM镜像配置1.通过config命令
+12npm config set registry https://registry.npm.taobao.org npm info underscore （如果上面配置正确这个命令会有字符串response）
+2.命令行指定
+1npm --registry https://regist">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mr7cat.com/2016/12/26/BuildReactNative/"/>
+
+
+
+
+
+  <title> BuildReactNative | Mr7Cat </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr7Cat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/12/26/BuildReactNative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                BuildReactNative
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-26T15:26:59+08:00">
+                2016-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/12/26/BuildReactNative/" class="leancloud_visitors" data-flag-title="BuildReactNative">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Build-React-Native"><a href="#Build-React-Native" class="headerlink" title="Build React Native"></a>Build React Native</h1><blockquote>
+<p>Base on Android</p>
+</blockquote>
+<h1 id="NPM镜像配置"><a href="#NPM镜像配置" class="headerlink" title="NPM镜像配置"></a>NPM镜像配置</h1><p>1.通过config命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （如果上面配置正确这个命令会有字符串response）</div></pre></td></tr></table></figure>
+<p>2.命令行指定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm --registry https://registry.npm.taobao.org info underscore</div></pre></td></tr></table></figure>
+<p>3.编辑 <code>~/.npmrc</code> 加入下面内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">registry = https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<h1 id="Install-third-part-module"><a href="#Install-third-part-module" class="headerlink" title="Install third part module"></a>Install third part module</h1><p>download module lib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i react-native-image-crop-picker --save</div></pre></td></tr></table></figure>
+<p>auto link</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">react-native link react-native-image-crop-picker</div></pre></td></tr></table></figure>
+<p>or manual</p>
+<p>Application.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> ReactNativeHost mReactNativeHost = <span class="keyword">new</span> ReactNativeHost(<span class="keyword">this</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">getUseDeveloperSupport</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> List&lt;ReactPackage&gt; <span class="title">getPackages</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Arrays.&lt;ReactPackage&gt;asList(</div><div class="line">                    <span class="keyword">new</span> MainReactPackage(),</div><div class="line">                    <span class="keyword">new</span> ThirdPackageName(),</div><div class="line">            );</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p>build.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line"></div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line"></div><div class="line">    compile &quot;com.facebook.react:react-native:+&quot;</div><div class="line"></div><div class="line">    compile project(&apos;:react-native-third-module&apos;)</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>setting.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">include &apos;:react-native-third-module&apos;</div><div class="line">project(&apos;:react-native-third-module&apos;).projectDir = new File(settingsDir, &apos;../reactnative/node_modules/react-native-third-module/android&apos;)</div></pre></td></tr></table></figure>
+<h2 id="Package-json"><a href="#Package-json" class="headerlink" title="Package.json"></a>Package.json</h2><h3 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h3><p><strong>必须</strong>字段。</p>
+<p>小提示：</p>
+<ul>
+<li>不要在name中包含js, node字样；</li>
+<li>这个名字最终会是URL的一部分，命令行的参数，目录名，所以不能以点号或下划线开头；</li>
+<li>这个名字可能在require()方法中被调用，所以应该尽可能短；</li>
+</ul>
+<h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><p><strong>必须</strong>字段。</p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>可选字段，必须是字符串。<strong>npm search</strong>的时候会用到。</p>
+<h3 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h3><p>可选字段，字符串数组。<strong>npm search</strong>的时候会用到。</p>
+<h3 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h3><p>可选字段，<strong>没有</strong><a href="http:" target="_blank" rel="external">http://</a>等带协议前缀的URL。</p>
+<h3 id="Bugs"><a href="#Bugs" class="headerlink" title="Bugs"></a>Bugs</h3><p>可选字段，问题追踪系统的URL或邮箱地址；<strong>npm bugs</strong>用的上。</p>
+<p>{ “url” :”<a href="http://github.com/owner/project/issues" target="_blank" rel="external">http://github.com/owner/project/issues</a>“,</p>
+<p> “email” :”project@hostname.com”</p>
+<p>}</p>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>可选字段。</p>
+<p>如果是使用一个普遍的license，比如BSD-3-Clause或MIT，直接使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;license&quot; : &quot;BSD-3-Clause&quot; &#125;</div></pre></td></tr></table></figure>
+<h3 id="Author-contributors"><a href="#Author-contributors" class="headerlink" title="Author, contributors"></a>Author, contributors</h3><p>都是可选字段。author是一个人，contributors是一组人。</p>
+<p>Author的格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;name&quot; : &quot;Barney Rubble&quot;,</div><div class="line"> &quot;email&quot; : &quot;b@rubble.com&quot;,</div><div class="line"> &quot;url&quot; : &quot;http://barnyrubble.tumblr.com/&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种格式也可以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Barney Rubble &lt;b@rubble.com&gt; (http://barnyrubble.tumblr.com/)&quot;</div></pre></td></tr></table></figure>
+<h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>可选字段，项目包含的一组文件。如果是文件夹，文件夹下的文件也会被包含。如果需要把某些文件不包含在项目中，添加一个”.npmignore”文件。这个文件和”gitignore”类似。</p>
+<h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h3><p>可选字段。这个字段的值是你程序主入口<strong>模块的ID</strong>。如果其他用户需要你的包，当用户调用require()方法时，返回的就是这个模块的导出（<strong>exports</strong>）。</p>
+<h3 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h3><p>可选字段。很多的包都会有执行文件需要安装到PATH中去。</p>
+<p>这个字段对应的是一个Map，每个元素对应一个<strong>{ 命令名：文件名 }</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;bin&quot; : &#123; &quot;npm&quot; : &quot;./cli.js&quot; &#125; &#125;</div></pre></td></tr></table></figure>
+<h3 id="Directories"><a href="#Directories" class="headerlink" title="Directories"></a>Directories</h3><p>用于指示包的目录结构：</p>
+<h3 id="Directories-lib"><a href="#Directories-lib" class="headerlink" title="Directories.lib"></a>Directories.lib</h3><p>指示库文件的位置。</p>
+<h3 id="Directories-bin"><a href="#Directories-bin" class="headerlink" title="Directories.bin"></a>Directories.bin</h3><p>和前面的bin是一样的，但如果前面已经有bin，那么这个就无效。</p>
+<p>除了以上两个，还有Directories.doc&amp; Directories.man &amp; Directories.example。</p>
+<h3 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h3><p>可选字段。用于指示代码存放的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;repository&quot; :</div><div class="line">  &#123; &quot;type&quot; : &quot;git&quot;</div><div class="line">  , &quot;url&quot; : &quot;http://github.com/npm/npm.git&quot;</div><div class="line">  &#125;</div><div class="line">&quot;repository&quot; :</div><div class="line">  &#123; &quot;type&quot; : &quot;svn&quot;</div><div class="line">  , &quot;url&quot; : &quot;http://v8.googlecode.com/svn/trunk/&quot;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h3 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h3><p>可选字段，object。Key是生命周期事件名，value是在事件点要跑的命令。参考npm-scripts。</p>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>可选字段，object。</p>
+<p>Config对象中的值在<strong>Scripts</strong>的整个周期中皆可用，专门用于给Scripts提供配置参数。</p>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>可选字段，指示当前包所依赖的其他包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;dependencies&quot; :&#123; &quot;foo&quot; : &quot;1.0.0 - 2.9999.9999&quot;, &quot;bar&quot; : &quot;&gt;=1.0.2 &lt;2.1.2&quot;</div><div class="line"></div><div class="line">  , &quot;baz&quot; : &quot;&gt;1.0.2 &lt;=2.3.4&quot;</div><div class="line"></div><div class="line">  , &quot;boo&quot; : &quot;2.0.1&quot;</div><div class="line"></div><div class="line">  , &quot;qux&quot; : &quot;&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0&quot;</div><div class="line"></div><div class="line">  , &quot;asd&quot; : &quot;http://asdf.com/asdf.tar.gz&quot;</div><div class="line"></div><div class="line">  , &quot;til&quot; : &quot;~1.2&quot;</div><div class="line"></div><div class="line">  , &quot;elf&quot; : &quot;~1.2.3&quot;</div><div class="line"></div><div class="line">  , &quot;two&quot; : &quot;2.x&quot;</div><div class="line"></div><div class="line">  , &quot;thr&quot; : &quot;3.3.x&quot;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>版本格式可以是下面任一种：</p>
+<ul>
+<li><code>version</code> 完全匹配</li>
+<li><code>&gt;version</code> 大于这个版本</li>
+<li><code>&gt;=version</code>大于或等于这个版本</li>
+<li>`</li>
+<li><code>&lt;=version</code></li>
+<li><code>~version</code> 非常接近这个版本</li>
+<li><code>^version</code> 与当前版本兼容</li>
+<li><code>1.2.x</code> X代表任意数字，因此1.2.1, 1.2.3等都可以</li>
+<li><code>http://...</code> Unix系统下使用的tarball的URL。</li>
+<li><code>*</code> <a href="undefined">任何版本都可以</a></li>
+<li><code>&quot;&quot;</code>任何版本都可以</li>
+<li><code>version1 - version2</code>  等价于 <code>&gt;=version1 &lt;=version2</code>.</li>
+<li><code>range1 || range2</code> 满足任意一个即可</li>
+<li><code>git...</code> Git地址</li>
+<li><code>user/repo</code></li>
+</ul>
+<h3 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a>devDependencies</h3><p>可选字段。如果只需要下载使用某些模块，而不下载这些模块的测试和文档框架，放在这个下面比较不错。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>可选字段。兼容性依赖。如果你的包是插件，适合这种方式。</p>
+<h3 id="bundledDependencies"><a href="#bundledDependencies" class="headerlink" title="bundledDependencies"></a>bundledDependencies</h3><p>可选字段。发布包时同时打包的其他依赖。</p>
+<h3 id="optionalDependencies"><a href="#optionalDependencies" class="headerlink" title="optionalDependencies"></a>optionalDependencies</h3><p>可选字段。如果你想在某些依赖即使没有找到，或则安装失败的情况下，npm都继续执行。那么这些依赖适合放在这里。</p>
+<h3 id="Engines"><a href="#Engines" class="headerlink" title="Engines"></a>Engines</h3><p>可选字段。既可以指定node版本：</p>
+<p>{ “engines” : {“node” : “&gt;=0.10.3 &lt;0.12” } }</p>
+<p>也可以指定npm版本：</p>
+<p>{ “engines” : {“npm” : “~1.0.20” } }</p>
+<h3 id="engineStrick"><a href="#engineStrick" class="headerlink" title="engineStrick"></a>engineStrick</h3><p>可选字段，布尔值。如果你肯定你的程序只能在制定的engine上运行，设置为true。</p>
+<h3 id="Os"><a href="#Os" class="headerlink" title="Os"></a>Os</h3><p>可选字段。指定模块可以在什么操作系统上运行：</p>
+<p>“os” : [ “darwin”,”linux” ]</p>
+<p>“os” : [ “!win32” ]</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>可选字段。指定CPU型号。</p>
+<p>“cpu” : [ “x64”,”ia32” ]</p>
+<p>“cpu” : [ “!arm”,”!mips” ]</p>
+<h3 id="preferGlobal"><a href="#preferGlobal" class="headerlink" title="preferGlobal"></a>preferGlobal</h3><p>可选字段，布尔值。如果你的包是个命令行应用程序，需要全局安装，就可以设为true。</p>
+<h3 id="Private"><a href="#Private" class="headerlink" title="Private"></a>Private</h3><p>可选字段，布尔值。如果private为true，npm会拒绝发布。这可以防止私有repositories不小心被发布出去。</p>
+<h3 id="publishConfig"><a href="#publishConfig" class="headerlink" title="publishConfig"></a>publishConfig</h3><p>可选字段。发布时使用的配置值放这。</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>·  <code>&quot;scripts&quot;:{&quot;start&quot;: &quot;node server.js&quot;}</code></p>
+<p>如果你的包里有server.js文件，npm默认将执行： <code>node server.js</code>.</p>
+<p>·  <code>&quot;scripts&quot;:{&quot;preinstall&quot;:&quot;node-gyp rebuild&quot;}</code></p>
+<p>如果包里有<code>binding.gyp，</code>npm默认在<code>preinstall命令时，使用node-gyp做编译。</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://obzooc3zl.bkt.clouddn.com/wechat_qr.png" alt="Will wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Contact me with Wechat</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/06/BuildAndroid/" rel="next" title="BuildAndroid">
+                <i class="fa fa-chevron-left"></i> BuildAndroid
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/09/ReactNative/" rel="prev" title="ReactNative">
+                ReactNative <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Will" />
+          <p class="site-author-name" itemprop="name">Will</p>
+           
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Build-React-Native"><span class="nav-number">1.</span> <span class="nav-text">Build React Native</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM镜像配置"><span class="nav-number">2.</span> <span class="nav-text">NPM镜像配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-third-part-module"><span class="nav-number">3.</span> <span class="nav-text">Install third part module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Package-json"><span class="nav-number">3.1.</span> <span class="nav-text">Package.json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Name"><span class="nav-number">3.1.1.</span> <span class="nav-text">Name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Version"><span class="nav-number">3.1.2.</span> <span class="nav-text">Version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">3.1.3.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keywords"><span class="nav-number">3.1.4.</span> <span class="nav-text">Keywords</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Homepage"><span class="nav-number">3.1.5.</span> <span class="nav-text">Homepage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bugs"><span class="nav-number">3.1.6.</span> <span class="nav-text">Bugs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#License"><span class="nav-number">3.1.7.</span> <span class="nav-text">License</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Author-contributors"><span class="nav-number">3.1.8.</span> <span class="nav-text">Author, contributors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files"><span class="nav-number">3.1.9.</span> <span class="nav-text">Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main"><span class="nav-number">3.1.10.</span> <span class="nav-text">Main</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bin"><span class="nav-number">3.1.11.</span> <span class="nav-text">Bin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directories"><span class="nav-number">3.1.12.</span> <span class="nav-text">Directories</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directories-lib"><span class="nav-number">3.1.13.</span> <span class="nav-text">Directories.lib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directories-bin"><span class="nav-number">3.1.14.</span> <span class="nav-text">Directories.bin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repository"><span class="nav-number">3.1.15.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scripts"><span class="nav-number">3.1.16.</span> <span class="nav-text">Scripts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config"><span class="nav-number">3.1.17.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependencies"><span class="nav-number">3.1.18.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devDependencies"><span class="nav-number">3.1.19.</span> <span class="nav-text">devDependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#peerDependencies"><span class="nav-number">3.1.20.</span> <span class="nav-text">peerDependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bundledDependencies"><span class="nav-number">3.1.21.</span> <span class="nav-text">bundledDependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optionalDependencies"><span class="nav-number">3.1.22.</span> <span class="nav-text">optionalDependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Engines"><span class="nav-number">3.1.23.</span> <span class="nav-text">Engines</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#engineStrick"><span class="nav-number">3.1.24.</span> <span class="nav-text">engineStrick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Os"><span class="nav-number">3.1.25.</span> <span class="nav-text">Os</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU"><span class="nav-number">3.1.26.</span> <span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preferGlobal"><span class="nav-number">3.1.27.</span> <span class="nav-text">preferGlobal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Private"><span class="nav-number">3.1.28.</span> <span class="nav-text">Private</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#publishConfig"><span class="nav-number">3.1.29.</span> <span class="nav-text">publishConfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">3.1.30.</span> <span class="nav-text">默认值</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Will</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

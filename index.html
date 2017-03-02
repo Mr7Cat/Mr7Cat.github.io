@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,12 +87,15 @@
 
 
 
+<meta name="description" content="Where there is a will, there is a way.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Mr7Cat">
 <meta property="og:url" content="http://mr7cat.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="Where there is a will, there is a way.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Mr7Cat">
+<meta name="twitter:description" content="Where there is a will, there is a way.">
 
 
 
@@ -100,8 +103,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -126,10 +129,10 @@
 
 
 
-  <title> Hexo </title>
+  <title> Mr7Cat </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
 
@@ -164,7 +167,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Mr7Cat</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -194,7 +197,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
           </a>
         </li>
       
@@ -204,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -247,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/02/24/HelloWorld/">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/02/09/ReactNative/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Will">
@@ -256,7 +269,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Mr7Cat">
     </span>
 
     
@@ -269,8 +282,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/24/HelloWorld/" itemprop="url">
-                  HelloWorld
+                <a class="post-title-link" href="/2017/02/09/ReactNative/" itemprop="url">
+                  ReactNative
                 </a>
               
             
@@ -284,10 +297,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T20:31:15+08:00">
-                2017-02-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T13:30:30+08:00">
+                2017-02-09
               </time>
             
 
@@ -303,6 +314,15 @@
           
 
           
+          
+             <span id="/2017/02/09/ReactNative/" class="leancloud_visitors" data-flag-title="ReactNative">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -324,7 +344,150 @@
       
         
           
-            
+            <h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><p>[TOC]</p>
+<h1 id="Study-Map"><a href="#Study-Map" class="headerlink" title="Study Map"></a>Study Map</h1><p><img src="http://obzooc3zl.bkt.clouddn.com/RN.png" alt=""></p>
+<blockquote>
+<p><a href="http://obzooc3zl.bkt.clouddn.com/RN.xmind" target="_blank" rel="external">Download XMind File</a></p>
+</blockquote>
+<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><blockquote>
+<p>What we really want is the <strong>user experience</strong> of the native mobile platforms, combined with the <strong>developer experience</strong> we have when building with React on the web.</p>
+<p><a href="https://zhuanlan.zhihu.com/p/20549882" target="_blank" rel="external">REF</a></p>
+</blockquote>
+<ul>
+<li>React-Native 丢弃了 Webview。</li>
+<li>复用React，将 Dom 结构的改变通过 diff 算法处理后，由 js 传递给 native 进行底层视图布局。</li>
+<li>css-layout引擎，前端可以继续写熟悉的 css 语法，由引擎转化成 oc 底层的布局。</li>
+<li>对 js 暴露底层常用的 UI 组建。js 层可以直接对这些组件进行布局。</li>
+</ul>
+<p>对应前端的开发模式的变化：</p>
+<ul>
+<li>JSX vs Html</li>
+<li>css-layout vs css</li>
+<li>ECMAScript 6 vs ECMAScript 5</li>
+<li>React-Native vs DOM</li>
+</ul>
+<h2 id="Why-use-React-Native"><a href="#Why-use-React-Native" class="headerlink" title="Why use React Native"></a>Why use React Native</h2><p>目前主流的应用大体分成三类：Native App, Web App, Hybrid App. </p>
+<h3 id="Native-App"><a href="#Native-App" class="headerlink" title="Native App"></a>Native App</h3><p><strong>优点</strong></p>
+<ul>
+<li>性能好</li>
+<li>丰富的API</li>
+<li>SDK更新及时，可以使用最新的特性</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>开发成本高，无法跨平台</li>
+<li>升级需要重新打包，发布周期长</li>
+</ul>
+<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><p><strong>优点</strong></p>
+<ul>
+<li>跨平台，Write Once , Run Anywhere</li>
+<li>版本升级容易 </li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>无法调用系统级的API</li>
+<li>临时入口，用户留存度低</li>
+<li>性能差</li>
+</ul>
+<h3 id="Hybrid-App"><a href="#Hybrid-App" class="headerlink" title="Hybrid App"></a>Hybrid App</h3><p><strong>优点</strong></p>
+<ul>
+<li>Native App 和 Web App 折中的方案</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>性能差</li>
+<li>页面渲染效率低</li>
+<li>实现动画，资源消耗大</li>
+</ul>
+<h1 id="Development-Environment"><a href="#Development-Environment" class="headerlink" title="Development Environment"></a>Development Environment</h1><p>官方文档（v 0.41）</p>
+<p><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://reactnative.cn/docs/0.41/getting-started.html" target="_blank" rel="external">中文</a></p>
+<h2 id="Develop-Tools"><a href="#Develop-Tools" class="headerlink" title="Develop Tools"></a>Develop Tools</h2><p>IDE：Sublime or Nuclide<br>Sublime插件：Babel高亮显示；HTML-CSS-JS Prettify；ConvertToUTF8；</p>
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p><a href="http://facebook.github.io/react-native/docs/tutorial.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://reactnative.cn/docs/0.41/tutorial.html#content" target="_blank" rel="external">中文</a></p>
+<p><a href="https://cdn.rawgit.com/dabbott/react-native-web-player/gh-v1.8.1/index.html#title=React%20Native%20Web%20Player" target="_blank" rel="external">Try it in Browser!</a></p>
+<h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><ul>
+<li><p>语法<br><a href="http://es6.ruanyifeng.com/#docs/intro" target="_blank" rel="external">ES6入门</a></p>
+<p><a href="http://reactnative.cn/proxy/bbs.reactnative.cn/topic/15" target="_blank" rel="external">React/React Native 的ES5 ES6写法对照表</a></p>
+</li>
+<li><p>布局样式</p>
+<p>支持的样式：官方文档 <a href="http://facebook.github.io/react-native/docs/layout-props.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">语法</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">实例</a></p>
+</li>
+<li><p>Global Style</p>
+<p>对于应用的一些通用属性，可以单独定义在一个文件中，实现全局样式。</p>
+<p>创建文件 style.js :</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  StyleSheet</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = StyleSheet.create(&#123;</div><div class="line"></div><div class="line">  <span class="attr">default_text</span>:&#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">color</span>: <span class="string">'red'</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在component中使用：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> appStyle = <span class="built_in">require</span>(<span class="string">'../styles/AppStyles'</span>);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">	&lt;Text style=&#123;appStyle.default_text&#125;&gt;</div><div class="line">		Hello</div><div class="line">	&lt;/Text&gt;</div><div class="line">&lt;<span class="regexp">/View&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Visible or Invisible</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">  	&lt;Image style=&#123;styles.list_avatar&#125; resizeMode="contain" source=&#123;imgSource&#125;&gt;</div><div class="line">          &#123; this._renderBadge(unread) &#125;</div><div class="line">     &lt;/Image&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">_renderBadge(unread) &#123;</div><div class="line">      <span class="keyword">if</span> (unread &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          &lt;Badge style=&#123;styles.badge&#125; minWidth=&#123;12&#125; minHeight=&#123;12&#125; textStyle=&#123;&#123;color: '#fff',&#125;&#125;&gt;</div><div class="line">          &#123;unread&#125;</div><div class="line">          &lt;/Badge&gt;</div><div class="line">          )  </div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>生命周期<br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">https://facebook.github.io/react/docs/component-specs.html</a></li>
+</ul>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/3-3-component-lifecycle.jpg" alt=""></p>
+<ul>
+<li>React Native Pass properties on navigator pop</li>
+</ul>
+<p>I just put “passProps” object when pushing the navigator to the 2nd page. This object contains a function property. In the 2nd page, I can call that function with this.props.(function name)</p>
+<ul>
+<li><p>查询属性</p>
+<p><a href="https://github.com/vhpoet/react-native-styling-cheat-sheet" target="_blank" rel="external">https://github.com/vhpoet/react-native-styling-cheat-sheet</a></p>
+</li>
+</ul>
+<ul>
+<li>JSON</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse</a></p>
+<p><strong>JSON.parse()</strong> 方法将一个符合JSON语法的字符串解析成一个对应类型的值或对象。在解析过程中，还可以选择性的修改某些属性的原始解析值。</p>
+<p><strong>JSON.stringify()</strong>方法可以将任意的 JavaScript 值序列化成 符合JSON语法的 字符串。若转换的函数被指定，则被序列化的值的每个属性都会经过该函数的转换和处理；若转换的数组被指定，只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中。</p>
+<ul>
+<li><p>Json2XML<br><a href="https://github.com/estheban/node-json2xml" target="_blank" rel="external">https://github.com/estheban/node-json2xml</a></p>
+</li>
+<li><p>性能<br><a href="http://reactnative.cn/docs/0.37/performance.html#content" target="_blank" rel="external">http://reactnative.cn/docs/0.37/performance.html#content</a><br>调试性能工具：<a href="http://reactnative.cn/docs/0.37/android-ui-performance.html#content" target="_blank" rel="external">http://reactnative.cn/docs/0.37/android-ui-performance.html#content</a></p>
+</li>
+<li><p>初始化模板<br><a href="https://github.com/reactnativecn/react-native-starter-kit" target="_blank" rel="external">https://github.com/reactnativecn/react-native-starter-kit</a><br>快速开发框架 包括 <a href="http://nativebase.io/" target="_blank" rel="external">NativeBase</a> + CodePush + Redux </p>
+</li>
+<li><p>支持多平台<br><a href="http://reactnative.cn/docs/0.37/platform-specific-code.html#content" target="_blank" rel="external">参考</a></p>
+</li>
+<li><p>数据传递<br><a href="http://www.jianshu.com/p/b9a7dbe9b336" target="_blank" rel="external">http://www.jianshu.com/p/b9a7dbe9b336</a></p>
+</li>
+</ul>
+<h1 id="Code-standards"><a href="#Code-standards" class="headerlink" title="Code standards"></a>Code standards</h1><p>如果想写RN代码更加优雅，<a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">参考airbnb的JSX编码规范</a></p>
+<h1 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h1><h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><a href="http://cn.redux.js.org/" target="_blank" rel="external">Redux</a><br>Redux参考文章</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/38591713" target="_blank" rel="external">如何评价数据流管理架构 Redux?</a><br><a href="http://div.io/topic/1309" target="_blank" rel="external">深入到源码：解读 redux 的设计思路与用法</a><br><a href="https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn" target="_blank" rel="external">看漫画学Redux</a></p>
+</blockquote>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">web fetch</a></p>
+<h2 id="Hot-Fix"><a href="#Hot-Fix" class="headerlink" title="Hot Fix"></a>Hot Fix</h2><p><a href="https://microsoft.github.io/code-push/" target="_blank" rel="external">code push</a></p>
+<h3 id="Build-bundle"><a href="#Build-bundle" class="headerlink" title="Build bundle"></a>Build bundle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure>
+<h1 id="Open-Source-Lib"><a href="#Open-Source-Lib" class="headerlink" title="Open Source Lib"></a>Open Source Lib</h1><blockquote>
+<p><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native</a></p>
+<p><a href="https://github.com/lwansbrough/react-native-camera" target="_blank" rel="external">Camera</a></p>
+<p><a href="http://bbs.reactnative.cn/topic/1242/%E4%BD%BF%E7%94%A8-leancloud-%E4%B8%8E-react-native-%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8" target="_blank" rel="external">使用 LeanCloud 与 React Native 构建原生应用</a></p>
+<p><a href="https://github.com/leancloud/js-realtime-sdk" target="_blank" rel="external">JS IM SDK</a></p>
+<p><a href="https://github.com/FaridSafi/react-native-gifted-chat" target="_blank" rel="external">Chat Room</a></p>
+<p><a href="https://github.com/skellock/phoenix-react-native-mashup" target="_blank" rel="external">Chat App</a></p>
+</blockquote>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">测试ES6 JS Code Chrome extention</a> </p>
+<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><blockquote>
+<p><a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></p>
+<p><a href="https://github.com/talentjiang/react_native_office" target="_blank" rel="external">https://github.com/talentjiang/react_native_office</a></p>
+<p><a href="https://github.com/ljunb/react-native-iShiWuPai" target="_blank" rel="external">https://github.com/ljunb/react-native-iShiWuPai</a></p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
+<p><a href="http://reactnative.com" target="_blank" rel="external">http://reactnative.com</a></p>
+<p><a href="http://reactnative.cn" target="_blank" rel="external">http://reactnative.cn</a></p>
+<p><a href="http://imweb.io/topic/5598d986cc5ed2481ec9404e" target="_blank" rel="external">http://imweb.io/topic/5598d986cc5ed2481ec9404e</a></p>
+<p><a href="http://www.cnblogs.com/suxun/p/5222175.html" target="_blank" rel="external">http://www.cnblogs.com/suxun/p/5222175.html</a></p>
+</blockquote>
+<h1 id="Stackoverflow"><a href="#Stackoverflow" class="headerlink" title="Stackoverflow"></a>Stackoverflow</h1><p><a href="http://stackoverflow.com/questions/29463592/react-native-pass-properties-on-navigator-pop" target="_blank" rel="external">React Native Pass properties on navigator pop</a></p>
+
           
         
       
@@ -364,7 +527,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/02/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/12/26/BuildReactNative/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Will">
@@ -373,7 +536,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Mr7Cat">
     </span>
 
     
@@ -386,8 +549,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/24/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/12/26/BuildReactNative/" itemprop="url">
+                  BuildReactNative
                 </a>
               
             
@@ -401,10 +564,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T20:24:34+08:00">
-                2017-02-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-26T15:26:59+08:00">
+                2016-12-26
               </time>
             
 
@@ -420,6 +581,15 @@
           
 
           
+          
+             <span id="/2016/12/26/BuildReactNative/" class="leancloud_visitors" data-flag-title="BuildReactNative">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -441,15 +611,1037 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h1 id="Build-React-Native"><a href="#Build-React-Native" class="headerlink" title="Build React Native"></a>Build React Native</h1><blockquote>
+<p>Base on Android</p>
+</blockquote>
+<h1 id="NPM镜像配置"><a href="#NPM镜像配置" class="headerlink" title="NPM镜像配置"></a>NPM镜像配置</h1><p>1.通过config命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （如果上面配置正确这个命令会有字符串response）</div></pre></td></tr></table></figure>
+<p>2.命令行指定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm --registry https://registry.npm.taobao.org info underscore</div></pre></td></tr></table></figure>
+<p>3.编辑 <code>~/.npmrc</code> 加入下面内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">registry = https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<h1 id="Install-third-part-module"><a href="#Install-third-part-module" class="headerlink" title="Install third part module"></a>Install third part module</h1><p>download module lib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i react-native-image-crop-picker --save</div></pre></td></tr></table></figure>
+<p>auto link</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">react-native link react-native-image-crop-picker</div></pre></td></tr></table></figure>
+<p>or manual</p>
+<p>Application.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> ReactNativeHost mReactNativeHost = <span class="keyword">new</span> ReactNativeHost(<span class="keyword">this</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">getUseDeveloperSupport</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> List&lt;ReactPackage&gt; <span class="title">getPackages</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Arrays.&lt;ReactPackage&gt;asList(</div><div class="line">                    <span class="keyword">new</span> MainReactPackage(),</div><div class="line">                    <span class="keyword">new</span> ThirdPackageName(),</div><div class="line">            );</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p>build.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line"></div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line"></div><div class="line">    compile &quot;com.facebook.react:react-native:+&quot;</div><div class="line"></div><div class="line">    compile project(&apos;:react-native-third-module&apos;)</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>setting.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">include &apos;:react-native-third-module&apos;</div><div class="line">project(&apos;:react-native-third-module&apos;).projectDir = new File(settingsDir, &apos;../reactnative/node_modules/react-native-third-module/android&apos;)</div></pre></td></tr></table></figure>
+<h2 id="Package-json"><a href="#Package-json" class="headerlink" title="Package.json"></a>Package.json</h2><h3 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h3><p><strong>必须</strong>字段。</p>
+<p>小提示：</p>
+<ul>
+<li>不要在name中包含js, node字样；</li>
+<li>这个名字最终会是URL的一部分，命令行的参数，目录名，所以不能以点号或下划线开头；</li>
+<li>这个名字可能在require()方法中被调用，所以应该尽可能短；</li>
+</ul>
+<h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><p><strong>必须</strong>字段。</p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>可选字段，必须是字符串。<strong>npm search</strong>的时候会用到。</p>
+<h3 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h3><p>可选字段，字符串数组。<strong>npm search</strong>的时候会用到。</p>
+<h3 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h3><p>可选字段，<strong>没有</strong><a href="http:" target="_blank" rel="external">http://</a>等带协议前缀的URL。</p>
+<h3 id="Bugs"><a href="#Bugs" class="headerlink" title="Bugs"></a>Bugs</h3><p>可选字段，问题追踪系统的URL或邮箱地址；<strong>npm bugs</strong>用的上。</p>
+<p>{ “url” :”<a href="http://github.com/owner/project/issues" target="_blank" rel="external">http://github.com/owner/project/issues</a>“,</p>
+<p> “email” :”project@hostname.com”</p>
+<p>}</p>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>可选字段。</p>
+<p>如果是使用一个普遍的license，比如BSD-3-Clause或MIT，直接使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;license&quot; : &quot;BSD-3-Clause&quot; &#125;</div></pre></td></tr></table></figure>
+<h3 id="Author-contributors"><a href="#Author-contributors" class="headerlink" title="Author, contributors"></a>Author, contributors</h3><p>都是可选字段。author是一个人，contributors是一组人。</p>
+<p>Author的格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;name&quot; : &quot;Barney Rubble&quot;,</div><div class="line"> &quot;email&quot; : &quot;b@rubble.com&quot;,</div><div class="line"> &quot;url&quot; : &quot;http://barnyrubble.tumblr.com/&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种格式也可以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Barney Rubble &lt;b@rubble.com&gt; (http://barnyrubble.tumblr.com/)&quot;</div></pre></td></tr></table></figure>
+<h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>可选字段，项目包含的一组文件。如果是文件夹，文件夹下的文件也会被包含。如果需要把某些文件不包含在项目中，添加一个”.npmignore”文件。这个文件和”gitignore”类似。</p>
+<h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h3><p>可选字段。这个字段的值是你程序主入口<strong>模块的ID</strong>。如果其他用户需要你的包，当用户调用require()方法时，返回的就是这个模块的导出（<strong>exports</strong>）。</p>
+<h3 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h3><p>可选字段。很多的包都会有执行文件需要安装到PATH中去。</p>
+<p>这个字段对应的是一个Map，每个元素对应一个<strong>{ 命令名：文件名 }</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;bin&quot; : &#123; &quot;npm&quot; : &quot;./cli.js&quot; &#125; &#125;</div></pre></td></tr></table></figure>
+<h3 id="Directories"><a href="#Directories" class="headerlink" title="Directories"></a>Directories</h3><p>用于指示包的目录结构：</p>
+<h3 id="Directories-lib"><a href="#Directories-lib" class="headerlink" title="Directories.lib"></a>Directories.lib</h3><p>指示库文件的位置。</p>
+<h3 id="Directories-bin"><a href="#Directories-bin" class="headerlink" title="Directories.bin"></a>Directories.bin</h3><p>和前面的bin是一样的，但如果前面已经有bin，那么这个就无效。</p>
+<p>除了以上两个，还有Directories.doc&amp; Directories.man &amp; Directories.example。</p>
+<h3 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h3><p>可选字段。用于指示代码存放的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;repository&quot; :</div><div class="line">  &#123; &quot;type&quot; : &quot;git&quot;</div><div class="line">  , &quot;url&quot; : &quot;http://github.com/npm/npm.git&quot;</div><div class="line">  &#125;</div><div class="line">&quot;repository&quot; :</div><div class="line">  &#123; &quot;type&quot; : &quot;svn&quot;</div><div class="line">  , &quot;url&quot; : &quot;http://v8.googlecode.com/svn/trunk/&quot;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h3 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h3><p>可选字段，object。Key是生命周期事件名，value是在事件点要跑的命令。参考npm-scripts。</p>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>可选字段，object。</p>
+<p>Config对象中的值在<strong>Scripts</strong>的整个周期中皆可用，专门用于给Scripts提供配置参数。</p>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>可选字段，指示当前包所依赖的其他包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;dependencies&quot; :&#123; &quot;foo&quot; : &quot;1.0.0 - 2.9999.9999&quot;, &quot;bar&quot; : &quot;&gt;=1.0.2 &lt;2.1.2&quot;</div><div class="line"></div><div class="line">  , &quot;baz&quot; : &quot;&gt;1.0.2 &lt;=2.3.4&quot;</div><div class="line"></div><div class="line">  , &quot;boo&quot; : &quot;2.0.1&quot;</div><div class="line"></div><div class="line">  , &quot;qux&quot; : &quot;&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0&quot;</div><div class="line"></div><div class="line">  , &quot;asd&quot; : &quot;http://asdf.com/asdf.tar.gz&quot;</div><div class="line"></div><div class="line">  , &quot;til&quot; : &quot;~1.2&quot;</div><div class="line"></div><div class="line">  , &quot;elf&quot; : &quot;~1.2.3&quot;</div><div class="line"></div><div class="line">  , &quot;two&quot; : &quot;2.x&quot;</div><div class="line"></div><div class="line">  , &quot;thr&quot; : &quot;3.3.x&quot;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>版本格式可以是下面任一种：</p>
+<ul>
+<li><code>version</code> 完全匹配</li>
+<li><code>&gt;version</code> 大于这个版本</li>
+<li><code>&gt;=version</code>大于或等于这个版本</li>
+<li>`</li>
+<li><code>&lt;=version</code></li>
+<li><code>~version</code> 非常接近这个版本</li>
+<li><code>^version</code> 与当前版本兼容</li>
+<li><code>1.2.x</code> X代表任意数字，因此1.2.1, 1.2.3等都可以</li>
+<li><code>http://...</code> Unix系统下使用的tarball的URL。</li>
+<li><code>*</code> <a href="undefined">任何版本都可以</a></li>
+<li><code>&quot;&quot;</code>任何版本都可以</li>
+<li><code>version1 - version2</code>  等价于 <code>&gt;=version1 &lt;=version2</code>.</li>
+<li><code>range1 || range2</code> 满足任意一个即可</li>
+<li><code>git...</code> Git地址</li>
+<li><code>user/repo</code></li>
+</ul>
+<h3 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a>devDependencies</h3><p>可选字段。如果只需要下载使用某些模块，而不下载这些模块的测试和文档框架，放在这个下面比较不错。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>可选字段。兼容性依赖。如果你的包是插件，适合这种方式。</p>
+<h3 id="bundledDependencies"><a href="#bundledDependencies" class="headerlink" title="bundledDependencies"></a>bundledDependencies</h3><p>可选字段。发布包时同时打包的其他依赖。</p>
+<h3 id="optionalDependencies"><a href="#optionalDependencies" class="headerlink" title="optionalDependencies"></a>optionalDependencies</h3><p>可选字段。如果你想在某些依赖即使没有找到，或则安装失败的情况下，npm都继续执行。那么这些依赖适合放在这里。</p>
+<h3 id="Engines"><a href="#Engines" class="headerlink" title="Engines"></a>Engines</h3><p>可选字段。既可以指定node版本：</p>
+<p>{ “engines” : {“node” : “&gt;=0.10.3 &lt;0.12” } }</p>
+<p>也可以指定npm版本：</p>
+<p>{ “engines” : {“npm” : “~1.0.20” } }</p>
+<h3 id="engineStrick"><a href="#engineStrick" class="headerlink" title="engineStrick"></a>engineStrick</h3><p>可选字段，布尔值。如果你肯定你的程序只能在制定的engine上运行，设置为true。</p>
+<h3 id="Os"><a href="#Os" class="headerlink" title="Os"></a>Os</h3><p>可选字段。指定模块可以在什么操作系统上运行：</p>
+<p>“os” : [ “darwin”,”linux” ]</p>
+<p>“os” : [ “!win32” ]</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>可选字段。指定CPU型号。</p>
+<p>“cpu” : [ “x64”,”ia32” ]</p>
+<p>“cpu” : [ “!arm”,”!mips” ]</p>
+<h3 id="preferGlobal"><a href="#preferGlobal" class="headerlink" title="preferGlobal"></a>preferGlobal</h3><p>可选字段，布尔值。如果你的包是个命令行应用程序，需要全局安装，就可以设为true。</p>
+<h3 id="Private"><a href="#Private" class="headerlink" title="Private"></a>Private</h3><p>可选字段，布尔值。如果private为true，npm会拒绝发布。这可以防止私有repositories不小心被发布出去。</p>
+<h3 id="publishConfig"><a href="#publishConfig" class="headerlink" title="publishConfig"></a>publishConfig</h3><p>可选字段。发布时使用的配置值放这。</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>·  <code>&quot;scripts&quot;:{&quot;start&quot;: &quot;node server.js&quot;}</code></p>
+<p>如果你的包里有server.js文件，npm默认将执行： <code>node server.js</code>.</p>
+<p>·  <code>&quot;scripts&quot;:{&quot;preinstall&quot;:&quot;node-gyp rebuild&quot;}</code></p>
+<p>如果包里有<code>binding.gyp，</code>npm默认在<code>preinstall命令时，使用node-gyp做编译。</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/12/06/BuildAndroid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/06/BuildAndroid/" itemprop="url">
+                  BuildAndroid
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-06T11:01:59+08:00">
+                2016-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/12/06/BuildAndroid/" class="leancloud_visitors" data-flag-title="BuildAndroid">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="构建和运行Android应用（译）"><a href="#构建和运行Android应用（译）" class="headerlink" title="构建和运行Android应用（译）"></a>构建和运行Android应用（译）</h1><blockquote>
+<p>原文地址：<a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">https://developer.android.com/studio/build/index.html</a></p>
+</blockquote>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>刷新依赖关系缓存中的所有依赖关系</p>
+<p>–refresh-dependencies  Refresh the state of dependencies.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build --refresh-dependencies</div></pre></td></tr></table></figure>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── gradle</div><div class="line">│   └── wrapper				//所使用的 Gradle 包装器配置</div><div class="line">├── .gradle					//所使用 Gradle 版本</div><div class="line">│   └── 2.8</div><div class="line">├── AsInDepth.iml</div><div class="line">├── app						//app module</div><div class="line">│   ├── app.iml</div><div class="line">│   ├── build</div><div class="line">│   ├── build.gradle		//app module 的 build.gradle</div><div class="line">│   ├── libs</div><div class="line">│   ├── proguard-rules.pro</div><div class="line">│   └── src</div><div class="line">├── build.gradle			//项目 build.gradle，通常配置项目全局配置，如 repositories 和 dependencies</div><div class="line">├── gradle.properties		//项目属性文件，通常可以放置一些常量</div><div class="line">├── gradlew					//Gradle 包装器可执行文件</div><div class="line">├── gradlew.bat				//Gradle 包装器可执行文件(Windows)</div><div class="line">├── lib						//lib module</div><div class="line">│   ├── build</div><div class="line">│   ├── build.gradle		//lib module 的 build.gradle</div><div class="line">│   ├── lib.iml</div><div class="line">│   ├── libs</div><div class="line">│   ├── proguard-rules.pro</div><div class="line">│   └── src</div><div class="line">├── local.properties		//项目的本地属性，通常是 sdk 所在位置</div><div class="line">└── settings.gradle			//项目总体设置，通常是配置项目中所有的 module</div></pre></td></tr></table></figure>
+<h1 id="Gradle-Commands"><a href="#Gradle-Commands" class="headerlink" title="Gradle Commands"></a>Gradle Commands</h1><h2 id="Help-Most-important-command"><a href="#Help-Most-important-command" class="headerlink" title="Help (Most important command)"></a>Help (Most important command)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -h</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">-?, -h, --help          Shows this help message.</div><div class="line">-a, --no-rebuild        Do not rebuild project dependencies.</div><div class="line">-b, --build-file        Specifies the build file.</div><div class="line">-c, --settings-file     Specifies the settings file.</div><div class="line">--configure-on-demand   Only relevant projects are configured in this build run. This means faster build for large multi-project builds. [incubating]</div><div class="line">--console               Specifies which type of console output to generate. Values are &apos;plain&apos;, &apos;auto&apos; (default) or &apos;rich&apos;.</div><div class="line">--continue              Continues task execution after a task failure.</div><div class="line">-D, --system-prop       Set system property of the JVM (e.g. -Dmyprop=myvalue).</div><div class="line">-d, --debug             Log in debug mode (includes normal stacktrace).</div><div class="line">--daemon                Uses the Gradle daemon to run the build. Starts the daemon if not running.</div><div class="line">--foreground            Starts the Gradle daemon in the foreground. [incubating]</div><div class="line">-g, --gradle-user-home  Specifies the gradle user home directory.</div><div class="line">--gui                   Launches the Gradle GUI.</div><div class="line">-I, --init-script       Specifies an initialization script.</div><div class="line">-i, --info              Set log level to info.</div><div class="line">-m, --dry-run           Runs the builds with all task actions disabled.</div><div class="line">--max-workers           Configure the number of concurrent workers Gradle is allowed to use. [incubating]</div><div class="line">--no-color              Do not use color in the console output. [deprecated - use --console=plain instead]</div><div class="line">--no-daemon             Do not use the Gradle daemon to run the build.</div><div class="line">--offline               The build should operate without accessing network resources.</div><div class="line">-P, --project-prop      Set project property for the build script (e.g. -Pmyprop=myvalue).</div><div class="line">-p, --project-dir       Specifies the start directory for Gradle. Defaults to current directory.</div><div class="line">--parallel              Build projects in parallel. Gradle will attempt to determine the optimal number of executor threads to use. [incubating]</div><div class="line">--parallel-threads      Build projects in parallel, using the specified number of executor threads. [deprecated - Please use --parallel, optionally in conjunction with --max-workers.] [incubating]</div><div class="line">--profile               Profiles build execution time and generates a report in the &lt;build_dir&gt;/reports/profile directory.</div><div class="line">--project-cache-dir     Specifies the project-specific cache directory. Defaults to .gradle in the root project directory.</div><div class="line">-q, --quiet             Log errors only.</div><div class="line">--recompile-scripts     Force build script recompiling.</div><div class="line">--refresh-dependencies  Refresh the state of dependencies.</div><div class="line">--rerun-tasks           Ignore previously cached task results.</div><div class="line">-S, --full-stacktrace   Print out the full (very verbose) stacktrace for all exceptions.</div><div class="line">-s, --stacktrace        Print out the stacktrace for all exceptions.</div><div class="line">--stop                  Stops the Gradle daemon if it is running.</div><div class="line">-u, --no-search-upward  Don&apos;t search in parent folders for a settings.gradle file.</div><div class="line">-v, --version           Print version info.</div><div class="line">-x, --exclude-task      Specify a task to be excluded from execution.</div></pre></td></tr></table></figure>
+<h2 id="Listing-projects"><a href="#Listing-projects" class="headerlink" title="Listing projects"></a>Listing projects</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q projects</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">:projects</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Root project</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Root project &apos;PushUpAndroid&apos;</div><div class="line">+--- Project &apos;:app&apos;</div><div class="line">+--- Project &apos;:hellocharts-library&apos;</div><div class="line">+--- Project &apos;:hellocharts-samples&apos;</div><div class="line">\--- Project &apos;:library&apos;</div></pre></td></tr></table></figure>
+<h2 id="Listing-tasks"><a href="#Listing-tasks" class="headerlink" title="Listing tasks"></a>Listing tasks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q tasks</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">:app:tasks</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">All tasks runnable from project :app</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Android tasks</div><div class="line">-------------</div><div class="line">androidDependencies - Displays the Android dependencies of the project.</div><div class="line">signingReport - Displays the signing info for each variant.</div><div class="line">sourceSets - Prints out all the source sets defined in this project.</div><div class="line"></div><div class="line">Build tasks</div><div class="line">-----------</div><div class="line">assemble - Assembles all variants of all applications and secondary packages.</div><div class="line">assembleAndroidTest - Assembles all the Test applications.</div><div class="line">assembleDebug - Assembles all Debug builds.</div><div class="line">assembleRelease - Assembles all Release builds.</div><div class="line">build - Assembles and tests this project.</div><div class="line">buildDependents - Assembles and tests this project and all projects that depend on it.</div><div class="line">buildNeeded - Assembles and tests this project and all projects it depends on.</div><div class="line">clean - Deletes the build directory.</div><div class="line">compileDebugAndroidTestSources</div><div class="line">compileDebugSources</div><div class="line">compileDebugUnitTestSources</div><div class="line">compileReleaseSources</div><div class="line">compileReleaseUnitTestSources</div><div class="line">mockableAndroidJar - Creates a version of android.jar that&apos;s suitable for unit tests.</div><div class="line"></div><div class="line">Help tasks</div><div class="line">----------</div><div class="line">buildEnvironment - Displays all buildscript dependencies declared in project &apos;:app&apos;.</div><div class="line">components - Displays the components produced by project &apos;:app&apos;. [incubating]</div><div class="line">dependencies - Displays all dependencies declared in project &apos;:app&apos;.</div><div class="line">dependencyInsight - Displays the insight into a specific dependency in project &apos;:app&apos;.</div><div class="line">help - Displays a help message.</div><div class="line">model - Displays the configuration model of project &apos;:app&apos;. [incubating]</div><div class="line">projects - Displays the sub-projects of project &apos;:app&apos;.</div><div class="line">properties - Displays the properties of project &apos;:app&apos;.</div><div class="line">tasks - Displays the tasks runnable from project &apos;:app&apos;.</div><div class="line"></div><div class="line">Install tasks</div><div class="line">-------------</div><div class="line">installDebug - Installs the Debug build.</div><div class="line">installDebugAndroidTest - Installs the android (on device) tests for the Debug build.</div><div class="line">installRelease - Installs the Release build.</div><div class="line">uninstallAll - Uninstall all applications.</div><div class="line">uninstallDebug - Uninstalls the Debug build.</div><div class="line">uninstallDebugAndroidTest - Uninstalls the android (on device) tests for the Debug build.</div><div class="line">uninstallRelease - Uninstalls the Release build.</div><div class="line"></div><div class="line">Verification tasks</div><div class="line">------------------</div><div class="line">check - Runs all checks.</div><div class="line">connectedAndroidTest - Installs and runs instrumentation tests for all flavors on connected devices.</div><div class="line">connectedCheck - Runs all device checks on currently connected devices.</div><div class="line">connectedDebugAndroidTest - Installs and runs the tests for debug on connected devices.</div><div class="line">deviceAndroidTest - Installs and runs instrumentation tests using all Device Providers.</div><div class="line">deviceCheck - Runs all device checks using Device Providers and Test Servers.</div><div class="line">lint - Runs lint on all variants.</div><div class="line">lintDebug - Runs lint on the Debug build.</div><div class="line">lintRelease - Runs lint on the Release build.</div><div class="line">test - Run unit tests for all variants.</div><div class="line">testDebugUnitTest - Run unit tests for the debug build.</div><div class="line">testReleaseUnitTest - Run unit tests for the release build.</div><div class="line"></div><div class="line">Other tasks</div><div class="line">-----------</div><div class="line">jarDebugClasses</div><div class="line">jarReleaseClasses</div><div class="line">transformResourcesWithMergeJavaResForDebugUnitTest</div><div class="line">transformResourcesWithMergeJavaResForReleaseUnitTest</div><div class="line"></div><div class="line">Rules</div><div class="line">-----</div><div class="line">Pattern: clean&lt;TaskName&gt;: Cleans the output files of a task.</div><div class="line">Pattern: build&lt;ConfigurationName&gt;: Assembles the artifacts of a configuration.</div><div class="line">Pattern: upload&lt;ConfigurationName&gt;: Assembles and uploads the artifacts belonging to a configuration.</div><div class="line"></div><div class="line">To see all tasks and more detail, run gradlew tasks --all</div><div class="line"></div><div class="line">To see more detail about a task, run gradlew help --task &lt;task&gt;</div></pre></td></tr></table></figure>
+<p>For more information</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q tasks --all</div></pre></td></tr></table></figure>
+<h2 id="Listing-androidDependencies"><a href="#Listing-androidDependencies" class="headerlink" title="Listing androidDependencies"></a>Listing androidDependencies</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q :app:androidDependencies</div></pre></td></tr></table></figure>
+<h2 id="Listing-project-properties"><a href="#Listing-project-properties" class="headerlink" title="Listing project properties"></a>Listing project properties</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q api:properties</div></pre></td></tr></table></figure>
+<h2 id="Profiling-a-build"><a href="#Profiling-a-build" class="headerlink" title="Profiling a build"></a>Profiling a build</h2><p>生成一个build耗时报告，可以用来分析build流程，优化build。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build --profile</div></pre></td></tr></table></figure>
+<h1 id="Gradle-coding"><a href="#Gradle-coding" class="headerlink" title="Gradle coding"></a>Gradle coding</h1><p>println parameter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">task hello &#123;  </div><div class="line">    doLast &#123;  </div><div class="line">        println &quot;projectDir=, $projectDir&quot;</div><div class="line">        println &quot;rootDir=, $rootDir&quot; </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile (project(&apos;:react-native-image-resizer&apos;))</div><div class="line">           &#123;</div><div class="line">               exclude module: &apos;support-v4&apos;</div><div class="line">               exclude group: &apos;com.android.support&apos;, module: &apos;appcompat-v7&apos;</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
+<h1 id="Configure-Your-Build"><a href="#Configure-Your-Build" class="headerlink" title="Configure Your Build"></a>Configure Your Build</h1><p>The Android build system compiles app resources and source code, and packages them into APKs that you can test, deploy, sign, and distribute. Android Studio uses <a href="http://www.gradle.org/" target="_blank" rel="external">Gradle</a>, an advanced build toolkit, to automate and manage the build process, while allowing you to define flexible custom build configurations. Each build configuration can define its own set of code and resources, while reusing the parts common to all versions of your app. The Android plugin for Gradle works with the build toolkit to provide processes and configurable settings that are specific to building and testing Android applications.</p>
+<p>Gradle and the Android plugin run independent of Android Studio. This means that you can build your Android apps from within Android Studio, the command line on your machine, or on machines where Android Studio is not installed (such as continuous integration servers). If you are not using Android Studio, you can learn how to <a href="https://developer.android.com/studio/build/building-cmdline.html" target="_blank" rel="external">build and run your app from the command line</a>. The output of the build is the same whether you are building a project from the command line, on a remote machine, or using Android Studio.</p>
+<p><strong>Note:</strong> Because Gradle and the Android plugin run independently from Android Studio, you need to update the build tools separately. Read the release notes to learn how to <a href="https://developer.android.com/studio/releases/gradle-plugin.html#updating-plugin" target="_blank" rel="external">update Gradle and the Android plugin</a>.</p>
+<p>The flexibility of the Android build system enables you to perform custom build configurations without modifying your app’s core source files. This section helps you understand how the Android build system works, and how it can help you customize and automate multiple build configurations. If you simply want to learn more about deploying your app, see <a href="https://developer.android.com/studio/run/index.html" target="_blank" rel="external">Building and Running from Android Studio</a>. To start creating custom build configurations right away using Android Studio, see <a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">Configuring Build Variants</a>.</p>
+<h2 id="The-Build-Process"><a href="#The-Build-Process" class="headerlink" title="The Build Process"></a>The Build Process</h2><hr>
+<p>The build process involves many tools and processes that convert your project into an Android Application Package (APK). The build process is very flexible, so it’s useful to understand some of what is happening under the hood.</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/build-process_2x.png" alt=""></p>
+<p><strong>Figure 1.</strong> The build process of a typical Android app module.</p>
+<p>The build process for a typical Android app module, as shown in figure 1, follows these general steps:</p>
+<ol>
+<li>The compilers convert your source code into DEX (Dalvik Executable) files, which include the bytecode that runs on Android devices, and everything else into compiled resources.</li>
+<li>The APK Packager combines the DEX files and compiled resources into a single APK. Before your app can be installed and deployed onto an Android device, however, the APK must be signed.</li>
+<li>The APK Packager signs your APK using either the debug or release keystore:<ol>
+<li>If you are building a debug version of your app, that is, an app you intend only for testing and profiling, the packager signs your app with the debug keystore. Android Studio automatically configures new projects with a debug keystore.</li>
+<li>If you are building a release version of your app that you intend to release externally, the packager signs your app with the release keystore. To create a release keystore, read about <a href="https://developer.android.com/studio/publish/app-signing.html#studio" target="_blank" rel="external">signing your app in Android Studio</a>.</li>
+</ol>
+</li>
+<li>Before generating your final APK, the packager uses the <a href="https://developer.android.com/studio/command-line/zipalign.html" target="_blank" rel="external">zipalign</a> tool to optimize your app to use less memory when running on a device.</li>
+</ol>
+<p>At the end of the build process, you have either a debug APK or release APK of your app that you can use to deploy, test, or release to external users.</p>
+<h2 id="Custom-Build-Configurations"><a href="#Custom-Build-Configurations" class="headerlink" title="Custom Build Configurations"></a>Custom Build Configurations</h2><hr>
+<p>Gradle and the Android plugin help you configure the following aspects of your build:</p>
+<ul>
+<li><p><em>Build Types</em></p>
+<p>Build types define certain properties that Gradle uses when building and packaging your app, and are typically configured for different stages of your development lifecycle. For example, the debug build type enables debug options and signs the APK with the debug key, while the release build type may shrink, obfuscate, and sign your APK with a release key for distribution. You must define at least one build type in order to build your app—Android Studio creates the debug and release build types by default. To start customizing packaging settings for your app, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#build-types" target="_blank" rel="external">Configure Build Types</a>.</p>
+</li>
+<li><p><em>Product Flavors</em></p>
+<p>Product flavors represent different versions of your app that you may release to users, such as free and paid versions of your app. You can customize product flavors to use different code and resources, while sharing and reusing the parts that are common to all versions of your app. Product flavors are optional and you must create them manually. To start creating different versions of your app, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#product-flavors" target="_blank" rel="external">Configure Product Flavors</a>.</p>
+</li>
+<li><p><em>Build Variants</em></p>
+<p>A build variant is a cross product of a build type and product flavor, and is the configuration Gradle uses to build your app. Using build variants, you can build the debug version of your product flavors during development, or signed release versions of your product flavors for distribution. Although you do not configure build variants directly, you do configure the build types and product flavors that form them. Creating additional build types or product flavors also creates additional build variants. To learn how to create and manage build variants, read the <a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">Configure Build Variants</a> overview.</p>
+</li>
+<li><p><em>Manifest Entries</em></p>
+<p>You can specify values for some properties of the manifest file in the build variant configuration. These build values override the existing values in the manifest file. This is useful if you want to generate multiple APKs for your modules where each of the apk files has a different application name, minimum SDK version, or target SDK version. When multiple manifests are present, Gradle <a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="external">merges manifest settings</a>.</p>
+</li>
+<li><p><em>Dependencies</em></p>
+<p>The build system manages project dependencies from your local filesystem and from remote repositories. This prevents you from having to manually search, download, and copy binary packages of your dependencies into your project directory. To find out more, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#dependencies" target="_blank" rel="external">Declare Dependencies</a>.</p>
+</li>
+<li><p><em>Signing</em></p>
+<p>The build system enables you to specify signing settings in the build configuration, and it can automatically sign your APKs during the build process. The build system signs the debug version with a default key and certificate using known credentials to avoid a password prompt at build time. The build system does not sign the release version unless you explicitly define a signing configuration for this build. If you do not have a release key, you can generate one as described in <a href="https://developer.android.com/studio/publish/app-signing.html" target="_blank" rel="external">Sign Your App</a>.</p>
+</li>
+<li><p><em>ProGuard</em></p>
+<p>The build system enables you to specify a different <a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="external">ProGuard</a> rules file for each build variant. The build system can run ProGuard to shrink and obfuscate your classes during the build process.</p>
+</li>
+<li><p><em>APK Splits</em></p>
+<p>The build system enables you to automatically build different APKs that each contain only the code and resources needed for a specific screen density or Application Binary Interface (ABI). For more information see <a href="https://developer.android.com/studio/build/configure-apk-splits.html" target="_blank" rel="external">Configure APK Splits</a>.</p>
+</li>
+</ul>
+<h2 id="Build-Configuration-Files"><a href="#Build-Configuration-Files" class="headerlink" title="Build Configuration Files"></a>Build Configuration Files</h2><hr>
+<p>Creating custom build configurations requires you to make changes to one or more build configuration files, or <code>build.gradle</code> files. These plain text files use Domain Specific Language (DSL) to describe and manipulate the build logic using <a href="http://groovy.codehaus.org/" target="_blank" rel="external">Groovy</a>, which is a dynamic language for the Java Virtual Machine (JVM). You don’t need to know Groovy to start configuring your build because the Android plugin for Gradle introduces most of the DSL elements you need. To learn more about the Android plugin DSL, read the <a href="http://google.github.io/android-gradle-dsl/current/index.html" target="_blank" rel="external">DSL reference documentation</a>.</p>
+<p>When starting a new project, Android Studio automatically creates some of these files for you, as shown in figure 2, and populates them based on<em>sensible defaults</em>.</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/project-structure_2x.png" alt=""></p>
+<p><strong>Figure 2.</strong> The default project structure for an Android app module.</p>
+<p>There are a few Gradle build configuration files that are a part of the standard project structure for an Android app. Before you can start configuring your build, it is important to understand the scope and purpose of each of these files, and the basic DSL elements they should define.</p>
+<h3 id="The-Gradle-Settings-File"><a href="#The-Gradle-Settings-File" class="headerlink" title="The Gradle Settings File"></a>The Gradle Settings File</h3><p>The <code>settings.gradle</code> file, located in the root project directory, tells Gradle which modules it should include when building your app. For most projects, the file is simple and only includes the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include ‘:app’</div></pre></td></tr></table></figure>
+<p>However, multi-module projects need to specify each module that should go into the final build.</p>
+<h3 id="The-Top-level-Build-File"><a href="#The-Top-level-Build-File" class="headerlink" title="The Top-level Build File"></a>The Top-level Build File</h3><p>The top-level <code>build.gradle</code> file, located in the root project directory, defines build configurations that apply to all modules in your project. By default, the top-level build file uses the <code>buildscript {}</code> block to define the Gradle <em>repositories</em> and <em>dependencies</em> that are common to all modules in the project. The following code sample describes the default settings and DSL elements you can find in the top-level <code>build.gradle</code> after creating a new project.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * The buildscript &#123;&#125; block is where you configure the repositories and</div><div class="line"> * dependencies for Gradle itself--meaning, you should not include dependencies</div><div class="line"> * for your modules here. For example, this block includes the Android plugin for</div><div class="line"> * Gradle as a dependency because it provides the additional instructions Gradle</div><div class="line"> * needs to build Android app modules.</div><div class="line"> */</div><div class="line"></div><div class="line">buildscript &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * The repositories &#123;&#125; block configures the repositories Gradle uses to</div><div class="line">     * search or download the dependencies. Gradle pre-configures support for remote</div><div class="line">     * repositories such as JCenter, Maven Central, and Ivy. You can also use local</div><div class="line">     * repositories or define your own remote repositories. The code below defines</div><div class="line">     * JCenter as the repository Gradle should use to look for its dependencies.</div><div class="line">     */</div><div class="line"></div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * The dependencies &#123;&#125; block configures the dependencies Gradle needs to use</div><div class="line">     * to build your project. The following line adds Android plugin for Gradle</div><div class="line">     * version 2.2.0 as a classpath dependency.</div><div class="line">     */</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.0&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The allprojects &#123;&#125; block is where you configure the repositories and</div><div class="line"> * dependencies used by all modules in your project, such as third-party plugins</div><div class="line"> * or libraries. Dependencies that are not required by all the modules in the</div><div class="line"> * project should be configured in module-level build.gradle files. For new</div><div class="line"> * projects, Android Studio configures JCenter as the default repository, but it</div><div class="line"> * does not configure any dependencies.</div><div class="line"> */</div><div class="line"></div><div class="line">allprojects &#123;</div><div class="line">   repositories &#123;</div><div class="line">       jcenter()</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="The-Module-level-Build-File"><a href="#The-Module-level-Build-File" class="headerlink" title="The Module-level Build File"></a>The Module-level Build File</h3><p>The module-level <code>build.gradle</code> file, located in each <code>//</code> directory, allows you to configure build settings for the specific module it is located in. Configuring these build settings allows you to provide custom packaging options, such as additional build types and product flavors, and override settings in the <code>main/</code> app manifest or top-level <code>build.gradle</code> file.</p>
+<p>This sample Android app module <code>build.gradle</code> file outlines some of the basic DSL elements and settings that you should know.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * The first line in the build configuration applies the Android plugin for</div><div class="line"> * Gradle to this build and makes the android &#123;&#125; block available to specify</div><div class="line"> * Android-specific build options.</div><div class="line"> */</div><div class="line"></div><div class="line">apply plugin: &apos;com.android.application&apos;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The android &#123;&#125; block is where you configure all your Android-specific</div><div class="line"> * build options.</div><div class="line"> */</div><div class="line"></div><div class="line">android &#123;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * compileSdkVersion specifies the Android API level Gradle should use to</div><div class="line">   * compile your app. This means your app can use the API features included in</div><div class="line">   * this API level and lower.</div><div class="line">   *</div><div class="line">   * buildToolsVersion specifies the version of the SDK build tools, command-line</div><div class="line">   * utilities, and compiler that Gradle should use to build your app. You need to</div><div class="line">   * download the build tools using the SDK Manager.</div><div class="line">   */</div><div class="line"></div><div class="line">  compileSdkVersion 25</div><div class="line">  buildToolsVersion &quot;25.0.0&quot;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The defaultConfig &#123;&#125; block encapsulates default settings and entries for all</div><div class="line">   * build variants, and can override some attributes in main/AndroidManifest.xml</div><div class="line">   * dynamically from the build system. You can configure product flavors to override</div><div class="line">   * these values for different versions of your app.</div><div class="line">   */</div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * applicationId uniquely identifies the package for publishing.</div><div class="line">     * However, your source code should still reference the package name</div><div class="line">     * defined by the package attribute in the main/AndroidManifest.xml file.</div><div class="line">     */</div><div class="line"></div><div class="line">    applicationId &apos;com.example.myapp&apos;</div><div class="line"></div><div class="line">    // Defines the minimum API level required to run the app.</div><div class="line">    minSdkVersion 15</div><div class="line"></div><div class="line">    // Specifies the API level used to test the app.</div><div class="line">    targetSdkVersion 25</div><div class="line"></div><div class="line">    // Defines the version number of your app.</div><div class="line">    versionCode 1</div><div class="line"></div><div class="line">    // Defines a user-friendly version name for your app.</div><div class="line">    versionName &quot;1.0&quot;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The buildTypes &#123;&#125; block is where you can configure multiple build types.</div><div class="line">   * By default, the build system defines two build types: debug and release. The</div><div class="line">   * debug build type is not explicitly shown in the default build configuration,</div><div class="line">   * but it includes debugging tools and is signed with the debug key. The release</div><div class="line">   * build type applies Proguard settings and is not signed by default.</div><div class="line">   */</div><div class="line"></div><div class="line">  buildTypes &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * By default, Android Studio configures the release build type to enable code</div><div class="line">     * shrinking, using minifyEnabled, and specifies the Proguard settings file.</div><div class="line">     */</div><div class="line"></div><div class="line">    release &#123;</div><div class="line">        minifyEnabled true // Enables code shrinking for the release build type.</div><div class="line">        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The productFlavors &#123;&#125; block is where you can configure multiple product</div><div class="line">   * flavors. This allows you to create different versions of your app that can</div><div class="line">   * override defaultConfig &#123;&#125; with their own settings. Product flavors are</div><div class="line">   * optional, and the build system does not create them by default. This example</div><div class="line">   * creates a free and paid product flavor. Each product flavor then specifies</div><div class="line">   * its own application ID, so that they can exist on the Google Play Store, or</div><div class="line">   * an Android device, simultaneously.</div><div class="line">   */</div><div class="line"></div><div class="line">  productFlavors &#123;</div><div class="line">    free &#123;</div><div class="line">      applicationId &apos;com.example.myapp.free&apos;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    paid &#123;</div><div class="line">      applicationId &apos;com.example.myapp.paid&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The splits &#123;&#125; block is where you can configure different APK builds that</div><div class="line">   * each contain only code and resources for a supported screen density or</div><div class="line">   * ABI. You&apos;ll also need to configure your build so that each APK has a</div><div class="line">   * different versionCode.</div><div class="line">   */</div><div class="line"></div><div class="line">  splits &#123;</div><div class="line">    // Screen density split settings</div><div class="line">    density &#123;</div><div class="line"></div><div class="line">      // Enable or disable the density split mechanism</div><div class="line">      enable false</div><div class="line"></div><div class="line">      // Exclude these densities from splits</div><div class="line">      exclude &quot;ldpi&quot;, &quot;tvdpi&quot;, &quot;xxxhdpi&quot;, &quot;400dpi&quot;, &quot;560dpi&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The dependencies &#123;&#125; block in the module-level build configuration file</div><div class="line"> * only specifies dependencies required to build the module itself.</div><div class="line"> */</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile project(&quot;:lib&quot;)</div><div class="line">    compile &apos;com.android.support:appcompat-v7:25.0.1&apos;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Gradle-Properties-Files"><a href="#Gradle-Properties-Files" class="headerlink" title="Gradle Properties Files"></a>Gradle Properties Files</h3><p>Gradle also includes two properties files, located in your root project directory, that you can use to specify settings for the Gradle build toolkit itself:</p>
+<ul>
+<li><p><code>gradle.properties</code></p>
+<p>This is where you can configure project-wide Gradle settings, such as the Gradle daemon’s maximum heap size. For more information, see <a href="https://docs.gradle.org/current/userguide/build_environment.html" target="_blank" rel="external">The Build Environment</a>.</p>
+</li>
+<li><p><code>local.properties</code></p>
+<p>Configures local environment properties for the build system, such as the path to the SDK installation. Because the content of this file is automatically generated by Android Studio and is specific to the local developer environment, you should not modify this file manually or check it into your version control system.</p>
+</li>
+</ul>
+<h3 id="Syncing-Project-with-Gradle-Files"><a href="#Syncing-Project-with-Gradle-Files" class="headerlink" title="Syncing Project with Gradle Files"></a>Syncing Project with Gradle Files</h3><p>When you make changes to the build configuration files in your project, Android Studio requires that you sync your project files so that it can import your build configuration changes and run some checks to make sure your configuration won’t create build errors.</p>
+<p>To sync your project files, click <strong>Sync Now</strong> in the notification bar that appears when you make a change, as shown in figure 3, or click <strong>Sync Project</strong> <img src="https://developer.android.com/studio/images/buttons/toolbar-sync-gradle.png" alt="img">from the menu bar. If Android Studio notices any errors with your configuration, for example, your source code uses API features that are only available in an API level higher than your <code>compileSdkVersion</code>, the <strong>Messages</strong> window appears to describe the issue.</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/as-gradlesync.png" alt=""></p>
+<p><strong>Figure 3.</strong> Syncing the project with build configuration files in Android Studio.</p>
+<h3 id="Source-Sets"><a href="#Source-Sets" class="headerlink" title="Source Sets"></a>Source Sets</h3><p>Android Studio logically groups source code and resources for each module into <em>source sets</em>. A module’s <code>main/</code> source set includes the code and resources used by all its build variants. Additional source set directories are optional, and Android Studio does not automatically create them for you when you configure new build variants. However, creating source sets, similar to <code>main/</code>, helps organize files and resources that Gradle should only use when building certain versions of your app:</p>
+<ul>
+<li><p><code>src/main/</code></p>
+<p>This source set includes code and resources common to all build variants.</p>
+</li>
+<li><p><code>src//</code></p>
+<p>Create this source set to include code and resources only for a specific build type.</p>
+</li>
+<li><p><code>src//</code></p>
+<p>Create this source set to include code and resources only for a specific product flavor.</p>
+</li>
+<li><p><code>src//</code></p>
+<p>Create this source set to include code and resources only for a specific build variant.</p>
+</li>
+</ul>
+<p>For example, to generate the “fullDebug” version of your app, the build system merges code, settings, and resources from following source sets:</p>
+<ul>
+<li><code>src/fullDebug/</code> (the build variant source set)</li>
+<li><code>src/debug/</code> (the build type source set)</li>
+<li><code>src/full/</code> (the product flavor source set)</li>
+<li><code>src/main/</code> (the main source set)</li>
+</ul>
+<p><strong>Note:</strong> When you create a new file or directory in Android Studio, using the <strong>File &gt; New</strong> menu options, you can create it for a specific source set. The source sets you can choose from are based on your build configurations, and Android Studio automatically creates the required directories if they don’t already exist.</p>
+<p>If different source sets contain different versions of the same file, Gradle uses the following priority order when deciding which file to use (source sets on the left override the files and settings of source sets to the right):</p>
+<blockquote>
+<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
+</blockquote>
+<p>This allows Gradle to use files that are specific to the build variant you are trying to build while reusing activities, application logic, and resources that are common to other versions of your app. When <a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="external">merging multiple manifests</a>, Gradle uses the same priority order, so each build variant can define different components or permissions in the final manifest. To learn more about creating custom source sets, go to <a href="https://developer.android.com/studio/build/build-variants.html#sourcesets" target="_blank" rel="external">Create Source Sets for Build Variants</a>.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/11/20/ShadowsocksVPN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/ShadowsocksVPN/" itemprop="url">
+                  Shadowsocks VPN with Digitalocean VPS
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T14:37:37+08:00">
+                2016-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/11/20/ShadowsocksVPN/" class="leancloud_visitors" data-flag-title="Shadowsocks VPN with Digitalocean VPS">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="创建VPS"><a href="#创建VPS" class="headerlink" title="创建VPS"></a>创建VPS</h1><blockquote>
+<p>本教程使用的DigitalOcean的VPS。</p>
+</blockquote>
+<ol>
+<li><p>注册DigitalOcean帐号：<a href="https://m.do.co/c/c905df7e5707" target="_blank" rel="external">注册送10美元</a> </p>
+</li>
+<li><p>选择你的主机系统，按喜好选择吧！</p>
+<p>本教程是在CentOS系统完成的。<img src="http://obzooc3zl.bkt.clouddn.com/digitalocean.png" alt=""></p>
+</li>
+<li><p>选择配置，按自己的财力选择吧！</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/digitalocean1.png" alt=""></p>
+</li>
+<li><p>选择主机地址，据说New York ／Singapore速度还不错！</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/digitalocean2.png" alt=""></p>
+</li>
+<li><p>其他选择默认就好！</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/digitalocean3.png" alt=""></p>
+</li>
+<li><p>点击Create，恭喜你创建成功！</p>
+</li>
+</ol>
+<blockquote>
+<p>付款使用Paypal，注册一个Paypal帐号，绑定信用卡就可以了，和支付宝一个意思。</p>
+</blockquote>
+<h1 id="配置Shadowsocks"><a href="#配置Shadowsocks" class="headerlink" title="配置Shadowsocks"></a>配置Shadowsocks</h1><blockquote>
+<p>本教程在Mac系统完成。</p>
+</blockquote>
+<ol>
+<li>通过ssh登录远程VPS。</li>
+</ol>
+<blockquote>
+<p>注册VPS成功后，在你的注册邮箱中查看你的登录名和密码。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@[your_server_ip]</div></pre></td></tr></table></figure>
+<p>输入完你的初始密码，会提示你设置新密码。</p>
+<ol>
+<li><p>安装Shadowsocks，依次输入以下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum update</div><div class="line">yum install python-setuptools m2crypto supervisor</div><div class="line">easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置Shadowsocks</p>
+<p>首先，修改/etc/shadowsocks.json文件，可以用vi修改，也可以用其他文本编辑器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/shadowsocks.json</div></pre></td></tr></table></figure>
+<p>添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;: &quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;: 5080,</div><div class="line">    &quot;local_address&quot;: &quot;127.0.0.1&quot;,</div><div class="line">    &quot;local_port&quot;: 1080,</div><div class="line">    &quot;password&quot;: &quot;your password&quot;,</div><div class="line">    &quot;timeout&quot;: 500,</div><div class="line">    &quot;method&quot;: &quot;rc4-md5&quot;,</div><div class="line">    &quot;fast_open&quot;: true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 server_port，password， method 这三个参数在后面登录Shadowsocks客户端的时候会用到。</p>
+</blockquote>
+<p>然后，修改/etc/supervisord.conf文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/supervisord.conf</div></pre></td></tr></table></figure>
+<p>在该文件的末尾添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[program:shadowsocks]</div><div class="line">command=ssserver -c /etc/shadowsocks.json</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">user=root</div><div class="line">log_stderr=true</div><div class="line">logfile=/var/log/shadowsocks.log</div></pre></td></tr></table></figure>
+<p>最后，修改/etc/rc.local</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.local</div></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service supervisord start</div></pre></td></tr></table></figure>
+<p>恭喜你配置成功，重启系统后，大功告成！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure>
+<h1 id="客户端登陆Shadowsocks"><a href="#客户端登陆Shadowsocks" class="headerlink" title="客户端登陆Shadowsocks"></a>客户端登陆Shadowsocks</h1><p>下载客户端 </p>
+<p><a href="https://pan.baidu.com/s/1bpuuw0Z" target="_blank" rel="external">Mac</a> 密码: 3z6h</p>
+<p><a href="https://pan.baidu.com/s/1gfDjc5d" target="_blank" rel="external">Android</a> 密码: gym4</p>
+<p><a href="https://pan.baidu.com/s/1qYGo6Ri" target="_blank" rel="external">Windows</a>  密码: qwsw</p>
+<p>配置客户端，以Mac上为例：</p>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-20%2011.45.11.png" alt=""></p>
+<p>填写你的主机地址，端口，加密方式和密码，确定！</p>
+<p>恭喜你可以看看这个世界了！Hello World！</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/11/20/Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/Redux/" itemprop="url">
+                  Redux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T14:20:43+08:00">
+                2016-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/11/20/Redux/" class="leancloud_visitors" data-flag-title="Redux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p><strong>Prerequisites</strong>：JS basic grammar, React Native basic concept；</p>
+<p><strong>Best Practice</strong>：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">iReading</a></p>
+<p><strong>Key words</strong>: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware</p>
+<p>Index</p>
+<p>[TOC]</p>
+<h2 id="What-is-Redux"><a href="#What-is-Redux" class="headerlink" title="What is Redux?"></a>What is Redux?</h2><blockquote>
+<p><a href="http://rackt.org/redux/" target="_blank" rel="external">Doc</a> and <a href="http://camsong.github.io/redux-in-chinese/" target="_blank" rel="external">中文翻译</a></p>
+<p><a href="http://cn.redux.js.org/index.html" target="_blank" rel="external">中文资料</a></p>
+</blockquote>
+<h3 id="单页面应用的痛点"><a href="#单页面应用的痛点" class="headerlink" title="单页面应用的痛点"></a>单页面应用的痛点</h3><p>对于复杂的单页面应用，状态（state）管理非常重要。state 可能包括：服务端的响应数据、本地对响应数据的缓存、本地创建的数据（比如，表单数据）以及一些 UI 的状态信息（比如，路由、选中的 tab、是否显示下拉列表、页码控制等等）。如果 state 变化不可预测，就会难于调试（state 不易重现，很难复现一些 bug）和不易于扩展（比如，优化更新渲染、服务端渲染、路由切换时获取数据等等）。</p>
+<p>Redux 就是用来确保 state 变化的可预测性，主要的约束有：</p>
+<ul>
+<li>state 以单一对象存储在 store 对象中</li>
+<li>state 只读</li>
+<li>使用纯函数 reducer 执行 state 更新</li>
+</ul>
+<blockquote>
+<p>state 为单一对象，使得 Redux 只需要维护一棵状态树，服务端很容易初始化状态，易于服务器渲染。state 只能通过 dispatch(action) 来触发更新，更新逻辑由 reducer 来执行。</p>
+<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。惟一改变 state 的办法是触发 action，一个描述发生什么的对象。为了描述 action 如何改变 state 树，你需要编写 reducers。</p>
+<p>如果你以前使用 Flux，那么你只需要注意一个重要的区别。Redux 没有 Dispatcher 且不支持多个 store。相反，只有一个单一的 store 和一个根级的 reduce 函数（reducer）。</p>
+</blockquote>
+<h3 id="Actions、Reducers-和-Store"><a href="#Actions、Reducers-和-Store" class="headerlink" title="Actions、Reducers 和 Store"></a>Actions、Reducers 和 Store</h3><p>action 可以理解为应用向 store 传递的数据信息（一般为用户交互信息）。在实际应用中，传递的信息可以约定一个固定的数据格式，比如: <a href="https://github.com/acdlite/flux-standard-action/" target="_blank" rel="external">Flux Standard Action</a>。<br>为了便于测试和易于扩展，Redux 引入了 Action Creator:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function addTodo(text) &#123;</div><div class="line">  return &#123;</div><div class="line">    type: ADD_TODO,</div><div class="line">    text,</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">store.dispatch(addTodo(text))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>dispatch(action) 是一个同步的过程：执行 reducer 更新 state -&gt; 调用 store 的监听处理函数。如果需要在 dispatch 时执行一些异步操作（fetch action data），可以通过引入 Middleware 解决。</p>
+</blockquote>
+<p>reducer 实际上就是一个函数：<code>(previousState, action) =&gt; newState</code>。用来执行根据指定 action 来更新 state 的逻辑。通过 combineReducers(reducers) 可以把多个 reducer 合并成一个 root reducer。</p>
+<blockquote>
+<p>reducer 不存储 state, reducer 函数逻辑中不应该直接改变 state 对象, 而是返回新的 state 对象（可以考虑使用 <a href="http://facebook.github.io/immutable-js/" target="_blank" rel="external">immutable-js</a>）。</p>
+</blockquote>
+<p>store 是一个单一对象：</p>
+<ul>
+<li>管理应用的 state</li>
+<li>通过 <code>store.getState()</code> 可以获取 state</li>
+<li>通过 <code>store.dispatch(action)</code> 来触发 state 更新</li>
+<li>通过 <code>store.subscribe(listener)</code> 来注册 state 变化监听器</li>
+<li>通过 <code>createStore(reducer, [initialState])</code> 创建</li>
+</ul>
+<blockquote>
+<p>在 Redux 应用中，只允许有一个 store 对象，可以通过 combineReducers(reducers) 来实现对 state 管理的逻辑划分（多个 reducer）。</p>
+</blockquote>
+<h3 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h3><p>middleware 其实就是高阶函数，作用于 dispatch 返回一个新的 dispatch（附加了该中间件功能）。可以形式化为：<code>newDispatch = middleware1(middleware2(...(dispatch)...))</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// thunk-middleware</div><div class="line">export default function thunkMiddleware(&#123; dispatch, getState &#125;) &#123;</div><div class="line">    return next =&gt; action =&gt;</div><div class="line">        typeof action === &apos;function&apos; ? action(dispatch, getState) : next(action)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 thunk-middleware 我们可以看出中间件的一般形式：中间件函数接受两个参数参数： dispatch 和 getState（也就是说中间件可以获取 state 以及 <code>dispatch new action</code>）。中间件一般返回 <code>next(action)</code>（thunk-middleware 比较特殊，它用于 dispatch 执行异步回调的 action）。store 的创建过程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const reducer = combineReducers(reducers)</div><div class="line">const finalCreateStore = applyMiddleware(promiseMiddleware, warningMiddleware,</div><div class="line">    loggerMiddleWare)(createStore)</div><div class="line">const store = finalCreateStore(reducer)</div></pre></td></tr></table></figure>
+<h3 id="异步-Actions"><a href="#异步-Actions" class="headerlink" title="异步 Actions"></a>异步 Actions</h3><p>单页面应用中充斥着大量的异步请求（ajax）。dispatch(action) 是同步的，如果要处理异步 action，需要使用一些中间件。<br><a href="https://github.com/gaearon/redux-thunk/" target="_blank" rel="external">redux-thunks</a> 和 <a href="https://github.com/aclite/redux-promise/" target="_blank" rel="external">redux-promise</a> 分别是使用异步回调和 Promise 来解决异步 action 问题的。</p>
+<p>最新的用法是使用<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">redux-saga</a>来实现异步任务，在下面的章节会有讲解。</p>
+<h2 id="为什么要用Redux"><a href="#为什么要用Redux" class="headerlink" title="为什么要用Redux"></a>为什么要用Redux</h2><blockquote>
+<p><a href="http://www.infoq.com/cn/news/2014/05/facebook-mvc-flux" target="_blank" rel="external">Facebook：MVC不适合大规模应用，改用Flux</a></p>
+</blockquote>
+<h2 id="如何使用Redux"><a href="#如何使用Redux" class="headerlink" title="如何使用Redux"></a>如何使用Redux</h2><blockquote>
+<ul>
+<li>参考项目：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></li>
+</ul>
+</blockquote>
+<h3 id="redux三大原则"><a href="#redux三大原则" class="headerlink" title="redux三大原则"></a>redux三大原则</h3><p>首先，我们明确一点：redux的核心思想就是FLux架构，单向数据流。</p>
+<h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><p>在redux中，所有的state最后都会被combine起来，变为一个大的state树，这个state树只存在于唯一的一个store中。这么做的好处是开发和调试都变得很方便，也很好理解。</p>
+<h3 id="state只读"><a href="#state只读" class="headerlink" title="state只读"></a>state只读</h3><p>改变state唯一的办法就是通过触发action，别无他法。这么做非常纯粹，确保没其他副作用，state不会被任意修改。</p>
+<h3 id="纯函数修改state"><a href="#纯函数修改state" class="headerlink" title="纯函数修改state"></a>纯函数修改state</h3><p>想要修改state，在action被触发之后，需要编写reducer来进行修改，reducer只是一些纯函数，它会接受到action和state，返回<strong>全新的state</strong>。</p>
+<h2 id="认识redux三要素"><a href="#认识redux三要素" class="headerlink" title="认识redux三要素"></a>认识redux三要素</h2><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>执行动作，把数据传递到store，触发它是用来改变state的，它是store的唯一数据来源。</p>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>纯函数，用来修改/更新state，action只是说明有动作发生了，但是具体产生什么样的作用（state如何变更），还是reducer说了算。在修改完state之后，通过Object.assign，或者…state或者immutable返回<strong>全新的state</strong></p>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>整个应用唯一维护state树的地方，<strong>是单一的</strong>。可以获取、更新state，还可以注册监听。</p>
+<p>这三个元素像齿轮一样运转起来，形成了FLux架构的单向数据流。</p>
+<h2 id="react-redux最新用法"><a href="#react-redux最新用法" class="headerlink" title="react-redux最新用法"></a>react-redux最新用法</h2><p>react-redux这个库，在redux和react结合使用的时候几乎是必用的。在经历过某次升级后，它的Provider组件用法发生了一点变化，最新的用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</div><div class="line"></div><div class="line">const Root = () =&gt; (</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &lt;App /&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="redux性能优化"><a href="#redux性能优化" class="headerlink" title="redux性能优化"></a>redux性能优化</h2><p>性能优化第一步，就是搞清楚action和reducer的关系。如果搞不清关系，就会像我之前一样，大量页面被过度渲染。它俩是什么关系呢？实际上它俩是多对多的关系。也就是说，一个action操作可能会造成state树中的一个或者某几个部分发生改变，就对应了一个或多个reducer，多个action操作也同理，这是我们必须明确的。</p>
+<p>如何避免引入redux之后造成页面过度渲染？</p>
+<p>首先我们要搞清楚，为什么会过度渲染。在一个引用了redux的rn app中，state树是唯一的。但是在某个页面中，控制它的状态只是整棵状态树的子集，也就是state树中的一部分。如果没搞清action和reducer的关系随便乱用，很容易造成一个reducer控制着多个页面的情况（也就是说页面组件和reducer的状态子集形成了多对多的关系），那就妥妥的过度渲染了。举个简单的例子：reducer A控制着页面C和D的状态，当发起了一个action之后，A改变了，那么C和D就会调用render方法进行无用渲染。但是这时候很可能C或D并不是正在展示的页面，这里就出现了过度渲染，如果页面多，就会造成卡顿情况。</p>
+<p>如何避免过度渲染？action是用来发起修改state操作的，具体怎么改是由reducer决定的，但是最终所有的reducer都会被combine成一个，那么reducer的拆分就是我们需要考虑的点。每一个reducer都控制了状态树的一个子集的变化，我们通过react-redux库的<code>connect</code>函数向组件注入状态，那么我们就需要把reducer拆分到较小的单元，使得一个页面的状态集合是由一个或多个reducer来控制，这里是一对多的关系，能做到这一点，就能避免过度渲染的问题。还是用刚才的例子，拆分后的reducer A只控制页面C，页面D由另一个reducer控制着，那么当A改变了，只会引起C的渲染，就能保证只渲染正在向用户展示的那个页面了。</p>
+<h2 id="redux周边设施"><a href="#redux周边设施" class="headerlink" title="redux周边设施"></a>redux周边设施</h2><h3 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h3><p>这个应该是首当其冲的了，在redux官方文档中都有提及，只要用react/react-native，引入redux，就会引入这个库打配合，简单好用。</p>
+<h3 id="redux-logger"><a href="#redux-logger" class="headerlink" title="redux-logger"></a>redux-logger</h3><p>这个库的用法很简单，它的作用是一次配置好，以后所有action触发了state的变化，都会用比较鲜艳的log日志打印出来，用chrome调试就可以很明显的看到，这样就能一清二楚每一个action最终都导致了state前后发生了什么样的变化。</p>
+<h3 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h3><p>这个库的作用主要是异步action。在我们引入redux之后，肯定会有很多异步操作，我们想把这些异步操作和组件剥离开，那么最直观的就是放入action中进行处理，通过thunk实现异步action。使用简单，理解起来也方便，很多刚入坑的同学处理异步action一般都会选用这个库。</p>
+<h3 id="redux-saga"><a href="#redux-saga" class="headerlink" title="redux-saga"></a>redux-saga</h3><blockquote>
+<p>教程：<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html</a></p>
+</blockquote>
+<p>这个库本质上也是处理异步action的，但是相对thunk来说，它就没那么直观没那么好理解了。这个库主要思想就是通过es6的generator，把异步promise操作变成了类似async和await的同步写法，但是saga更强大。saga主要运用了协程的思想，在异步操作变为同步写法的时候，提供了非常便利的可测试性，而且简化了action。在引入saga之后，action里的代码就变得非常纯粹了，什么都不干，只触发action，具体的处理，不管是同步还是异步统统挪到saga中，写法也变得非常简洁。相对测试来说，写UT也变得清晰了很多，因为saga天生就是支持步进的，那么action对应的测试就写在saga包中就可以，因为真正处理action逻辑的是saga。相比之下，thunk就不好写测试了，一般用thunk的，测试都是根据reducer来写的，thunk中的操作就变得不可控了。</p>
+<h3 id="immutable-js"><a href="#immutable-js" class="headerlink" title="immutable.js"></a>immutable.js</h3><p>这个库是Facebook的，主要是做deep clone，比较高效，和redux结合的地方就是reducer返回全新state的地方。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/AndroidShell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/20/AndroidShell/" itemprop="url">
+                  Android Shell
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
+                2016-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/07/20/AndroidShell/" class="leancloud_visitors" data-flag-title="Android Shell">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="adb"><a href="#adb" class="headerlink" title="adb"></a>adb</h1><h1 id="apksigner"><a href="#apksigner" class="headerlink" title="apksigner"></a>apksigner</h1><h1 id="bmgr"><a href="#bmgr" class="headerlink" title="bmgr"></a>bmgr</h1><h1 id="etc1tool"><a href="#etc1tool" class="headerlink" title="etc1tool"></a>etc1tool</h1><h1 id="jobb"><a href="#jobb" class="headerlink" title="jobb"></a>jobb</h1><h1 id="logcat"><a href="#logcat" class="headerlink" title="logcat"></a>logcat</h1><h1 id="mksdcard"><a href="#mksdcard" class="headerlink" title="mksdcard"></a>mksdcard</h1><h1 id="sdkmanager"><a href="#sdkmanager" class="headerlink" title="sdkmanager"></a>sdkmanager</h1><h1 id="zipalign"><a href="#zipalign" class="headerlink" title="zipalign"></a>zipalign</h1><h1 id="Emulator"><a href="#Emulator" class="headerlink" title="Emulator"></a>Emulator</h1><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; emulator -avd &lt;avd_name&gt; [-&lt;option&gt; [&lt;value&gt;]] ... [-&lt;qemu args&gt;]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>List avds</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ emulator -list-avds</div><div class="line">Nexus_5_API_23</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/Gradle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/20/Gradle/" itemprop="url">
+                  Gradle总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
+                2016-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/07/20/Gradle/" class="leancloud_visitors" data-flag-title="Gradle总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://gradle.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/gradle-logo-horizontal2.svg" alt="gradle"></p>
+<p>翻译自：<a href="http://code.tutsplus.com/tutorials/the-ins-and-outs-of-gradle--cms-22978" target="_blank" rel="external">The Ins and Outs of Gradle</a></p>
+<h1 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h1><p>Gradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。<br>如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供了很多功能，所以还是值得花时间搞懂关于它的一切的。下面是一些入门的知识。</p>
+<ul>
+<li>必须的配置项<br>一般在用Android Studio新建工程的时候会自动生成必要的一些配置项，当然你可以在此基础上进行定制。</li>
+<li>声明项目的依赖<br>依赖可以是module，jar包，lib工程，你可以把依赖的库放在本地或者放到远端的仓库中。</li>
+<li>测试你的工程<br>Gradle根据你的测试工程自动生成测试的apk，并在编译的过程中测试你的主程序。</li>
+<li>生成签名的apk<br>可以通过配置将一份工程生成不同版本的apk，方便生成不同的渠道包，或针对特定的设备生成apk，或生成免费和收费的不同版本。</li>
+</ul>
+<h1 id="探索Gradle文件"><a href="#探索Gradle文件" class="headerlink" title="探索Gradle文件"></a>探索Gradle文件</h1><p>当你通过Android Studio新建一个工程后，会发现自动生成了2个build.gradle文件，一个位于工程根目录，一个位于app的目录下。<br>我们为了区分它们，分别给它们一个别名吧，根目录下的叫做工程Gradle配置文件，app下的叫做应用Gradle配置文件。</p>
+<ul>
+<li><p>工程Gradle配置文件</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></div><div class="line"></div><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 该文件依赖jcenter仓库</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.1.2'</span> <span class="comment">// Android Gradle plugin的版本为2.1.2</span></div><div class="line"></div><div class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></div><div class="line">        <span class="comment">// in the individual module build.gradle files</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">allprojects</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 整个工程依赖的仓库</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">task</span> clean(type: <span class="keyword">Delete</span>) &#123;</div><div class="line">    <span class="keyword">delete</span> rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>模块Gradle配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;com.android.application&apos; // 告诉Gradle使用Android插件</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 24 </div><div class="line">    buildToolsVersion &quot;24.0.0&quot; </div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.demo&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 24</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// 声明依赖</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;]) // 依赖本地libs目录下的jar文件</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line"></div><div class="line">    compile &apos;com.android.support:appcompat-v7:24.0.0&apos; // 依赖远端仓库中的包</div><div class="line"></div><div class="line">    compile project(path: &apos;:lib_name&apos;) // 依赖本地lib工程</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="常用第三方库依赖配置"><a href="#常用第三方库依赖配置" class="headerlink" title="常用第三方库依赖配置"></a>常用第三方库依赖配置</h1><ul>
+<li><p>TOP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.1.2&apos;</div><div class="line">        // ORM </div><div class="line">        classpath &quot;io.realm:realm-gradle-plugin:1.0.0&quot;</div><div class="line"></div><div class="line">        classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;</div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Module</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;realm-android&apos;</div><div class="line">apply plugin: &apos;android-apt&apos;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// Inject view, butterknife</div><div class="line">	compile &apos;com.jakewharton:butterknife:8.0.1&apos;</div><div class="line">	apt &apos;com.jakewharton:butterknife-compiler:8.0.1&apos;</div><div class="line"></div><div class="line">	// Chart</div><div class="line">    // https://github.com/diogobernardino/WilliamChart</div><div class="line">	// compile &apos;com.diogobernardino:williamchart:2.2&apos;</div><div class="line"></div><div class="line">    compile &apos;com.github.lecho:hellocharts-library:1.5.8@aar&apos;</div><div class="line"></div><div class="line">    // Drawer</div><div class="line">    //http://mikepenz.github.io/MaterialDrawer/</div><div class="line">    compile(&apos;com.mikepenz:materialdrawer:5.3.0@aar&apos;) &#123;</div><div class="line">        transitive = true</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // icon fonts used inside the sample</div><div class="line">    // https://github.com/mikepenz/Android-Iconics</div><div class="line">    // step 1</div><div class="line">    compile &quot;com.mikepenz:iconics-core:2.6.7@aar&quot;</div><div class="line">	compile &quot;com.android.support:appcompat-v7:$&#123;supportLibVersion&#125;&quot;</div><div class="line">    // setp 2</div><div class="line">    compile &apos;com.mikepenz:google-material-typeface:2.2.0.2.original@aar&apos; </div><div class="line">	compile &apos;com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:fontawesome-typeface:4.6.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:octicons-typeface:3.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:meteocons-typeface:1.1.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:community-material-typeface:1.5.54.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:weather-icons-typeface:2.0.10.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:typeicons-typeface:2.0.7.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:entypo-typeface:1.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:devicon-typeface:2.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:foundation-icons-typeface:3.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:ionicons-typeface:2.0.1.2@aar&apos;</div><div class="line"></div><div class="line">    // About page</div><div class="line">    // https://github.com/medyo/android-about-page</div><div class="line">    compile &apos;com.github.medyo:android-about-page:1.0.8&apos;</div><div class="line">    // https://github.com/mikepenz/AboutLibraries</div><div class="line">    compile(&apos;com.mikepenz:aboutlibraries:5.7.1@aar&apos;) &#123;</div><div class="line">    	transitive = true</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    // Intro</div><div class="line">    // https://github.com/PaoloRotolo/AppIntro</div><div class="line">    compile &apos;com.github.paolorotolo:appintro:4.0.0&apos;</div><div class="line"></div><div class="line">    // Float button</div><div class="line">    compile &apos;info.hoang8f:fbutton:1.0.5&apos;</div><div class="line"></div><div class="line">    // Web</div><div class="line">    // https://github.com/square/retrofit</div><div class="line">    compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;</div><div class="line">    // https://github.com/ReactiveX/RxJava</div><div class="line">    // https://github.com/lzyzsd/Awesome-RxJava</div><div class="line">    compile &apos;io.reactivex:rxjava:1.1.7&apos;</div><div class="line"></div><div class="line">    // Pic</div><div class="line">    // https://github.com/square/picasso</div><div class="line">    compile &apos;com.squareup.picasso:picasso:2.5.2&apos;</div><div class="line">    // https://github.com/bumptech/glide</div><div class="line">    compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">  	compile &apos;com.android.support:support-v4:19.1.0&apos;</div><div class="line"></div><div class="line">    // Fragment</div><div class="line">    https://github.com/YoKeyword/Fragmentation</div><div class="line"></div><div class="line">    // Bugly</div><div class="line">    compile &apos;com.tencent.bugly:crashreport:latest.release&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="通过命令行创建Android工程"><a href="#通过命令行创建Android工程" class="headerlink" title="通过命令行创建Android工程"></a>通过命令行创建Android工程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android create project -a Main -k com.example.app -t 23 -g -v 2.1.2 -p AppWithGradleTemplate</div></pre></td></tr></table></figure>
+<p>“-g” 表示使用的Gradle模板</p>
+<p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">./android -h create project</div><div class="line"></div><div class="line">       Usage:</div><div class="line">       android [global options] create project [action options]</div><div class="line">       Global options:</div><div class="line">  -s --silent     : Silent mode, shows errors only.</div><div class="line">  -v --verbose    : Verbose mode, shows errors, warnings and all messages.</div><div class="line">     --clear-cache: Clear the SDK Manager repository manifest cache.</div><div class="line">  -h --help       : Help on a specific command.</div><div class="line"></div><div class="line">                         Action &quot;create project&quot;:</div><div class="line">  Creates a new Android project.</div><div class="line">Options:</div><div class="line">  -n --name          : Project name.</div><div class="line">  -a --activity      : Name of the default Activity that is created. [required]</div><div class="line">  -k --package       : Android package name for the application. [required]</div><div class="line">  -v --gradle-version: Gradle Android plugin version.</div><div class="line">  -t --target        : Target ID of the new project. [required]</div><div class="line">  -g --gradle        : Use gradle template.</div><div class="line">  -p --path          : The new project&apos;s directory. [required]</div></pre></td></tr></table></figure></p>
+<h1 id="避免工程每次都下载gradle-x-x-x-all-zip"><a href="#避免工程每次都下载gradle-x-x-x-all-zip" class="headerlink" title="避免工程每次都下载gradle-x.x.x-all.zip"></a>避免工程每次都下载gradle-x.x.x-all.zip</h1><p>首先从官方网站下载需要的版本<br><a href="http://services.gradle.org/distributions" target="_blank" rel="external">http://services.gradle.org/distributions</a><br>修改工程根目录/gradle/wrapper中的gradle-wrapper.properties文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip</div><div class="line">修改为：本地路径</div><div class="line">distributionUrl=file\:/Users/xg/Open/gradle2.10/gradle-2.10-all.zip</div></pre></td></tr></table></figure></p>
+<h1 id="sign-apk"><a href="#sign-apk" class="headerlink" title="sign apk"></a>sign apk</h1><p>Put this into ~/.gradle/gradle.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RELEASE_STORE_FILE=&#123;path to your keystore&#125;</div><div class="line">RELEASE_STORE_PASSWORD=*****</div><div class="line">RELEASE_KEY_ALIAS=*****</div><div class="line">RELEASE_KEY_PASSWORD=*****</div></pre></td></tr></table></figure></p>
+<p>Modify your build.gradle like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line"></div><div class="line">   release &#123;</div><div class="line">       storeFile file(RELEASE_STORE_FILE)</div><div class="line">       storePassword RELEASE_STORE_PASSWORD</div><div class="line">       keyAlias RELEASE_KEY_ALIAS</div><div class="line">       keyPassword RELEASE_KEY_PASSWORD</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            signingConfig signingConfigs.release</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Then you can run gradle assembleRelease</p>
+<h1 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h1><ul>
+<li>关于Gradle：<br><a href="https://gradle.org/getting-started-android-build/" target="_blank" rel="external">https://gradle.org/getting-started-android-build/</a></li>
+<li>关于Jcenter：<br><a href="https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html" target="_blank" rel="external">https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html</a></li>
+</ul>
 
           
         
@@ -518,7 +1710,7 @@
                alt="Will" />
           <p class="site-author-name" itemprop="name">Will</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -526,14 +1718,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -574,20 +1773,20 @@
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Will</span>
 </div>
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -659,13 +1858,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
   
 
   
@@ -712,6 +1904,113 @@
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

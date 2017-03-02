@@ -1,0 +1,971 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Directory[TOC]
+Study Map
+
+Download XMind File
+
+Outline
+What we really want is the user experience of the native mobile platforms, combined with the developer experience we have when building with Reac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative">
+<meta property="og:url" content="http://mr7cat.com/2017/02/09/ReactNative/index.html">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="Directory[TOC]
+Study Map
+
+Download XMind File
+
+Outline
+What we really want is the user experience of the native mobile platforms, combined with the developer experience we have when building with Reac">
+<meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/RN.png">
+<meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/3-3-component-lifecycle.jpg">
+<meta property="og:updated_time" content="2017-02-09T06:46:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactNative">
+<meta name="twitter:description" content="Directory[TOC]
+Study Map
+
+Download XMind File
+
+Outline
+What we really want is the user experience of the native mobile platforms, combined with the developer experience we have when building with Reac">
+<meta name="twitter:image" content="http://obzooc3zl.bkt.clouddn.com/RN.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mr7cat.com/2017/02/09/ReactNative/"/>
+
+
+
+
+
+  <title> ReactNative | Mr7Cat </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr7Cat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/02/09/ReactNative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ReactNative
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T13:30:30+08:00">
+                2017-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/09/ReactNative/" class="leancloud_visitors" data-flag-title="ReactNative">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><p>[TOC]</p>
+<h1 id="Study-Map"><a href="#Study-Map" class="headerlink" title="Study Map"></a>Study Map</h1><p><img src="http://obzooc3zl.bkt.clouddn.com/RN.png" alt=""></p>
+<blockquote>
+<p><a href="http://obzooc3zl.bkt.clouddn.com/RN.xmind" target="_blank" rel="external">Download XMind File</a></p>
+</blockquote>
+<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><blockquote>
+<p>What we really want is the <strong>user experience</strong> of the native mobile platforms, combined with the <strong>developer experience</strong> we have when building with React on the web.</p>
+<p><a href="https://zhuanlan.zhihu.com/p/20549882" target="_blank" rel="external">REF</a></p>
+</blockquote>
+<ul>
+<li>React-Native 丢弃了 Webview。</li>
+<li>复用React，将 Dom 结构的改变通过 diff 算法处理后，由 js 传递给 native 进行底层视图布局。</li>
+<li>css-layout引擎，前端可以继续写熟悉的 css 语法，由引擎转化成 oc 底层的布局。</li>
+<li>对 js 暴露底层常用的 UI 组建。js 层可以直接对这些组件进行布局。</li>
+</ul>
+<p>对应前端的开发模式的变化：</p>
+<ul>
+<li>JSX vs Html</li>
+<li>css-layout vs css</li>
+<li>ECMAScript 6 vs ECMAScript 5</li>
+<li>React-Native vs DOM</li>
+</ul>
+<h2 id="Why-use-React-Native"><a href="#Why-use-React-Native" class="headerlink" title="Why use React Native"></a>Why use React Native</h2><p>目前主流的应用大体分成三类：Native App, Web App, Hybrid App. </p>
+<h3 id="Native-App"><a href="#Native-App" class="headerlink" title="Native App"></a>Native App</h3><p><strong>优点</strong></p>
+<ul>
+<li>性能好</li>
+<li>丰富的API</li>
+<li>SDK更新及时，可以使用最新的特性</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>开发成本高，无法跨平台</li>
+<li>升级需要重新打包，发布周期长</li>
+</ul>
+<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><p><strong>优点</strong></p>
+<ul>
+<li>跨平台，Write Once , Run Anywhere</li>
+<li>版本升级容易 </li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>无法调用系统级的API</li>
+<li>临时入口，用户留存度低</li>
+<li>性能差</li>
+</ul>
+<h3 id="Hybrid-App"><a href="#Hybrid-App" class="headerlink" title="Hybrid App"></a>Hybrid App</h3><p><strong>优点</strong></p>
+<ul>
+<li>Native App 和 Web App 折中的方案</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>性能差</li>
+<li>页面渲染效率低</li>
+<li>实现动画，资源消耗大</li>
+</ul>
+<h1 id="Development-Environment"><a href="#Development-Environment" class="headerlink" title="Development Environment"></a>Development Environment</h1><p>官方文档（v 0.41）</p>
+<p><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://reactnative.cn/docs/0.41/getting-started.html" target="_blank" rel="external">中文</a></p>
+<h2 id="Develop-Tools"><a href="#Develop-Tools" class="headerlink" title="Develop Tools"></a>Develop Tools</h2><p>IDE：Sublime or Nuclide<br>Sublime插件：Babel高亮显示；HTML-CSS-JS Prettify；ConvertToUTF8；</p>
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p><a href="http://facebook.github.io/react-native/docs/tutorial.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://reactnative.cn/docs/0.41/tutorial.html#content" target="_blank" rel="external">中文</a></p>
+<p><a href="https://cdn.rawgit.com/dabbott/react-native-web-player/gh-v1.8.1/index.html#title=React%20Native%20Web%20Player" target="_blank" rel="external">Try it in Browser!</a></p>
+<h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><ul>
+<li><p>语法<br><a href="http://es6.ruanyifeng.com/#docs/intro" target="_blank" rel="external">ES6入门</a></p>
+<p><a href="http://reactnative.cn/proxy/bbs.reactnative.cn/topic/15" target="_blank" rel="external">React/React Native 的ES5 ES6写法对照表</a></p>
+</li>
+<li><p>布局样式</p>
+<p>支持的样式：官方文档 <a href="http://facebook.github.io/react-native/docs/layout-props.html" target="_blank" rel="external">English</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">语法</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">实例</a></p>
+</li>
+<li><p>Global Style</p>
+<p>对于应用的一些通用属性，可以单独定义在一个文件中，实现全局样式。</p>
+<p>创建文件 style.js :</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  StyleSheet</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = StyleSheet.create(&#123;</div><div class="line"></div><div class="line">  <span class="attr">default_text</span>:&#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">color</span>: <span class="string">'red'</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在component中使用：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> appStyle = <span class="built_in">require</span>(<span class="string">'../styles/AppStyles'</span>);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">	&lt;Text style=&#123;appStyle.default_text&#125;&gt;</div><div class="line">		Hello</div><div class="line">	&lt;/Text&gt;</div><div class="line">&lt;<span class="regexp">/View&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Visible or Invisible</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">  	&lt;Image style=&#123;styles.list_avatar&#125; resizeMode="contain" source=&#123;imgSource&#125;&gt;</div><div class="line">          &#123; this._renderBadge(unread) &#125;</div><div class="line">     &lt;/Image&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">_renderBadge(unread) &#123;</div><div class="line">      <span class="keyword">if</span> (unread &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          &lt;Badge style=&#123;styles.badge&#125; minWidth=&#123;12&#125; minHeight=&#123;12&#125; textStyle=&#123;&#123;color: '#fff',&#125;&#125;&gt;</div><div class="line">          &#123;unread&#125;</div><div class="line">          &lt;/Badge&gt;</div><div class="line">          )  </div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>生命周期<br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">https://facebook.github.io/react/docs/component-specs.html</a></li>
+</ul>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/3-3-component-lifecycle.jpg" alt=""></p>
+<ul>
+<li>React Native Pass properties on navigator pop</li>
+</ul>
+<p>I just put “passProps” object when pushing the navigator to the 2nd page. This object contains a function property. In the 2nd page, I can call that function with this.props.(function name)</p>
+<ul>
+<li><p>查询属性</p>
+<p><a href="https://github.com/vhpoet/react-native-styling-cheat-sheet" target="_blank" rel="external">https://github.com/vhpoet/react-native-styling-cheat-sheet</a></p>
+</li>
+</ul>
+<ul>
+<li>JSON</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse</a></p>
+<p><strong>JSON.parse()</strong> 方法将一个符合JSON语法的字符串解析成一个对应类型的值或对象。在解析过程中，还可以选择性的修改某些属性的原始解析值。</p>
+<p><strong>JSON.stringify()</strong>方法可以将任意的 JavaScript 值序列化成 符合JSON语法的 字符串。若转换的函数被指定，则被序列化的值的每个属性都会经过该函数的转换和处理；若转换的数组被指定，只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中。</p>
+<ul>
+<li><p>Json2XML<br><a href="https://github.com/estheban/node-json2xml" target="_blank" rel="external">https://github.com/estheban/node-json2xml</a></p>
+</li>
+<li><p>性能<br><a href="http://reactnative.cn/docs/0.37/performance.html#content" target="_blank" rel="external">http://reactnative.cn/docs/0.37/performance.html#content</a><br>调试性能工具：<a href="http://reactnative.cn/docs/0.37/android-ui-performance.html#content" target="_blank" rel="external">http://reactnative.cn/docs/0.37/android-ui-performance.html#content</a></p>
+</li>
+<li><p>初始化模板<br><a href="https://github.com/reactnativecn/react-native-starter-kit" target="_blank" rel="external">https://github.com/reactnativecn/react-native-starter-kit</a><br>快速开发框架 包括 <a href="http://nativebase.io/" target="_blank" rel="external">NativeBase</a> + CodePush + Redux </p>
+</li>
+<li><p>支持多平台<br><a href="http://reactnative.cn/docs/0.37/platform-specific-code.html#content" target="_blank" rel="external">参考</a></p>
+</li>
+<li><p>数据传递<br><a href="http://www.jianshu.com/p/b9a7dbe9b336" target="_blank" rel="external">http://www.jianshu.com/p/b9a7dbe9b336</a></p>
+</li>
+</ul>
+<h1 id="Code-standards"><a href="#Code-standards" class="headerlink" title="Code standards"></a>Code standards</h1><p>如果想写RN代码更加优雅，<a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">参考airbnb的JSX编码规范</a></p>
+<h1 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h1><h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><a href="http://cn.redux.js.org/" target="_blank" rel="external">Redux</a><br>Redux参考文章</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/38591713" target="_blank" rel="external">如何评价数据流管理架构 Redux?</a><br><a href="http://div.io/topic/1309" target="_blank" rel="external">深入到源码：解读 redux 的设计思路与用法</a><br><a href="https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn" target="_blank" rel="external">看漫画学Redux</a></p>
+</blockquote>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">web fetch</a></p>
+<h2 id="Hot-Fix"><a href="#Hot-Fix" class="headerlink" title="Hot Fix"></a>Hot Fix</h2><p><a href="https://microsoft.github.io/code-push/" target="_blank" rel="external">code push</a></p>
+<h3 id="Build-bundle"><a href="#Build-bundle" class="headerlink" title="Build bundle"></a>Build bundle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure>
+<h1 id="Open-Source-Lib"><a href="#Open-Source-Lib" class="headerlink" title="Open Source Lib"></a>Open Source Lib</h1><blockquote>
+<p><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native</a></p>
+<p><a href="https://github.com/lwansbrough/react-native-camera" target="_blank" rel="external">Camera</a></p>
+<p><a href="http://bbs.reactnative.cn/topic/1242/%E4%BD%BF%E7%94%A8-leancloud-%E4%B8%8E-react-native-%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8" target="_blank" rel="external">使用 LeanCloud 与 React Native 构建原生应用</a></p>
+<p><a href="https://github.com/leancloud/js-realtime-sdk" target="_blank" rel="external">JS IM SDK</a></p>
+<p><a href="https://github.com/FaridSafi/react-native-gifted-chat" target="_blank" rel="external">Chat Room</a></p>
+<p><a href="https://github.com/skellock/phoenix-react-native-mashup" target="_blank" rel="external">Chat App</a></p>
+</blockquote>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">测试ES6 JS Code Chrome extention</a> </p>
+<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><blockquote>
+<p><a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></p>
+<p><a href="https://github.com/talentjiang/react_native_office" target="_blank" rel="external">https://github.com/talentjiang/react_native_office</a></p>
+<p><a href="https://github.com/ljunb/react-native-iShiWuPai" target="_blank" rel="external">https://github.com/ljunb/react-native-iShiWuPai</a></p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
+<p><a href="http://reactnative.com" target="_blank" rel="external">http://reactnative.com</a></p>
+<p><a href="http://reactnative.cn" target="_blank" rel="external">http://reactnative.cn</a></p>
+<p><a href="http://imweb.io/topic/5598d986cc5ed2481ec9404e" target="_blank" rel="external">http://imweb.io/topic/5598d986cc5ed2481ec9404e</a></p>
+<p><a href="http://www.cnblogs.com/suxun/p/5222175.html" target="_blank" rel="external">http://www.cnblogs.com/suxun/p/5222175.html</a></p>
+</blockquote>
+<h1 id="Stackoverflow"><a href="#Stackoverflow" class="headerlink" title="Stackoverflow"></a>Stackoverflow</h1><p><a href="http://stackoverflow.com/questions/29463592/react-native-pass-properties-on-navigator-pop" target="_blank" rel="external">React Native Pass properties on navigator pop</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://obzooc3zl.bkt.clouddn.com/wechat_qr.png" alt="Will wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Contact me with Wechat</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/26/BuildReactNative/" rel="next" title="BuildReactNative">
+                <i class="fa fa-chevron-left"></i> BuildReactNative
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Will" />
+          <p class="site-author-name" itemprop="name">Will</p>
+           
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Directory"><span class="nav-number">1.</span> <span class="nav-text">Directory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Study-Map"><span class="nav-number">2.</span> <span class="nav-text">Study Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Outline"><span class="nav-number">3.</span> <span class="nav-text">Outline</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-use-React-Native"><span class="nav-number">3.1.</span> <span class="nav-text">Why use React Native</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Native-App"><span class="nav-number">3.1.1.</span> <span class="nav-text">Native App</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-App"><span class="nav-number">3.1.2.</span> <span class="nav-text">Web App</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hybrid-App"><span class="nav-number">3.1.3.</span> <span class="nav-text">Hybrid App</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Development-Environment"><span class="nav-number">4.</span> <span class="nav-text">Development Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Develop-Tools"><span class="nav-number">4.1.</span> <span class="nav-text">Develop Tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-World"><span class="nav-number">5.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Start"><span class="nav-number">6.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code-standards"><span class="nav-number">7.</span> <span class="nav-text">Code standards</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Technology"><span class="nav-number">8.</span> <span class="nav-text">Technology</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Framework"><span class="nav-number">8.1.</span> <span class="nav-text">Framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">8.2.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hot-Fix"><span class="nav-number">8.3.</span> <span class="nav-text">Hot Fix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-bundle"><span class="nav-number">8.3.1.</span> <span class="nav-text">Build bundle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Open-Source-Lib"><span class="nav-number">9.</span> <span class="nav-text">Open Source Lib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools"><span class="nav-number">10.</span> <span class="nav-text">Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projects"><span class="nav-number">11.</span> <span class="nav-text">Projects</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">12.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stackoverflow"><span class="nav-number">13.</span> <span class="nav-text">Stackoverflow</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Will</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

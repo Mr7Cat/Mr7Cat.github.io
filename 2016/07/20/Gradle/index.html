@@ -1,0 +1,850 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gradle," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="翻译自：The Ins and Outs of Gradle
+什么是GradleGradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle总结">
+<meta property="og:url" content="http://mr7cat.com/2016/07/20/Gradle/index.html">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="翻译自：The Ins and Outs of Gradle
+什么是GradleGradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供">
+<meta property="og:image" content="http://gradle.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/gradle-logo-horizontal2.svg">
+<meta property="og:updated_time" content="2016-09-18T07:46:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle总结">
+<meta name="twitter:description" content="翻译自：The Ins and Outs of Gradle
+什么是GradleGradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供">
+<meta name="twitter:image" content="http://gradle.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/gradle-logo-horizontal2.svg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mr7cat.com/2016/07/20/Gradle/"/>
+
+
+
+
+
+  <title> Gradle总结 | Mr7Cat </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr7Cat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/Gradle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gradle总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
+                2016-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/07/20/Gradle/" class="leancloud_visitors" data-flag-title="Gradle总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://gradle.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/gradle-logo-horizontal2.svg" alt="gradle"></p>
+<p>翻译自：<a href="http://code.tutsplus.com/tutorials/the-ins-and-outs-of-gradle--cms-22978" target="_blank" rel="external">The Ins and Outs of Gradle</a></p>
+<h1 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h1><p>Gradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。<br>如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供了很多功能，所以还是值得花时间搞懂关于它的一切的。下面是一些入门的知识。</p>
+<ul>
+<li>必须的配置项<br>一般在用Android Studio新建工程的时候会自动生成必要的一些配置项，当然你可以在此基础上进行定制。</li>
+<li>声明项目的依赖<br>依赖可以是module，jar包，lib工程，你可以把依赖的库放在本地或者放到远端的仓库中。</li>
+<li>测试你的工程<br>Gradle根据你的测试工程自动生成测试的apk，并在编译的过程中测试你的主程序。</li>
+<li>生成签名的apk<br>可以通过配置将一份工程生成不同版本的apk，方便生成不同的渠道包，或针对特定的设备生成apk，或生成免费和收费的不同版本。</li>
+</ul>
+<h1 id="探索Gradle文件"><a href="#探索Gradle文件" class="headerlink" title="探索Gradle文件"></a>探索Gradle文件</h1><p>当你通过Android Studio新建一个工程后，会发现自动生成了2个build.gradle文件，一个位于工程根目录，一个位于app的目录下。<br>我们为了区分它们，分别给它们一个别名吧，根目录下的叫做工程Gradle配置文件，app下的叫做应用Gradle配置文件。</p>
+<ul>
+<li><p>工程Gradle配置文件</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></div><div class="line"></div><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 该文件依赖jcenter仓库</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.1.2'</span> <span class="comment">// Android Gradle plugin的版本为2.1.2</span></div><div class="line"></div><div class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></div><div class="line">        <span class="comment">// in the individual module build.gradle files</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">allprojects</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 整个工程依赖的仓库</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">task</span> clean(type: <span class="keyword">Delete</span>) &#123;</div><div class="line">    <span class="keyword">delete</span> rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>模块Gradle配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;com.android.application&apos; // 告诉Gradle使用Android插件</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 24 </div><div class="line">    buildToolsVersion &quot;24.0.0&quot; </div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.demo&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 24</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// 声明依赖</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;]) // 依赖本地libs目录下的jar文件</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line"></div><div class="line">    compile &apos;com.android.support:appcompat-v7:24.0.0&apos; // 依赖远端仓库中的包</div><div class="line"></div><div class="line">    compile project(path: &apos;:lib_name&apos;) // 依赖本地lib工程</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="常用第三方库依赖配置"><a href="#常用第三方库依赖配置" class="headerlink" title="常用第三方库依赖配置"></a>常用第三方库依赖配置</h1><ul>
+<li><p>TOP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.1.2&apos;</div><div class="line">        // ORM </div><div class="line">        classpath &quot;io.realm:realm-gradle-plugin:1.0.0&quot;</div><div class="line"></div><div class="line">        classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;</div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Module</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;realm-android&apos;</div><div class="line">apply plugin: &apos;android-apt&apos;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// Inject view, butterknife</div><div class="line">	compile &apos;com.jakewharton:butterknife:8.0.1&apos;</div><div class="line">	apt &apos;com.jakewharton:butterknife-compiler:8.0.1&apos;</div><div class="line"></div><div class="line">	// Chart</div><div class="line">    // https://github.com/diogobernardino/WilliamChart</div><div class="line">	// compile &apos;com.diogobernardino:williamchart:2.2&apos;</div><div class="line"></div><div class="line">    compile &apos;com.github.lecho:hellocharts-library:1.5.8@aar&apos;</div><div class="line"></div><div class="line">    // Drawer</div><div class="line">    //http://mikepenz.github.io/MaterialDrawer/</div><div class="line">    compile(&apos;com.mikepenz:materialdrawer:5.3.0@aar&apos;) &#123;</div><div class="line">        transitive = true</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // icon fonts used inside the sample</div><div class="line">    // https://github.com/mikepenz/Android-Iconics</div><div class="line">    // step 1</div><div class="line">    compile &quot;com.mikepenz:iconics-core:2.6.7@aar&quot;</div><div class="line">	compile &quot;com.android.support:appcompat-v7:$&#123;supportLibVersion&#125;&quot;</div><div class="line">    // setp 2</div><div class="line">    compile &apos;com.mikepenz:google-material-typeface:2.2.0.2.original@aar&apos; </div><div class="line">	compile &apos;com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:fontawesome-typeface:4.6.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:octicons-typeface:3.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:meteocons-typeface:1.1.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:community-material-typeface:1.5.54.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:weather-icons-typeface:2.0.10.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:typeicons-typeface:2.0.7.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:entypo-typeface:1.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:devicon-typeface:2.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:foundation-icons-typeface:3.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:ionicons-typeface:2.0.1.2@aar&apos;</div><div class="line"></div><div class="line">    // About page</div><div class="line">    // https://github.com/medyo/android-about-page</div><div class="line">    compile &apos;com.github.medyo:android-about-page:1.0.8&apos;</div><div class="line">    // https://github.com/mikepenz/AboutLibraries</div><div class="line">    compile(&apos;com.mikepenz:aboutlibraries:5.7.1@aar&apos;) &#123;</div><div class="line">    	transitive = true</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    // Intro</div><div class="line">    // https://github.com/PaoloRotolo/AppIntro</div><div class="line">    compile &apos;com.github.paolorotolo:appintro:4.0.0&apos;</div><div class="line"></div><div class="line">    // Float button</div><div class="line">    compile &apos;info.hoang8f:fbutton:1.0.5&apos;</div><div class="line"></div><div class="line">    // Web</div><div class="line">    // https://github.com/square/retrofit</div><div class="line">    compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;</div><div class="line">    // https://github.com/ReactiveX/RxJava</div><div class="line">    // https://github.com/lzyzsd/Awesome-RxJava</div><div class="line">    compile &apos;io.reactivex:rxjava:1.1.7&apos;</div><div class="line"></div><div class="line">    // Pic</div><div class="line">    // https://github.com/square/picasso</div><div class="line">    compile &apos;com.squareup.picasso:picasso:2.5.2&apos;</div><div class="line">    // https://github.com/bumptech/glide</div><div class="line">    compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">  	compile &apos;com.android.support:support-v4:19.1.0&apos;</div><div class="line"></div><div class="line">    // Fragment</div><div class="line">    https://github.com/YoKeyword/Fragmentation</div><div class="line"></div><div class="line">    // Bugly</div><div class="line">    compile &apos;com.tencent.bugly:crashreport:latest.release&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="通过命令行创建Android工程"><a href="#通过命令行创建Android工程" class="headerlink" title="通过命令行创建Android工程"></a>通过命令行创建Android工程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android create project -a Main -k com.example.app -t 23 -g -v 2.1.2 -p AppWithGradleTemplate</div></pre></td></tr></table></figure>
+<p>“-g” 表示使用的Gradle模板</p>
+<p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">./android -h create project</div><div class="line"></div><div class="line">       Usage:</div><div class="line">       android [global options] create project [action options]</div><div class="line">       Global options:</div><div class="line">  -s --silent     : Silent mode, shows errors only.</div><div class="line">  -v --verbose    : Verbose mode, shows errors, warnings and all messages.</div><div class="line">     --clear-cache: Clear the SDK Manager repository manifest cache.</div><div class="line">  -h --help       : Help on a specific command.</div><div class="line"></div><div class="line">                         Action &quot;create project&quot;:</div><div class="line">  Creates a new Android project.</div><div class="line">Options:</div><div class="line">  -n --name          : Project name.</div><div class="line">  -a --activity      : Name of the default Activity that is created. [required]</div><div class="line">  -k --package       : Android package name for the application. [required]</div><div class="line">  -v --gradle-version: Gradle Android plugin version.</div><div class="line">  -t --target        : Target ID of the new project. [required]</div><div class="line">  -g --gradle        : Use gradle template.</div><div class="line">  -p --path          : The new project&apos;s directory. [required]</div></pre></td></tr></table></figure></p>
+<h1 id="避免工程每次都下载gradle-x-x-x-all-zip"><a href="#避免工程每次都下载gradle-x-x-x-all-zip" class="headerlink" title="避免工程每次都下载gradle-x.x.x-all.zip"></a>避免工程每次都下载gradle-x.x.x-all.zip</h1><p>首先从官方网站下载需要的版本<br><a href="http://services.gradle.org/distributions" target="_blank" rel="external">http://services.gradle.org/distributions</a><br>修改工程根目录/gradle/wrapper中的gradle-wrapper.properties文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip</div><div class="line">修改为：本地路径</div><div class="line">distributionUrl=file\:/Users/xg/Open/gradle2.10/gradle-2.10-all.zip</div></pre></td></tr></table></figure></p>
+<h1 id="sign-apk"><a href="#sign-apk" class="headerlink" title="sign apk"></a>sign apk</h1><p>Put this into ~/.gradle/gradle.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RELEASE_STORE_FILE=&#123;path to your keystore&#125;</div><div class="line">RELEASE_STORE_PASSWORD=*****</div><div class="line">RELEASE_KEY_ALIAS=*****</div><div class="line">RELEASE_KEY_PASSWORD=*****</div></pre></td></tr></table></figure></p>
+<p>Modify your build.gradle like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line"></div><div class="line">   release &#123;</div><div class="line">       storeFile file(RELEASE_STORE_FILE)</div><div class="line">       storePassword RELEASE_STORE_PASSWORD</div><div class="line">       keyAlias RELEASE_KEY_ALIAS</div><div class="line">       keyPassword RELEASE_KEY_PASSWORD</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            signingConfig signingConfigs.release</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Then you can run gradle assembleRelease</p>
+<h1 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h1><ul>
+<li>关于Gradle：<br><a href="https://gradle.org/getting-started-android-build/" target="_blank" rel="external">https://gradle.org/getting-started-android-build/</a></li>
+<li>关于Jcenter：<br><a href="https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html" target="_blank" rel="external">https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://obzooc3zl.bkt.clouddn.com/wechat_qr.png" alt="Will wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Contact me with Wechat</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/20/AndroidShell/" rel="prev" title="Android Shell">
+                Android Shell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Will" />
+          <p class="site-author-name" itemprop="name">Will</p>
+           
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Gradle"><span class="nav-number">1.</span> <span class="nav-text">什么是Gradle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#探索Gradle文件"><span class="nav-number">2.</span> <span class="nav-text">探索Gradle文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用第三方库依赖配置"><span class="nav-number">3.</span> <span class="nav-text">常用第三方库依赖配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过命令行创建Android工程"><span class="nav-number">4.</span> <span class="nav-text">通过命令行创建Android工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#避免工程每次都下载gradle-x-x-x-all-zip"><span class="nav-number">5.</span> <span class="nav-text">避免工程每次都下载gradle-x.x.x-all.zip</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sign-apk"><span class="nav-number">6.</span> <span class="nav-text">sign apk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考网址"><span class="nav-number">7.</span> <span class="nav-text">参考网址</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Will</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
