@@ -260,6 +260,278 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/04/25/GetViewPosition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/GetViewPosition/" itemprop="url">
+                  GetViewPosition
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T09:46:50+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/25/GetViewPosition/" class="leancloud_visitors" data-flag-title="GetViewPosition">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Get-View-Position"><a href="#Get-View-Position" class="headerlink" title="Get View Position"></a>Get View Position</h1><blockquote>
+<p>获取View在屏幕上的位置和大小</p>
+</blockquote>
+<p>获取控件的引用，通过在render()中添加：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ref=&#123;component =&gt; <span class="keyword">this</span>.subject = component&#125;</div></pre></td></tr></table></figure></p>
+<p>通过measure方法获取View的位置和大小属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.subject.measure(<span class="function">(<span class="params">fx, fy, width, height, px, py</span>) =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'fx = '</span> + fx);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'fy = '</span> + fy);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'width = '</span> + width);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'height = '</span> + height);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'px = '</span> + px);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'py = '</span> + py);</div><div class="line"></div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">layout</span>: &#123;</div><div class="line">          <span class="attr">x</span>: px,</div><div class="line">          <span class="attr">y</span>: py,</div><div class="line">          <span class="attr">width</span>: width,</div><div class="line">          <span class="attr">height</span>: height</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View,</div><div class="line">  TouchableHighlight,</div><div class="line">  PixelRatio</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">let</span> positoin;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.getPosition = <span class="keyword">this</span>.getPosition.bind(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">layout</span>: &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span>, <span class="attr">width</span>: <span class="number">0</span>, <span class="attr">height</span>: <span class="number">0</span> &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text ref=&#123;component =&gt; this.subject = component&#125; style=&#123;styles.welcome&#125;&gt;</div><div class="line">          Get my positoin!</div><div class="line">        &lt;/Text&gt;</div><div class="line">        &lt;Text style=&#123;styles.result&#125; &gt;&#123;"ratio:" + PixelRatio.get()&#125;&lt;/Text&gt;</div><div class="line">        &lt;Text style=&#123;styles.result&#125; &gt;&#123;"x(dp):" + this.state.layout.x + " x(px):" + this.state.layout.x * PixelRatio.get()&#125; &lt;/Text&gt;</div><div class="line">        &lt;Text style=&#123;styles.result&#125; &gt;&#123;"y(dp):" + this.state.layout.y + this.state.layout.x + " y(px):" + this.state.layout.y * PixelRatio.get()&#125;&lt;/Text&gt;</div><div class="line">        &lt;Text style=&#123;styles.result&#125; &gt;&#123;"width(dp):" + this.state.layout.width + this.state.layout.x + " width(px):" + this.state.layout.width * PixelRatio.get()&#125;&lt;/Text&gt;</div><div class="line">        &lt;Text style=&#123;styles.result&#125; &gt;&#123;"height(dp):" + this.state.layout.height + this.state.layout.x + " height(px):" + this.state.layout.height * PixelRatio.get()&#125;&lt;/Text&gt;</div><div class="line">        &lt;TouchableHighlight onPress=&#123;this.getPosition&#125;&gt;</div><div class="line">          &lt;Text style=&#123;styles.button&#125;&gt;Get&lt;/Text&gt;</div><div class="line">        &lt;/TouchableHighlight&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getPosition() &#123;</div><div class="line">    <span class="keyword">this</span>.subject.measure(<span class="function">(<span class="params">fx, fy, width, height, px, py</span>) =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'fx = '</span> + fx);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'fy = '</span> + fy);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'width = '</span> + width);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'height = '</span> + height);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'px = '</span> + px);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'py = '</span> + py);</div><div class="line"></div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">layout</span>: &#123;</div><div class="line">          <span class="attr">x</span>: px,</div><div class="line">          <span class="attr">y</span>: py,</div><div class="line">          <span class="attr">width</span>: width,</div><div class="line">          <span class="attr">height</span>: height</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">alignItems</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">welcome</span>: &#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">textAlign</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">margin</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'green'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">result</span>: &#123;</div><div class="line">    <span class="attr">textAlign</span>: <span class="string">'left'</span>,</div><div class="line">    <span class="attr">color</span>: <span class="string">'#333333'</span>,</div><div class="line">    <span class="attr">marginBottom</span>: <span class="number">5</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">button</span>: &#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">color</span>: <span class="string">'white'</span>,</div><div class="line">    <span class="attr">textAlign</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">textAlignVertical</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">height</span>: <span class="number">50</span>,</div><div class="line">    <span class="attr">width</span>: <span class="number">100</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'gray'</span></div><div class="line">  &#125;,</div><div class="line">&#125;);</div><div class="line"></div><div class="line">AppRegistry.registerComponent(<span class="string">'HelloWorld'</span>, () =&gt; HelloWorld);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/04/25/ReactNativeLib/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/ReactNativeLib/" itemprop="url">
+                  ReactNativeLib
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T09:26:23+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/25/ReactNativeLib/" class="leancloud_visitors" data-flag-title="ReactNativeLib">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="React-Native-Lib"><a href="#React-Native-Lib" class="headerlink" title="React Native Lib"></a>React Native Lib</h1><ul>
+<li>Install <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install &lt;package&gt; --save</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Awesome-React-Native"><a href="#Awesome-React-Native" class="headerlink" title="Awesome React Native"></a><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native</a></h2><blockquote>
+<p>收集一些优秀的RN库。</p>
+</blockquote>
+<h1 id="1-UI"><a href="#1-UI" class="headerlink" title="1. UI"></a>1. UI</h1><h2 id="rn-popup-layout"><a href="#rn-popup-layout" class="headerlink" title="rn-popup-layout"></a><a href="https://github.com/chethann/rn-popup" target="_blank" rel="external">rn-popup-layout</a></h2><blockquote>
+<p>在指定位置弹出气泡框，用于提示。</p>
+</blockquote>
+<p><img src="https://github.com/chethann/rn-popup/raw/master/demo/demo.gif" alt=""></p>
+<h1 id="2-System"><a href="#2-System" class="headerlink" title="2. System"></a>2. System</h1><h2 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a><a href="https://github.com/lwansbrough/react-native-camera" target="_blank" rel="external">Camera</a></h2><h1 id="3-Third-Part"><a href="#3-Third-Part" class="headerlink" title="3. Third Part"></a>3. Third Part</h1><h2 id="LeanCloud-amp-React-Native-make-a-native-app"><a href="#LeanCloud-amp-React-Native-make-a-native-app" class="headerlink" title=" LeanCloud &amp; React Native make a native app"></a><a href="http://bbs.reactnative.cn/topic/1242/%E4%BD%BF%E7%94%A8-leancloud-%E4%B8%8E-react-native-%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8" target="_blank" rel="external"> LeanCloud &amp; React Native make a native app</a></h2><h1 id="4-IM"><a href="#4-IM" class="headerlink" title="4. IM"></a>4. IM</h1><h2 id="JS-IM-SDK"><a href="#JS-IM-SDK" class="headerlink" title="JS IM SDK"></a><a href="https://github.com/leancloud/js-realtime-sdk" target="_blank" rel="external">JS IM SDK</a></h2><h2 id="Chat-Room"><a href="#Chat-Room" class="headerlink" title="Chat Room"></a><a href="https://github.com/FaridSafi/react-native-gifted-chat" target="_blank" rel="external">Chat Room</a></h2><h2 id="Chat-App"><a href="#Chat-App" class="headerlink" title="Chat App"></a><a href="https://github.com/skellock/phoenix-react-native-mashup" target="_blank" rel="external">Chat App</a></h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/03/24/ReactNative/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,7 +627,7 @@
 </blockquote>
 <h1 id="Development-Environment"><a href="#Development-Environment" class="headerlink" title="Development Environment"></a>Development Environment</h1><ul>
 <li><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">English</a></li>
-<li><a href="http://reactnative.cn/docs/0.42/getting-started.html" target="_blank" rel="external">中文</a></li>
+<li><a href="http://reactnative.cn/docs/0.43/getting-started.html" target="_blank" rel="external">中文</a></li>
 </ul>
 <p><strong>If you are in China, you maybe need do this below:</strong></p>
 <p>Set Taobao npm mirror server( or use <a href="http://mr7cat.com/2016/11/20/ShadowsocksVPN/">vpn</a>）。</p>
@@ -375,6 +647,7 @@
 <li><p>Grammar<br><a href="http://es6.ruanyifeng.com/#docs/intro" target="_blank" rel="external">ES6</a><br><a href="http://reactnative.cn/proxy/bbs.reactnative.cn/topic/15" target="_blank" rel="external">Different between ES5 and ES6</a></p>
 </li>
 <li><p>Layout<br><a href="http://facebook.github.io/react-native/docs/layout-props.html" target="_blank" rel="external">Doc</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">Flex Grammar</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Samples</a><br><a href="https://github.com/vhpoet/react-native-styling-cheat-sheet" target="_blank" rel="external">Property</a></p>
+<p><a href="http://blog.csdn.net/dongdong230/article/details/52469149" target="_blank" rel="external">Blog</a></p>
 </li>
 <li><p>Life cycle<br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">https://facebook.github.io/react/docs/component-specs.html</a></p>
 </li>
@@ -390,11 +663,12 @@
 <ul>
 <li><p>Json2XML<br><a href="https://github.com/estheban/node-json2xml" target="_blank" rel="external">https://github.com/estheban/node-json2xml</a></p>
 </li>
-<li><p>Support Multi-platform<br><a href="http://reactnative.cn/docs/0.42/platform-specific-code.html#content" target="_blank" rel="external">参考</a></p>
+<li><p>Support Multi-platform<br><a href="http://reactnative.cn/docs/0.42/platform-specific-code.html#content" target="_blank" rel="external">Ref</a></p>
 </li>
 <li><p>Data transfer<br><a href="http://www.jianshu.com/p/b9a7dbe9b336" target="_blank" rel="external">http://www.jianshu.com/p/b9a7dbe9b336</a></p>
 </li>
 </ul>
+<h1 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat *:S ReactNative:V ReactNativeJS:V</div></pre></td></tr></table></figure>
 <h1 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h1><h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><a href="http://cn.redux.js.org/" target="_blank" rel="external">Redux</a> </p>
 <blockquote>
 <p><a href="https://www.zhihu.com/question/38591713" target="_blank" rel="external">如何评价数据流管理架构 Redux?</a><br><a href="http://div.io/topic/1309" target="_blank" rel="external">深入到源码：解读 redux 的设计思路与用法</a><br><a href="https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn" target="_blank" rel="external">看漫画学Redux</a></p>
@@ -402,15 +676,7 @@
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">web fetch</a></p>
 <h2 id="Hot-Fix"><a href="#Hot-Fix" class="headerlink" title="Hot Fix"></a>Hot Fix</h2><p><a href="https://microsoft.github.io/code-push/" target="_blank" rel="external">code push</a></p>
 <h3 id="Build-bundle"><a href="#Build-bundle" class="headerlink" title="Build bundle"></a>Build bundle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure>
-<h1 id="Open-Source-Lib"><a href="#Open-Source-Lib" class="headerlink" title="Open Source Lib"></a>Open Source Lib</h1><blockquote>
-<p><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native</a></p>
-<p><a href="https://github.com/lwansbrough/react-native-camera" target="_blank" rel="external">Camera</a></p>
-<p><a href="http://bbs.reactnative.cn/topic/1242/%E4%BD%BF%E7%94%A8-leancloud-%E4%B8%8E-react-native-%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8" target="_blank" rel="external">使用 LeanCloud 与 React Native 构建原生应用</a></p>
-<p><a href="https://github.com/leancloud/js-realtime-sdk" target="_blank" rel="external">JS IM SDK</a></p>
-<p><a href="https://github.com/FaridSafi/react-native-gifted-chat" target="_blank" rel="external">Chat Room</a></p>
-<p><a href="https://github.com/skellock/phoenix-react-native-mashup" target="_blank" rel="external">Chat App</a></p>
-</blockquote>
-<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">测试ES6 JS Code Chrome extention</a> </p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">Test ES6 JS Code Chrome extention</a> </p>
 <h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><blockquote>
 <p><a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></p>
 <p><a href="https://github.com/talentjiang/react_native_office" target="_blank" rel="external">https://github.com/talentjiang/react_native_office</a></p>
@@ -1678,7 +1944,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -119,7 +119,7 @@ Note：don’t use cnpm!
 12">
 <meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/RN.png">
 <meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/3-3-component-lifecycle.jpg">
-<meta property="og:updated_time" content="2017-03-24T02:38:27.000Z">
+<meta property="og:updated_time" content="2017-04-25T05:18:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative">
 <meta name="twitter:description" content="Directory[TOC]
@@ -388,7 +388,7 @@ Note：don’t use cnpm!
 </blockquote>
 <h1 id="Development-Environment"><a href="#Development-Environment" class="headerlink" title="Development Environment"></a>Development Environment</h1><ul>
 <li><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">English</a></li>
-<li><a href="http://reactnative.cn/docs/0.42/getting-started.html" target="_blank" rel="external">中文</a></li>
+<li><a href="http://reactnative.cn/docs/0.43/getting-started.html" target="_blank" rel="external">中文</a></li>
 </ul>
 <p><strong>If you are in China, you maybe need do this below:</strong></p>
 <p>Set Taobao npm mirror server( or use <a href="http://mr7cat.com/2016/11/20/ShadowsocksVPN/">vpn</a>）。</p>
@@ -408,6 +408,7 @@ Note：don’t use cnpm!
 <li><p>Grammar<br><a href="http://es6.ruanyifeng.com/#docs/intro" target="_blank" rel="external">ES6</a><br><a href="http://reactnative.cn/proxy/bbs.reactnative.cn/topic/15" target="_blank" rel="external">Different between ES5 and ES6</a></p>
 </li>
 <li><p>Layout<br><a href="http://facebook.github.io/react-native/docs/layout-props.html" target="_blank" rel="external">Doc</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">Flex Grammar</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Samples</a><br><a href="https://github.com/vhpoet/react-native-styling-cheat-sheet" target="_blank" rel="external">Property</a></p>
+<p><a href="http://blog.csdn.net/dongdong230/article/details/52469149" target="_blank" rel="external">Blog</a></p>
 </li>
 <li><p>Life cycle<br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">https://facebook.github.io/react/docs/component-specs.html</a></p>
 </li>
@@ -423,11 +424,12 @@ Note：don’t use cnpm!
 <ul>
 <li><p>Json2XML<br><a href="https://github.com/estheban/node-json2xml" target="_blank" rel="external">https://github.com/estheban/node-json2xml</a></p>
 </li>
-<li><p>Support Multi-platform<br><a href="http://reactnative.cn/docs/0.42/platform-specific-code.html#content" target="_blank" rel="external">参考</a></p>
+<li><p>Support Multi-platform<br><a href="http://reactnative.cn/docs/0.42/platform-specific-code.html#content" target="_blank" rel="external">Ref</a></p>
 </li>
 <li><p>Data transfer<br><a href="http://www.jianshu.com/p/b9a7dbe9b336" target="_blank" rel="external">http://www.jianshu.com/p/b9a7dbe9b336</a></p>
 </li>
 </ul>
+<h1 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat *:S ReactNative:V ReactNativeJS:V</div></pre></td></tr></table></figure>
 <h1 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h1><h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><a href="http://cn.redux.js.org/" target="_blank" rel="external">Redux</a> </p>
 <blockquote>
 <p><a href="https://www.zhihu.com/question/38591713" target="_blank" rel="external">如何评价数据流管理架构 Redux?</a><br><a href="http://div.io/topic/1309" target="_blank" rel="external">深入到源码：解读 redux 的设计思路与用法</a><br><a href="https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn" target="_blank" rel="external">看漫画学Redux</a></p>
@@ -435,15 +437,7 @@ Note：don’t use cnpm!
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">web fetch</a></p>
 <h2 id="Hot-Fix"><a href="#Hot-Fix" class="headerlink" title="Hot Fix"></a>Hot Fix</h2><p><a href="https://microsoft.github.io/code-push/" target="_blank" rel="external">code push</a></p>
 <h3 id="Build-bundle"><a href="#Build-bundle" class="headerlink" title="Build bundle"></a>Build bundle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure>
-<h1 id="Open-Source-Lib"><a href="#Open-Source-Lib" class="headerlink" title="Open Source Lib"></a>Open Source Lib</h1><blockquote>
-<p><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native</a></p>
-<p><a href="https://github.com/lwansbrough/react-native-camera" target="_blank" rel="external">Camera</a></p>
-<p><a href="http://bbs.reactnative.cn/topic/1242/%E4%BD%BF%E7%94%A8-leancloud-%E4%B8%8E-react-native-%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8" target="_blank" rel="external">使用 LeanCloud 与 React Native 构建原生应用</a></p>
-<p><a href="https://github.com/leancloud/js-realtime-sdk" target="_blank" rel="external">JS IM SDK</a></p>
-<p><a href="https://github.com/FaridSafi/react-native-gifted-chat" target="_blank" rel="external">Chat Room</a></p>
-<p><a href="https://github.com/skellock/phoenix-react-native-mashup" target="_blank" rel="external">Chat App</a></p>
-</blockquote>
-<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">测试ES6 JS Code Chrome extention</a> </p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn" target="_blank" rel="external">Test ES6 JS Code Chrome extention</a> </p>
 <h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><blockquote>
 <p><a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></p>
 <p><a href="https://github.com/talentjiang/react_native_office" target="_blank" rel="external">https://github.com/talentjiang/react_native_office</a></p>
@@ -506,6 +500,10 @@ Note：don’t use cnpm!
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/25/ReactNativeLib/" rel="prev" title="ReactNativeLib">
+                ReactNativeLib <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -600,7 +598,7 @@ Note：don’t use cnpm!
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -646,7 +644,7 @@ Note：don’t use cnpm!
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Directory"><span class="nav-number">1.</span> <span class="nav-text">Directory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Study-Map"><span class="nav-number">2.</span> <span class="nav-text">Study Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Development-Environment"><span class="nav-number">3.</span> <span class="nav-text">Development Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Develop-Tools"><span class="nav-number">3.1.</span> <span class="nav-text">Develop Tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-World"><span class="nav-number">4.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code-standards"><span class="nav-number">5.</span> <span class="nav-text">Code standards</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Start"><span class="nav-number">6.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Technology"><span class="nav-number">7.</span> <span class="nav-text">Technology</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Framework"><span class="nav-number">7.1.</span> <span class="nav-text">Framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">7.2.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hot-Fix"><span class="nav-number">7.3.</span> <span class="nav-text">Hot Fix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-bundle"><span class="nav-number">7.3.1.</span> <span class="nav-text">Build bundle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Open-Source-Lib"><span class="nav-number">8.</span> <span class="nav-text">Open Source Lib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools"><span class="nav-number">9.</span> <span class="nav-text">Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projects"><span class="nav-number">10.</span> <span class="nav-text">Projects</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stackoverflow"><span class="nav-number">12.</span> <span class="nav-text">Stackoverflow</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Directory"><span class="nav-number">1.</span> <span class="nav-text">Directory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Study-Map"><span class="nav-number">2.</span> <span class="nav-text">Study Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Development-Environment"><span class="nav-number">3.</span> <span class="nav-text">Development Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Develop-Tools"><span class="nav-number">3.1.</span> <span class="nav-text">Develop Tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-World"><span class="nav-number">4.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code-standards"><span class="nav-number">5.</span> <span class="nav-text">Code standards</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Start"><span class="nav-number">6.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Debug"><span class="nav-number">7.</span> <span class="nav-text">Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Technology"><span class="nav-number">8.</span> <span class="nav-text">Technology</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Framework"><span class="nav-number">8.1.</span> <span class="nav-text">Framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">8.2.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hot-Fix"><span class="nav-number">8.3.</span> <span class="nav-text">Hot Fix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-bundle"><span class="nav-number">8.3.1.</span> <span class="nav-text">Build bundle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools"><span class="nav-number">9.</span> <span class="nav-text">Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projects"><span class="nav-number">10.</span> <span class="nav-text">Projects</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stackoverflow"><span class="nav-number">12.</span> <span class="nav-text">Stackoverflow</span></a></li></ol></div>
             
 
           </div>
