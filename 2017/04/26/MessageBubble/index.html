@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Shell," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,28 +87,33 @@
 
 
 
-<meta name="description" content="adbapksignerbmgretc1tooljobblogcatmksdcardsdkmanagerzipalignEmulator
-12&amp;gt; emulator -avd &amp;lt;avd_name&amp;gt; [-&amp;lt;option&amp;gt; [&amp;lt;value&amp;gt;]] ... [-&amp;lt;qemu args&amp;gt;]&amp;gt;
+<meta name="description" content="Message Bubble
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
-List avds
-12$ emulator -list-">
+
+实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
+然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Shell">
-<meta property="og:url" content="http://mr7cat.com/2016/07/20/AndroidShell/index.html">
+<meta property="og:title" content="MessageBubble">
+<meta property="og:url" content="http://mr7cat.com/2017/04/26/MessageBubble/index.html">
 <meta property="og:site_name" content="Mr7Cat">
-<meta property="og:description" content="adbapksignerbmgretc1tooljobblogcatmksdcardsdkmanagerzipalignEmulator
-12&amp;gt; emulator -avd &amp;lt;avd_name&amp;gt; [-&amp;lt;option&amp;gt; [&amp;lt;value&amp;gt;]] ... [-&amp;lt;qemu args&amp;gt;]&amp;gt;
+<meta property="og:description" content="Message Bubble
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
-List avds
-12$ emulator -list-">
-<meta property="og:updated_time" content="2016-12-22T07:14:32.000Z">
+
+实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
+然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
+<meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/message_bubble.png">
+<meta property="og:updated_time" content="2017-04-26T03:55:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Shell">
-<meta name="twitter:description" content="adbapksignerbmgretc1tooljobblogcatmksdcardsdkmanagerzipalignEmulator
-12&amp;gt; emulator -avd &amp;lt;avd_name&amp;gt; [-&amp;lt;option&amp;gt; [&amp;lt;value&amp;gt;]] ... [-&amp;lt;qemu args&amp;gt;]&amp;gt;
+<meta name="twitter:title" content="MessageBubble">
+<meta name="twitter:description" content="Message Bubble
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
-List avds
-12$ emulator -list-">
+
+实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
+然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
+<meta name="twitter:image" content="http://obzooc3zl.bkt.clouddn.com/message_bubble.png">
 
 
 
@@ -136,13 +141,13 @@ List avds
 
 
 
-  <link rel="canonical" href="http://mr7cat.com/2016/07/20/AndroidShell/"/>
+  <link rel="canonical" href="http://mr7cat.com/2017/04/26/MessageBubble/"/>
 
 
 
 
 
-  <title> Android Shell | Mr7Cat </title>
+  <title> MessageBubble | Mr7Cat </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -271,7 +276,7 @@ List avds
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/AndroidShell/">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/04/26/MessageBubble/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Will">
@@ -292,7 +297,7 @@ List avds
             
             
               
-                Android Shell
+                MessageBubble
               
             
           </h1>
@@ -307,8 +312,8 @@ List avds
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
-                2016-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T11:41:24+08:00">
+                2017-04-26
               </time>
             
 
@@ -325,7 +330,7 @@ List avds
 
           
           
-             <span id="/2016/07/20/AndroidShell/" class="leancloud_visitors" data-flag-title="Android Shell">
+             <span id="/2017/04/26/MessageBubble/" class="leancloud_visitors" data-flag-title="MessageBubble">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -354,12 +359,13 @@ List avds
       
 
       
-        <h1 id="adb"><a href="#adb" class="headerlink" title="adb"></a>adb</h1><h1 id="apksigner"><a href="#apksigner" class="headerlink" title="apksigner"></a>apksigner</h1><h1 id="bmgr"><a href="#bmgr" class="headerlink" title="bmgr"></a>bmgr</h1><h1 id="etc1tool"><a href="#etc1tool" class="headerlink" title="etc1tool"></a>etc1tool</h1><h1 id="jobb"><a href="#jobb" class="headerlink" title="jobb"></a>jobb</h1><h1 id="logcat"><a href="#logcat" class="headerlink" title="logcat"></a>logcat</h1><h1 id="mksdcard"><a href="#mksdcard" class="headerlink" title="mksdcard"></a>mksdcard</h1><h1 id="sdkmanager"><a href="#sdkmanager" class="headerlink" title="sdkmanager"></a>sdkmanager</h1><h1 id="zipalign"><a href="#zipalign" class="headerlink" title="zipalign"></a>zipalign</h1><h1 id="Emulator"><a href="#Emulator" class="headerlink" title="Emulator"></a>Emulator</h1><blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; emulator -avd &lt;avd_name&gt; [-&lt;option&gt; [&lt;value&gt;]] ... [-&lt;qemu args&gt;]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>List avds</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ emulator -list-avds</div><div class="line">Nexus_5_API_23</div></pre></td></tr></table></figure>
-
+        <h1 id="Message-Bubble"><a href="#Message-Bubble" class="headerlink" title="Message Bubble"></a>Message Bubble</h1><hr>
+<p> A simple way of make bubble view.<br> 一个实现聊天气泡View的简单方法</p>
+<hr>
+<p><img src="http://obzooc3zl.bkt.clouddn.com/message_bubble.png" alt=""></p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>首先设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">borderStyle: &apos;solid&apos;</div></pre></td></tr></table></figure></p>
+<p>然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。<br>设置border*Color的颜色来隐藏不需要显示的方向和显示需要的方向。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style=&#123;styles.bubble&#125;&gt;Hello World&lt;/Text&gt;</div><div class="line">        &lt;View style=&#123;styles.triangle&#125;&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">flexDirection</span>: <span class="string">'row'</span>,</div><div class="line">    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">alignItems</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bubble</span>: &#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">textAlign</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">padding</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'chartreuse'</span>,</div><div class="line">    <span class="attr">borderRadius</span>: <span class="number">8</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">triangle</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">height</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderStyle</span>: <span class="string">'solid'</span>,</div><div class="line">    <span class="attr">borderLeftWidth</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">borderRightWidth</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">borderBottomWidth</span>: <span class="number">8</span>,</div><div class="line">    <span class="attr">borderTopWidth</span>: <span class="number">8</span>,</div><div class="line">    <span class="attr">borderLeftColor</span>: <span class="string">'chartreuse'</span>,</div><div class="line">    <span class="attr">borderRightColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderTopColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderBottomColor</span>: <span class="string">'transparent'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -385,12 +391,6 @@ List avds
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Shell/" rel="tag"># Shell</a>
-          
-        </div>
-      
 
       
         
@@ -400,8 +400,8 @@ List avds
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/20/Gradle/" rel="next" title="Gradle总结">
-                <i class="fa fa-chevron-left"></i> Gradle总结
+              <a href="/2017/04/25/GetViewPosition/" rel="next" title="GetViewPosition">
+                <i class="fa fa-chevron-left"></i> GetViewPosition
               </a>
             
           </div>
@@ -409,10 +409,6 @@ List avds
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/20/Redux/" rel="prev" title="Redux">
-                Redux <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +549,7 @@ List avds
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#adb"><span class="nav-number">1.</span> <span class="nav-text">adb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apksigner"><span class="nav-number">2.</span> <span class="nav-text">apksigner</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bmgr"><span class="nav-number">3.</span> <span class="nav-text">bmgr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc1tool"><span class="nav-number">4.</span> <span class="nav-text">etc1tool</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jobb"><span class="nav-number">5.</span> <span class="nav-text">jobb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#logcat"><span class="nav-number">6.</span> <span class="nav-text">logcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mksdcard"><span class="nav-number">7.</span> <span class="nav-text">mksdcard</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sdkmanager"><span class="nav-number">8.</span> <span class="nav-text">sdkmanager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zipalign"><span class="nav-number">9.</span> <span class="nav-text">zipalign</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emulator"><span class="nav-number">10.</span> <span class="nav-text">Emulator</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Message-Bubble"><span class="nav-number">1.</span> <span class="nav-text">Message Bubble</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.2.</span> <span class="nav-text">Code</span></a></li></ol></li></ol></div>
             
 
           </div>
