@@ -88,8 +88,8 @@
 
 
 <meta name="description" content="Message Bubble
- A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
 实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
 然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
@@ -98,18 +98,18 @@
 <meta property="og:url" content="http://mr7cat.com/2017/04/26/MessageBubble/index.html">
 <meta property="og:site_name" content="Mr7Cat">
 <meta property="og:description" content="Message Bubble
- A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
 实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
 然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
 <meta property="og:image" content="http://obzooc3zl.bkt.clouddn.com/message_bubble.png">
-<meta property="og:updated_time" content="2017-04-26T03:55:05.000Z">
+<meta property="og:updated_time" content="2017-04-26T05:17:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MessageBubble">
 <meta name="twitter:description" content="Message Bubble
- A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
+ A simple way of make bubble view. 一个实现聊天气泡View的简单方法
 
 实现方式首先设置1borderStyle: &amp;apos;solid&amp;apos;
 然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。设置border*Col">
@@ -359,10 +359,10 @@
       
 
       
-        <h1 id="Message-Bubble"><a href="#Message-Bubble" class="headerlink" title="Message Bubble"></a>Message Bubble</h1><hr>
+        <h1 id="Message-Bubble"><a href="#Message-Bubble" class="headerlink" title="Message Bubble"></a>Message Bubble</h1><p><img src="http://obzooc3zl.bkt.clouddn.com/message_bubble.png" alt=""></p>
+<hr>
 <p> A simple way of make bubble view.<br> 一个实现聊天气泡View的简单方法</p>
 <hr>
-<p><img src="http://obzooc3zl.bkt.clouddn.com/message_bubble.png" alt=""></p>
 <h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>首先设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">borderStyle: &apos;solid&apos;</div></pre></td></tr></table></figure></p>
 <p>然后设置borderLeftWidth，borderRightWidth，borderBottomWidth，borderTopWidth来控制三角的高度。<br>设置border*Color的颜色来隐藏不需要显示的方向和显示需要的方向。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style=&#123;styles.bubble&#125;&gt;Hello World&lt;/Text&gt;</div><div class="line">        &lt;View style=&#123;styles.triangle&#125;&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">flexDirection</span>: <span class="string">'row'</span>,</div><div class="line">    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">alignItems</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bubble</span>: &#123;</div><div class="line">    <span class="attr">fontSize</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">textAlign</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">padding</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'chartreuse'</span>,</div><div class="line">    <span class="attr">borderRadius</span>: <span class="number">8</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">triangle</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">height</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderStyle</span>: <span class="string">'solid'</span>,</div><div class="line">    <span class="attr">borderLeftWidth</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">borderRightWidth</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">borderBottomWidth</span>: <span class="number">8</span>,</div><div class="line">    <span class="attr">borderTopWidth</span>: <span class="number">8</span>,</div><div class="line">    <span class="attr">borderLeftColor</span>: <span class="string">'chartreuse'</span>,</div><div class="line">    <span class="attr">borderRightColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderTopColor</span>: <span class="string">'transparent'</span>,</div><div class="line">    <span class="attr">borderBottomColor</span>: <span class="string">'transparent'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
