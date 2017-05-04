@@ -260,6 +260,837 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/04/GitInAction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/04/GitInAction/" itemprop="url">
+                  Git In Action
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T20:56:16+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/04/GitInAction/" class="leancloud_visitors" data-flag-title="Git In Action">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>修改了很多文件的时候，添加文件到缓存区，但是只有部分文件需要提交，一个一个 “git add” 太麻烦，“git add .” 又会提交不需要的文件，使用-p选项可以分段Add，每一段都会询问你要不要添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add -p</div></pre></td></tr></table></figure>
+<hr>
+<p>因为一个bug修改一个文件，发现修改的一点都没效果，从头再来吧，恢复到最后一次提交的改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- [file_name]</div></pre></td></tr></table></figure></p>
+<p>但是，需要注意的是，如果该文件已经 add 到暂存队列中，上面的命令就不灵光喽，需要先让这个<strong>文件取消暂存</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD -- [file_name]</div></pre></td></tr></table></figure></p>
+<p>然后再使用第一条命令。</p>
+<hr>
+<p>如果本地引入了很多新文件，但是这些文件后来发现并不需要，这个时候需要清理掉它们，然后继续开发，这时我们就需要使用clean命令了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git clean -dfx</div><div class="line"></div><div class="line">-d 删除掉目录</div><div class="line"></div><div class="line">-f 强制删除</div><div class="line"></div><div class="line">-x 即使在.gitignore中的文件也删除</div></pre></td></tr></table></figure></p>
+<hr>
+<p>测试发现当前版本出问题了，细心的你发现可能是某个文件出了问题，心想这个不是我修改的啊，这个锅应该甩给谁呢，看看这个文件的修改记录吧，一切罪证都将揭晓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log -p [file_name]</div></pre></td></tr></table></figure></p>
+<p>这个文件多人修改过，到底是那次出了问题呢？<br>挨个问问，发现大家都觉得不是自己到锅，这时候聪明的你需要找出强有力到证据才可以了。<br>checkout每个commit记录然后测试？这不是一个聪明到程序员该做到，运用二分法查找，查找出现错误的提交记录，毕竟Git也是一群更聪明到程序员创造的，使用bisect拯救你<br>开始查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect start</div></pre></td></tr></table></figure></p>
+<p>标记当前是坏的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect bad</div></pre></td></tr></table></figure></p>
+<p>标记一个好的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect good 7c0dcfa</div></pre></td></tr></table></figure></p>
+<p>git会选择两个点的中间一次提交，测试这个版本，如果测试通过，标记为good<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect good</div></pre></td></tr></table></figure></p>
+<p>如果测试不通过，标记为bad<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect bad</div></pre></td></tr></table></figure></p>
+<p>一直测试下去，直到测试结束，罪魁祸首就找到了！</p>
+<p><a href="http://blog.rlmflores.me/git/2014/11/30/letting-git-bisect-help-you/" target="_blank" rel="external">Ref</a></p>
+<hr>
+<p>当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm file_path</div></pre></td></tr></table></figure></p>
+<p>当我们需要删除暂存区或分支上的文件, 但本地又需要使用, 只是不希望这个文件被版本控制, 可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached file_path</div></pre></td></tr></table></figure></p>
+<p>file_path 为文件路径<br>然后可以将不需要被版本控制的文件添加到.gitignore文件中，这样它就不会在来捣乱了。</p>
+<hr>
+<ul>
+<li>查看本地分支跟踪的远程分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -vv（两个v）</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="两个程序员的故事"><a href="#两个程序员的故事" class="headerlink" title="两个程序员的故事"></a>两个程序员的故事</h1><p>小A决定和小B一起开发一款App，他们选择了Git作为版本控制工具，至于他们为什么要用Git呢？<a href="http://baike.baidu.com/link?url=ZAhRv38Ce0awzCVoedMFdJg9t-r48f_o8KTAjofD-43qJmCO8Btsu9mGPdZkDasyQZX56NG2q5aL4_2IL1y07sCOlnEVi6pHwrmVyIOTjEK" target="_blank" rel="external">点我看看</a></p>
+<p><a href="https://www.baidu.com/" target="_blank" rel="external">如何安装Git</a></p>
+<p>首先我们来看看Git都有哪些配置，通过”git config –list”命令查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div><div class="line">credential.helper=osxkeychain</div><div class="line">user.email=</div><div class="line">user.name=</div><div class="line">core.excludesfile=/Users/Will/.gitignore_global</div><div class="line">difftool.sourcetree.cmd=opendiff &quot;$LOCAL&quot; &quot;$REMOTE&quot;</div><div class="line">difftool.sourcetree.path=</div><div class="line">mergetool.sourcetree.cmd=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh &quot;$LOCAL&quot; &quot;$REMOTE&quot; -ancestor &quot;$BASE&quot; -merge &quot;$MERGED&quot;</div><div class="line">mergetool.sourcetree.trustexitcode=true</div><div class="line">commit.template=/Users/Will/.stCommitMsg</div><div class="line">core.repositoryformatversion=0</div><div class="line">core.filemode=true</div><div class="line">core.bare=false</div><div class="line">core.logallrefupdates=true</div><div class="line">core.ignorecase=true</div><div class="line">core.precomposeunicode=true</div><div class="line">remote.origin.url=https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line">remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*</div><div class="line">branch.master.remote=origin</div><div class="line">branch.master.merge=refs/heads/master</div></pre></td></tr></table></figure>
+<p>配置个人信息，用于在提交记录中显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Xiao A”</div><div class="line"></div><div class="line">$ git config --global user.email &quot;xiaoa@example.com&quot;</div></pre></td></tr></table></figure>
+<p>在Github中新建一个仓库</p>
+<p>clone到本地的目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/Mr7Cat/GitPlayRoom.git</div></pre></td></tr></table></figure></p>
+<p>查看分支情况，包括本地分支和远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>origin一般是指原始仓库地址的别名</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git branch b_1</div><div class="line">$ git branch -a</div><div class="line">  b_1</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git branch b_2</div><div class="line">$ git branch -a</div><div class="line">  b_1</div><div class="line">  b_2</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<p>新建文件，查看状态，显示未追踪<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ touch Hello.txt</div><div class="line">$ ls</div><div class="line">Hello.txt	LICENSE		README.md</div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">Untracked files:</div><div class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</div><div class="line"></div><div class="line">	Hello.txt</div><div class="line"></div><div class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</div></pre></td></tr></table></figure></p>
+<p>添加文件到缓存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git add Hello.txt </div><div class="line"></div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">Changes to be committed:</div><div class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line"></div><div class="line">	new file:   Hello.txt</div></pre></td></tr></table></figure></p>
+<p>提交修改到本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &apos;add new file Hello.txt&apos;</div><div class="line">[master 21dc322] add new file Hello.txt</div><div class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</div><div class="line"> create mode 100644 Hello.txt</div><div class="line"> </div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is ahead of &apos;origin/master&apos; by 1 commit.</div><div class="line">  (use &quot;git push&quot; to publish your local commits)</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure></p>
+<p>提交修改到远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ git push</div><div class="line">Counting objects: 3, done.</div><div class="line">Delta compression using up to 8 threads.</div><div class="line">Compressing objects: 100% (2/2), done.</div><div class="line">Writing objects: 100% (3/3), 353 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">To https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line">   ce91a05..21dc322  master -&gt; master</div><div class="line">   </div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim Hello.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">$ git checkout b_1</div><div class="line">Switched to branch &apos;b_1&apos;</div><div class="line">$ git status</div><div class="line">On branch b_1</div><div class="line">nothing to commit, working tree clean</div><div class="line">$ ls</div><div class="line">LICENSE		README.md</div><div class="line">$ git log</div><div class="line">commit ce91a05727db25f6ecf848ebc52849474f4511eb</div><div class="line">Author: Mr7Cat &lt;flyhanwei@gmail.com&gt;</div><div class="line">Date:   Wed May 3 10:44:00 2017 +0800</div><div class="line"></div><div class="line">    Initial commit</div><div class="line">$ git branch</div><div class="line">* b_1</div><div class="line">  b_2</div><div class="line">  master</div><div class="line">$ touch b1_Hello.txt</div><div class="line">$ git add .</div><div class="line">$ git commit -m &apos;b1 add file&apos;</div><div class="line">[b_1 68dc8b6] b1 add file</div><div class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</div><div class="line"> create mode 100644 b1_Hello.txt</div></pre></td></tr></table></figure>
+<p>由于新建立到分支没有设置追踪，所以之间执行“git push”会报以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git push</div><div class="line">fatal: The current branch b_1 has no upstream branch.</div><div class="line">To push the current branch and set the remote as upstream, use</div><div class="line"></div><div class="line">    git push --set-upstream origin b_1</div></pre></td></tr></table></figure></p>
+<p>查看一下追踪，发现b_1分支并没有追踪任何远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -vv</div><div class="line">* b_1    68dc8b6 b1 add file</div><div class="line">  b_2    ce91a05 Initial commit</div><div class="line">  master 868960c [origin/master] modify Hello.txt</div></pre></td></tr></table></figure></p>
+<p>建立追踪关系的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --set-upstream [branch] [remote-branch]</div></pre></td></tr></table></figure></p>
+<p>可以push的同时建立追踪，通过”–set-upstream”参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git push --set-upstream origin b_1</div><div class="line">Counting objects: 3, done.</div><div class="line">Delta compression using up to 8 threads.</div><div class="line">Compressing objects: 100% (2/2), done.</div><div class="line">Writing objects: 100% (3/3), 272 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 1), reused 0 (delta 0)</div><div class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</div><div class="line">To https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line"> * [new branch]      b_1 -&gt; b_1</div><div class="line">Branch b_1 set up to track remote branch b_1 from origin.</div></pre></td></tr></table></figure>
+<p>查看一下追踪的情况，发现<strong>b_1</strong>分支已经追踪了远程的<strong>origin/b_1</strong>分支，以后就可以直接通过”git push”来提交修改了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -vv</div><div class="line">* b_1    68dc8b6 [origin/b_1] b1 add file</div><div class="line">  b_2    ce91a05 Initial commit</div><div class="line">  master 868960c [origin/master] modify Hello.txt</div></pre></td></tr></table></figure></p>
+<hr>
+<p>重新clone一份工程到GitPlayRoom2目录，模拟用户B同时和之前的用户A开发一个项目。<br>在GitPlayRoom2目录下拉取更改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">remote: Counting objects: 5, done.</div><div class="line">remote: Compressing objects: 100% (2/2), done.</div><div class="line">remote: Total 5 (delta 2), reused 5 (delta 2), pack-reused 0</div><div class="line">Unpacking objects: 100% (5/5), done.</div><div class="line">From https://github.com/Mr7Cat/GitPlayRoom</div><div class="line">   21dc322..868960c  master     -&gt; origin/master</div><div class="line"> * [new branch]      b_1        -&gt; origin/b_1</div><div class="line">Updating 21dc322..868960c</div><div class="line">Fast-forward</div><div class="line"> Hello.txt | 1 +</div><div class="line"> 1 file changed, 1 insertion(+)</div></pre></td></tr></table></figure></p>
+<p>查看分支情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/b_1</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git checkout b_1</div><div class="line">Branch b_1 set up to track remote branch b_1 from origin.</div><div class="line">Switched to a new branch &apos;b_1&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git branch -a</div><div class="line">* b_1</div><div class="line">  master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/b_1</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">LICENSE		README.md	b1_Hello.txt</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/04/GitBook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/04/GitBook/" itemprop="url">
+                  Git Book
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T20:47:15+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/04/GitBook/" class="leancloud_visitors" data-flag-title="Git Book">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://obzooc3zl.bkt.clouddn.com/git.png" alt="image"></p>
+<ul>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库</li>
+</ul>
+<h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><h2 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h2><ul>
+<li><p>在当前目录新建一个Git代码库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个目录，将其初始化为Git代码库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init [project-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载一个项目和它的整个代码历史</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone [url]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+<ul>
+<li><p>显示当前的Git配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑Git配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config -e [--global]</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置提交代码时的用户信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config [--global] user.name &quot;[name]&quot;</div><div class="line">$ git config [--global] user.email &quot;[email address]&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><ul>
+<li><p>添加指定文件到暂存区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add [file1] [file2] ...</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加指定目录到暂存区，包括子目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add [dir]</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加当前目录的所有文件到暂存区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加每个变化前，都会要求确认，对于同一个文件的多处变化，可以实现分次提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add -p</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
+<li><p>删除工作区文件，并且将这次删除放入暂存区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm [file1] [file2] ...</div></pre></td></tr></table></figure>
+</li>
+<li><p>停止追踪指定文件，但该文件会保留在工作区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>改名文件，并且将这个改名放入暂存区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv [file-original] [file-renamed]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><ul>
+<li><p>提交暂存区到仓库区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m [message]</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交暂存区的指定文件到仓库区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit [file1] [file2] ... -m [message]</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交工作区自上次commit之后的变化，直接到仓库区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -a</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交时显示所有diff信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用一次新的commit，替代上一次提交</p>
+</li>
+<li><p>如果代码没有任何新变化，则用来改写上一次commit的提交信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend -m [message]</div></pre></td></tr></table></figure>
+</li>
+<li><p>重做上一次commit，并包括指定文件的新变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend [file1] [file2] ...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><ul>
+<li><p>列出所有本地分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure>
+</li>
+<li><p>列出所有远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -r</div></pre></td></tr></table></figure>
+</li>
+<li><p>列出所有本地分支和远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个分支，但依然停留在当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch [branch-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个分支，并切换到该分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b [branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个分支，指向指定commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch [branch] [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个分支，与指定的远程分支建立追踪关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --track [branch] [remote-branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>切换到指定分支，并更新工作区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout [branch-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>切换到上一个分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -</div></pre></td></tr></table></figure>
+</li>
+<li><p>建立追踪关系，在现有分支与指定的远程分支之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --set-upstream [branch] [remote-branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>合并指定分支到当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge [branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>选择一个commit，合并进当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git cherry-pick [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d [branch-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git push origin --delete [branch-name]</div><div class="line">$ git branch -dr [remote/branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>推送本地到远程仓库，并建立追踪</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --set-upstream [remote-branch] [branch]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li><p>列出所有tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个tag在当前commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag [tag]</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个tag在指定commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag [tag] [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除本地tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -d [tag]</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin :refs/tags/[tagName]</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看tag信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show [tag]</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交指定tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push [remote] [tag]</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交所有tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push [remote] --tags</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个分支，指向某个tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b [branch] [tag]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h2><ul>
+<li><p>显示有变更的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示当前分支的版本历史</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示commit历史，以及每次commit发生变更的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --stat</div></pre></td></tr></table></figure>
+</li>
+<li><p>搜索提交历史，根据关键词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -S [keyword]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某个commit之后的所有变动，每个commit占据一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log [tag] HEAD --pretty=format:%s</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log [tag] HEAD --grep feature</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某个文件的版本历史，包括文件改名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git log --follow [file]</div><div class="line">$ git whatchanged [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示指定文件相关的每一次diff</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -p [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示过去5次提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -5 --pretty --oneline</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有提交过的用户，按提交次数排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git shortlog -sn</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示指定文件是什么人在什么时间修改过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git blame [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示暂存区和工作区的差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示暂存区和上一个commit的差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --cached [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示工作区与当前分支最新commit之间的差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff HEAD</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示两次提交之间的差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff [first-branch]...[second-branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示今天你写了多少行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --shortstat &quot;@&#123;0 day ago&#125;&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某次提交的元数据和内容变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某次提交发生变化的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show --name-only [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某次提交时，某个文件的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show [commit]:[filename]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示当前分支的最近几次提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reflog</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h2><ul>
+<li><p>下载远程仓库的所有变动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch [remote]</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>显示某个远程仓库的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote show [remote]</div></pre></td></tr></table></figure>
+</li>
+<li><p>增加一个新的远程仓库，并命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add [shortname] [url]</div></pre></td></tr></table></figure>
+</li>
+<li><p>取回远程仓库的变化，并与本地分支合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull [remote] [branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>上传本地指定分支到远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push [remote] [branch]</div></pre></td></tr></table></figure>
+</li>
+<li><p>强行推送当前分支到远程仓库，即使有冲突</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push [remote] --force</div></pre></td></tr></table></figure>
+</li>
+<li><p>推送所有分支到远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push [remote] --all</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><ul>
+<li><p>恢复暂存区的指定文件到工作区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复某个commit的指定文件到暂存区和工作区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout [commit] [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复暂存区的所有文件到工作区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout .</div></pre></td></tr></table></figure>
+</li>
+<li><p>重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset [file]</div></pre></td></tr></table></figure>
+</li>
+<li><p>重置暂存区与工作区，与上一次commit保持一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure>
+</li>
+<li><p>重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>重置当前HEAD为指定commit，但保持暂存区和工作区不变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --keep [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个commit，用来撤销指定commit</p>
+</li>
+<li><p>后者的所有变化都将被前者抵消，并且应用到当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git revert [commit]</div></pre></td></tr></table></figure>
+</li>
+<li><p>暂时将未提交的变化移除，稍后再移入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash</div><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><p>生成一个可供发布的压缩包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git archive</div></pre></td></tr></table></figure>
+</li>
+<li><p>忽略文件</p>
+</li>
+</ul>
+<blockquote>
+<p>忽略<em>.o和</em>.a文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*.[oa]</div></pre></td></tr></table></figure></p>
+<p>忽略<em>.b和</em>.B文件，my.b除外<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*.[bB]</div><div class="line">!my.b</div></pre></td></tr></table></figure></p>
+<p>忽略dbg文件和dbg目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dbg</div></pre></td></tr></table></figure></p>
+<p>只忽略dbg目录，不忽略dbg文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dbg/</div></pre></td></tr></table></figure></p>
+<p>只忽略dbg文件，不忽略dbg目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dbg</div><div class="line">!dbg/</div></pre></td></tr></table></figure></p>
+<p>只忽略当前目录下的dbg文件和目录，子目录的dbg不在忽略范围内<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/dbg</div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>个性化Log </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global alias.lg &quot;log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset&apos; --abbrev-commit --date=relative&quot;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/04/ReactComponent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/04/ReactComponent/" itemprop="url">
+                  React Component
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T10:12:11+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/04/ReactComponent/" class="leancloud_visitors" data-flag-title="React Component">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Components</strong>可以让你把UI切分成独立复用的控件, 对每个控件可以独立思考. React.Component是由React提供的.<br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">Ref</a></p>
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong>React.Component</strong>是一个抽象的基础类, 所以直接引用的话没有多大意义. 取而代之的是要继承它, 而且至少要实现<strong>render()</strong>方法.</p>
+<p>通常定义一个React Component类似下面的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Greeting extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return &lt;Text&gt;Hello, &#123;this.props.name&#125;&lt;/Text&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="Life-cycle"><a href="#Life-cycle" class="headerlink" title="Life cycle"></a>Life cycle</h1><p><img src="http://obzooc3zl.bkt.clouddn.com/3-3-component-lifecycle.jpg" alt=""></p>
+<p>每一个控件都有好几个”生命周期方法”，使得可以在运行过程中的某一时刻运行你的代码。方法中带有”will”前缀的是指在什么事情发生前执行，前缀为”did”指的是在什么事情发生后执行。</p>
+<h2 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h2><p>在一个Component创建时执行下面几个方法：</p>
+<ul>
+<li>constructor()</li>
+<li>componentWillMount()</li>
+<li>render()</li>
+<li>componentDidMount()</li>
+</ul>
+<h2 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h2><p>props 或 state的改变会触发更新，下面几个方法在re-rendered时会执行：</p>
+<ul>
+<li>componentWillReceiveProps()</li>
+<li>shouldComponentUpdate()</li>
+<li>componentWillUpdate()</li>
+<li>render()</li>
+<li>componentDidUpdate()</li>
+</ul>
+<h2 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h2><p>Component移除时执行：</p>
+<ul>
+<li>componentWillUnmount()</li>
+</ul>
+<h2 id="其他API"><a href="#其他API" class="headerlink" title="其他API"></a>其他API</h2><ul>
+<li>setState()</li>
+<li>forceUpdate()</li>
+</ul>
+<h2 id="Class-Properties"><a href="#Class-Properties" class="headerlink" title="Class Properties"></a>Class Properties</h2><ul>
+<li>defaultProps</li>
+<li>displayName</li>
+</ul>
+<h2 id="Instance-Properties"><a href="#Instance-Properties" class="headerlink" title="Instance Properties"></a>Instance Properties</h2><ul>
+<li>props</li>
+<li>state</li>
+</ul>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><ul>
+<li><p>constructor()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">constructor(props) &#123;</div><div class="line">  super(props);</div><div class="line">  this.state = &#123;</div><div class="line">    color: props.initialColor</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>getDefaultProps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object getDefaultProps()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行过一次后，被创建的类会有缓存，映射的值会存在this.props,前提是这个prop不是父组件指定的<br>这个方法在对象被创建之前执行，因此不能在方法内调用this.props ，另外，注意任何getDefaultProps()返回的对象在实例中共享，不是复制</p>
+<ul>
+<li>getInitialState<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object getInitialState()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>控件加载之前执行，返回值会被用于state的初始化值</p>
+<ul>
+<li>componentWillMount<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillMount()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行一次，在初始化render之前执行，如果在这个方法内调用setState，render()知道state发生变化，并且只执行一次</p>
+<ul>
+<li>render<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactElement render()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>render的时候会调用render()，<br>调用render()方法时，首先检查this.props和this.state返回一个子元素，子元素可以是DOM组件或者其他自定义复合控件的虚拟实现<br>如果不想渲染可以返回null或者false，这种场景下，React渲染一个<noscript>标签，当返回null或者false时，ReactDOM.findDOMNode(this)返回null<br>render()方法是很纯净的，这就意味着不要在这个方法里初始化组件的state，每次执行时返回相同的值，不会读写DOM或者与服务器交互，如果必须如服务器交互，在componentDidMount()方法中实现或者其他生命周期的方法中实现，保持render()方法纯净使得服务器更准确，组件更简单</noscript></p>
+<ul>
+<li>componentDidMount<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentDidMount()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在初始化render之后只执行一次，在这个方法内，可以访问任何组件，componentDidMount()方法中的子组件在父组件之前执行<br>从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 setTimeout 或者 setInterval，或者发起网络请求</p>
+<ul>
+<li>shouldComponentUpdate</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>这个方法在初始化render时不会执行，当props或者state发生变化时执行，并且是在render之前，当新的props或者state不需要更新组件时，返回false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate: function(nextProps, nextState) &#123;</div><div class="line">  return nextProps.id !== this.props.id;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当shouldComponentUpdate方法返回false时，将不会执行render()方法，componentWillUpdate和componentDidUpdate方法也不会被调用</p>
+<p>默认情况下，shouldComponentUpdate方法返回true防止state快速变化时的问题，但是如果state不变，props只读，可以直接覆盖shouldComponentUpdate用于比较props和state的变化，决定UI是否更新，当组件比较多时，使用这个方法能有效提高应用性能</p>
+<ul>
+<li>componentWillUpdate<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当props和state发生变化时执行，并且在render方法之前执行，当然初始化render时不执行该方法，需要特别注意的是，在这个函数里面，你就不能使用this.setState来修改状态。这个函数调用之后，就会把nextProps和nextState分别设置到this.props和this.state中。紧接着这个函数，就会调用render()来更新界面了</p>
+<ul>
+<li>componentDidUpdate<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentDidUpdate(</div><div class="line">  object prevProps, object prevState</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>组件更新结束之后执行，在初始化render时不执行</p>
+<ul>
+<li>componentWillReceiveProps<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillReceiveProps(</div><div class="line">  object nextProps</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当props发生变化时执行，初始化render时不执行，在这个回调函数里面，你可以根据属性的变化，通过调用this.setState()来更新你的组件状态，旧的属性还是可以通过this.props来获取,这里调用更新状态是安全的，并不会触发额外的render调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps: function(nextProps) &#123;</div><div class="line">  this.setState(&#123;</div><div class="line">    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>componentWillUnmount<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillUnmount()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当组件要被从界面上移除的时候，就会调用componentWillUnmount(),在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等</p>
+<ul>
+<li>总结</li>
+</ul>
+<p>其中最上面的虚线框和右下角的虚线框的方法一定会执行，左下角的方法根据props state是否变化去执行，其中建议只有在componentWillMount，componentDidMount，componentWillReceiveProps方法中可以修改state值</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/04/26/MessageBubble/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -689,7 +1520,7 @@
               
                 
                 <a class="post-title-link" href="/2017/03/24/ReactNative/" itemprop="url">
-                  ReactNative
+                  React Native
                 </a>
               
             
@@ -723,7 +1554,7 @@
 
           
           
-             <span id="/2017/03/24/ReactNative/" class="leancloud_visitors" data-flag-title="ReactNative">
+             <span id="/2017/03/24/ReactNative/" class="leancloud_visitors" data-flag-title="React Native">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1529,513 +2360,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/11/20/Redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr7Cat">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/20/Redux/" itemprop="url">
-                  Redux
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T14:20:43+08:00">
-                2016-11-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/11/20/Redux/" class="leancloud_visitors" data-flag-title="Redux">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p><strong>Prerequisites</strong>：JS basic grammar, React Native basic concept；</p>
-<p><strong>Best Practice</strong>：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">iReading</a></p>
-<p><strong>Key words</strong>: React, React Native, state, Redux, actions, reducers, store, redux-saga, Middleware</p>
-<p>Index</p>
-<p>[TOC]</p>
-<h2 id="What-is-Redux"><a href="#What-is-Redux" class="headerlink" title="What is Redux?"></a>What is Redux?</h2><blockquote>
-<p><a href="http://rackt.org/redux/" target="_blank" rel="external">Doc</a> and <a href="http://camsong.github.io/redux-in-chinese/" target="_blank" rel="external">中文翻译</a></p>
-<p><a href="http://cn.redux.js.org/index.html" target="_blank" rel="external">中文资料</a></p>
-</blockquote>
-<h3 id="单页面应用的痛点"><a href="#单页面应用的痛点" class="headerlink" title="单页面应用的痛点"></a>单页面应用的痛点</h3><p>对于复杂的单页面应用，状态（state）管理非常重要。state 可能包括：服务端的响应数据、本地对响应数据的缓存、本地创建的数据（比如，表单数据）以及一些 UI 的状态信息（比如，路由、选中的 tab、是否显示下拉列表、页码控制等等）。如果 state 变化不可预测，就会难于调试（state 不易重现，很难复现一些 bug）和不易于扩展（比如，优化更新渲染、服务端渲染、路由切换时获取数据等等）。</p>
-<p>Redux 就是用来确保 state 变化的可预测性，主要的约束有：</p>
-<ul>
-<li>state 以单一对象存储在 store 对象中</li>
-<li>state 只读</li>
-<li>使用纯函数 reducer 执行 state 更新</li>
-</ul>
-<blockquote>
-<p>state 为单一对象，使得 Redux 只需要维护一棵状态树，服务端很容易初始化状态，易于服务器渲染。state 只能通过 dispatch(action) 来触发更新，更新逻辑由 reducer 来执行。</p>
-<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。惟一改变 state 的办法是触发 action，一个描述发生什么的对象。为了描述 action 如何改变 state 树，你需要编写 reducers。</p>
-<p>如果你以前使用 Flux，那么你只需要注意一个重要的区别。Redux 没有 Dispatcher 且不支持多个 store。相反，只有一个单一的 store 和一个根级的 reduce 函数（reducer）。</p>
-</blockquote>
-<h3 id="Actions、Reducers-和-Store"><a href="#Actions、Reducers-和-Store" class="headerlink" title="Actions、Reducers 和 Store"></a>Actions、Reducers 和 Store</h3><p>action 可以理解为应用向 store 传递的数据信息（一般为用户交互信息）。在实际应用中，传递的信息可以约定一个固定的数据格式，比如: <a href="https://github.com/acdlite/flux-standard-action/" target="_blank" rel="external">Flux Standard Action</a>。<br>为了便于测试和易于扩展，Redux 引入了 Action Creator:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function addTodo(text) &#123;</div><div class="line">  return &#123;</div><div class="line">    type: ADD_TODO,</div><div class="line">    text,</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">store.dispatch(addTodo(text))</div></pre></td></tr></table></figure>
-<blockquote>
-<p>dispatch(action) 是一个同步的过程：执行 reducer 更新 state -&gt; 调用 store 的监听处理函数。如果需要在 dispatch 时执行一些异步操作（fetch action data），可以通过引入 Middleware 解决。</p>
-</blockquote>
-<p>reducer 实际上就是一个函数：<code>(previousState, action) =&gt; newState</code>。用来执行根据指定 action 来更新 state 的逻辑。通过 combineReducers(reducers) 可以把多个 reducer 合并成一个 root reducer。</p>
-<blockquote>
-<p>reducer 不存储 state, reducer 函数逻辑中不应该直接改变 state 对象, 而是返回新的 state 对象（可以考虑使用 <a href="http://facebook.github.io/immutable-js/" target="_blank" rel="external">immutable-js</a>）。</p>
-</blockquote>
-<p>store 是一个单一对象：</p>
-<ul>
-<li>管理应用的 state</li>
-<li>通过 <code>store.getState()</code> 可以获取 state</li>
-<li>通过 <code>store.dispatch(action)</code> 来触发 state 更新</li>
-<li>通过 <code>store.subscribe(listener)</code> 来注册 state 变化监听器</li>
-<li>通过 <code>createStore(reducer, [initialState])</code> 创建</li>
-</ul>
-<blockquote>
-<p>在 Redux 应用中，只允许有一个 store 对象，可以通过 combineReducers(reducers) 来实现对 state 管理的逻辑划分（多个 reducer）。</p>
-</blockquote>
-<h3 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h3><p>middleware 其实就是高阶函数，作用于 dispatch 返回一个新的 dispatch（附加了该中间件功能）。可以形式化为：<code>newDispatch = middleware1(middleware2(...(dispatch)...))</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// thunk-middleware</div><div class="line">export default function thunkMiddleware(&#123; dispatch, getState &#125;) &#123;</div><div class="line">    return next =&gt; action =&gt;</div><div class="line">        typeof action === &apos;function&apos; ? action(dispatch, getState) : next(action)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过 thunk-middleware 我们可以看出中间件的一般形式：中间件函数接受两个参数参数： dispatch 和 getState（也就是说中间件可以获取 state 以及 <code>dispatch new action</code>）。中间件一般返回 <code>next(action)</code>（thunk-middleware 比较特殊，它用于 dispatch 执行异步回调的 action）。store 的创建过程如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const reducer = combineReducers(reducers)</div><div class="line">const finalCreateStore = applyMiddleware(promiseMiddleware, warningMiddleware,</div><div class="line">    loggerMiddleWare)(createStore)</div><div class="line">const store = finalCreateStore(reducer)</div></pre></td></tr></table></figure>
-<h3 id="异步-Actions"><a href="#异步-Actions" class="headerlink" title="异步 Actions"></a>异步 Actions</h3><p>单页面应用中充斥着大量的异步请求（ajax）。dispatch(action) 是同步的，如果要处理异步 action，需要使用一些中间件。<br><a href="https://github.com/gaearon/redux-thunk/" target="_blank" rel="external">redux-thunks</a> 和 <a href="https://github.com/aclite/redux-promise/" target="_blank" rel="external">redux-promise</a> 分别是使用异步回调和 Promise 来解决异步 action 问题的。</p>
-<p>最新的用法是使用<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">redux-saga</a>来实现异步任务，在下面的章节会有讲解。</p>
-<h2 id="为什么要用Redux"><a href="#为什么要用Redux" class="headerlink" title="为什么要用Redux"></a>为什么要用Redux</h2><blockquote>
-<p><a href="http://www.infoq.com/cn/news/2014/05/facebook-mvc-flux" target="_blank" rel="external">Facebook：MVC不适合大规模应用，改用Flux</a></p>
-</blockquote>
-<h2 id="如何使用Redux"><a href="#如何使用Redux" class="headerlink" title="如何使用Redux"></a>如何使用Redux</h2><blockquote>
-<ul>
-<li>参考项目：<a href="https://github.com/attentiveness/reading" target="_blank" rel="external">https://github.com/attentiveness/reading</a></li>
-</ul>
-</blockquote>
-<h3 id="redux三大原则"><a href="#redux三大原则" class="headerlink" title="redux三大原则"></a>redux三大原则</h3><p>首先，我们明确一点：redux的核心思想就是FLux架构，单向数据流。</p>
-<h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><p>在redux中，所有的state最后都会被combine起来，变为一个大的state树，这个state树只存在于唯一的一个store中。这么做的好处是开发和调试都变得很方便，也很好理解。</p>
-<h3 id="state只读"><a href="#state只读" class="headerlink" title="state只读"></a>state只读</h3><p>改变state唯一的办法就是通过触发action，别无他法。这么做非常纯粹，确保没其他副作用，state不会被任意修改。</p>
-<h3 id="纯函数修改state"><a href="#纯函数修改state" class="headerlink" title="纯函数修改state"></a>纯函数修改state</h3><p>想要修改state，在action被触发之后，需要编写reducer来进行修改，reducer只是一些纯函数，它会接受到action和state，返回<strong>全新的state</strong>。</p>
-<h2 id="认识redux三要素"><a href="#认识redux三要素" class="headerlink" title="认识redux三要素"></a>认识redux三要素</h2><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>执行动作，把数据传递到store，触发它是用来改变state的，它是store的唯一数据来源。</p>
-<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>纯函数，用来修改/更新state，action只是说明有动作发生了，但是具体产生什么样的作用（state如何变更），还是reducer说了算。在修改完state之后，通过Object.assign，或者…state或者immutable返回<strong>全新的state</strong></p>
-<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>整个应用唯一维护state树的地方，<strong>是单一的</strong>。可以获取、更新state，还可以注册监听。</p>
-<p>这三个元素像齿轮一样运转起来，形成了FLux架构的单向数据流。</p>
-<h2 id="react-redux最新用法"><a href="#react-redux最新用法" class="headerlink" title="react-redux最新用法"></a>react-redux最新用法</h2><p>react-redux这个库，在redux和react结合使用的时候几乎是必用的。在经历过某次升级后，它的Provider组件用法发生了一点变化，最新的用法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</div><div class="line"></div><div class="line">const Root = () =&gt; (</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &lt;App /&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
-<h2 id="redux性能优化"><a href="#redux性能优化" class="headerlink" title="redux性能优化"></a>redux性能优化</h2><p>性能优化第一步，就是搞清楚action和reducer的关系。如果搞不清关系，就会像我之前一样，大量页面被过度渲染。它俩是什么关系呢？实际上它俩是多对多的关系。也就是说，一个action操作可能会造成state树中的一个或者某几个部分发生改变，就对应了一个或多个reducer，多个action操作也同理，这是我们必须明确的。</p>
-<p>如何避免引入redux之后造成页面过度渲染？</p>
-<p>首先我们要搞清楚，为什么会过度渲染。在一个引用了redux的rn app中，state树是唯一的。但是在某个页面中，控制它的状态只是整棵状态树的子集，也就是state树中的一部分。如果没搞清action和reducer的关系随便乱用，很容易造成一个reducer控制着多个页面的情况（也就是说页面组件和reducer的状态子集形成了多对多的关系），那就妥妥的过度渲染了。举个简单的例子：reducer A控制着页面C和D的状态，当发起了一个action之后，A改变了，那么C和D就会调用render方法进行无用渲染。但是这时候很可能C或D并不是正在展示的页面，这里就出现了过度渲染，如果页面多，就会造成卡顿情况。</p>
-<p>如何避免过度渲染？action是用来发起修改state操作的，具体怎么改是由reducer决定的，但是最终所有的reducer都会被combine成一个，那么reducer的拆分就是我们需要考虑的点。每一个reducer都控制了状态树的一个子集的变化，我们通过react-redux库的<code>connect</code>函数向组件注入状态，那么我们就需要把reducer拆分到较小的单元，使得一个页面的状态集合是由一个或多个reducer来控制，这里是一对多的关系，能做到这一点，就能避免过度渲染的问题。还是用刚才的例子，拆分后的reducer A只控制页面C，页面D由另一个reducer控制着，那么当A改变了，只会引起C的渲染，就能保证只渲染正在向用户展示的那个页面了。</p>
-<h2 id="redux周边设施"><a href="#redux周边设施" class="headerlink" title="redux周边设施"></a>redux周边设施</h2><h3 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h3><p>这个应该是首当其冲的了，在redux官方文档中都有提及，只要用react/react-native，引入redux，就会引入这个库打配合，简单好用。</p>
-<h3 id="redux-logger"><a href="#redux-logger" class="headerlink" title="redux-logger"></a>redux-logger</h3><p>这个库的用法很简单，它的作用是一次配置好，以后所有action触发了state的变化，都会用比较鲜艳的log日志打印出来，用chrome调试就可以很明显的看到，这样就能一清二楚每一个action最终都导致了state前后发生了什么样的变化。</p>
-<h3 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h3><p>这个库的作用主要是异步action。在我们引入redux之后，肯定会有很多异步操作，我们想把这些异步操作和组件剥离开，那么最直观的就是放入action中进行处理，通过thunk实现异步action。使用简单，理解起来也方便，很多刚入坑的同学处理异步action一般都会选用这个库。</p>
-<h3 id="redux-saga"><a href="#redux-saga" class="headerlink" title="redux-saga"></a>redux-saga</h3><blockquote>
-<p>教程：<a href="http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html" target="_blank" rel="external">http://leonshi.com/redux-saga-in-chinese/docs/introduction/BeginnerTutorial.html</a></p>
-</blockquote>
-<p>这个库本质上也是处理异步action的，但是相对thunk来说，它就没那么直观没那么好理解了。这个库主要思想就是通过es6的generator，把异步promise操作变成了类似async和await的同步写法，但是saga更强大。saga主要运用了协程的思想，在异步操作变为同步写法的时候，提供了非常便利的可测试性，而且简化了action。在引入saga之后，action里的代码就变得非常纯粹了，什么都不干，只触发action，具体的处理，不管是同步还是异步统统挪到saga中，写法也变得非常简洁。相对测试来说，写UT也变得清晰了很多，因为saga天生就是支持步进的，那么action对应的测试就写在saga包中就可以，因为真正处理action逻辑的是saga。相比之下，thunk就不好写测试了，一般用thunk的，测试都是根据reducer来写的，thunk中的操作就变得不可控了。</p>
-<h3 id="immutable-js"><a href="#immutable-js" class="headerlink" title="immutable.js"></a>immutable.js</h3><p>这个库是Facebook的，主要是做deep clone，比较高效，和redux结合的地方就是reducer返回全新state的地方。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/AndroidShell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr7Cat">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/20/AndroidShell/" itemprop="url">
-                  Android Shell
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
-                2016-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/07/20/AndroidShell/" class="leancloud_visitors" data-flag-title="Android Shell">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="adb"><a href="#adb" class="headerlink" title="adb"></a>adb</h1><h1 id="apksigner"><a href="#apksigner" class="headerlink" title="apksigner"></a>apksigner</h1><h1 id="bmgr"><a href="#bmgr" class="headerlink" title="bmgr"></a>bmgr</h1><h1 id="etc1tool"><a href="#etc1tool" class="headerlink" title="etc1tool"></a>etc1tool</h1><h1 id="jobb"><a href="#jobb" class="headerlink" title="jobb"></a>jobb</h1><h1 id="logcat"><a href="#logcat" class="headerlink" title="logcat"></a>logcat</h1><h1 id="mksdcard"><a href="#mksdcard" class="headerlink" title="mksdcard"></a>mksdcard</h1><h1 id="sdkmanager"><a href="#sdkmanager" class="headerlink" title="sdkmanager"></a>sdkmanager</h1><h1 id="zipalign"><a href="#zipalign" class="headerlink" title="zipalign"></a>zipalign</h1><h1 id="Emulator"><a href="#Emulator" class="headerlink" title="Emulator"></a>Emulator</h1><blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; emulator -avd &lt;avd_name&gt; [-&lt;option&gt; [&lt;value&gt;]] ... [-&lt;qemu args&gt;]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>List avds</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ emulator -list-avds</div><div class="line">Nexus_5_API_23</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/07/20/Gradle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr7Cat">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/20/Gradle/" itemprop="url">
-                  Gradle总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-20T11:41:14+08:00">
-                2016-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/07/20/Gradle/" class="leancloud_visitors" data-flag-title="Gradle总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://gradle.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/gradle-logo-horizontal2.svg" alt="gradle"></p>
-<p>翻译自：<a href="http://code.tutsplus.com/tutorials/the-ins-and-outs-of-gradle--cms-22978" target="_blank" rel="external">The Ins and Outs of Gradle</a></p>
-<h1 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h1><p>Gradle是一个自动化构建工具包，可以集成到不同的环境中，比如通过插件。Gradle通过Android Gradle Plugin集成到Android Studio中。<br>如果你之前没有接触过Gradle，那么它会是你将IDE转移到Android Studio的一个小小的障碍。然而Gradle给Android开发者提供了很多功能，所以还是值得花时间搞懂关于它的一切的。下面是一些入门的知识。</p>
-<ul>
-<li>必须的配置项<br>一般在用Android Studio新建工程的时候会自动生成必要的一些配置项，当然你可以在此基础上进行定制。</li>
-<li>声明项目的依赖<br>依赖可以是module，jar包，lib工程，你可以把依赖的库放在本地或者放到远端的仓库中。</li>
-<li>测试你的工程<br>Gradle根据你的测试工程自动生成测试的apk，并在编译的过程中测试你的主程序。</li>
-<li>生成签名的apk<br>可以通过配置将一份工程生成不同版本的apk，方便生成不同的渠道包，或针对特定的设备生成apk，或生成免费和收费的不同版本。</li>
-</ul>
-<h1 id="探索Gradle文件"><a href="#探索Gradle文件" class="headerlink" title="探索Gradle文件"></a>探索Gradle文件</h1><p>当你通过Android Studio新建一个工程后，会发现自动生成了2个build.gradle文件，一个位于工程根目录，一个位于app的目录下。<br>我们为了区分它们，分别给它们一个别名吧，根目录下的叫做工程Gradle配置文件，app下的叫做应用Gradle配置文件。</p>
-<ul>
-<li><p>工程Gradle配置文件</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></div><div class="line"></div><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 该文件依赖jcenter仓库</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.1.2'</span> <span class="comment">// Android Gradle plugin的版本为2.1.2</span></div><div class="line"></div><div class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></div><div class="line">        <span class="comment">// in the individual module build.gradle files</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">allprojects</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter() <span class="comment">// 整个工程依赖的仓库</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">task</span> clean(type: <span class="keyword">Delete</span>) &#123;</div><div class="line">    <span class="keyword">delete</span> rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>模块Gradle配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;com.android.application&apos; // 告诉Gradle使用Android插件</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 24 </div><div class="line">    buildToolsVersion &quot;24.0.0&quot; </div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.demo&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 24</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// 声明依赖</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;]) // 依赖本地libs目录下的jar文件</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line"></div><div class="line">    compile &apos;com.android.support:appcompat-v7:24.0.0&apos; // 依赖远端仓库中的包</div><div class="line"></div><div class="line">    compile project(path: &apos;:lib_name&apos;) // 依赖本地lib工程</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="常用第三方库依赖配置"><a href="#常用第三方库依赖配置" class="headerlink" title="常用第三方库依赖配置"></a>常用第三方库依赖配置</h1><ul>
-<li><p>TOP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.1.2&apos;</div><div class="line">        // ORM </div><div class="line">        classpath &quot;io.realm:realm-gradle-plugin:1.0.0&quot;</div><div class="line"></div><div class="line">        classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;</div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Module</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;realm-android&apos;</div><div class="line">apply plugin: &apos;android-apt&apos;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	// Inject view, butterknife</div><div class="line">	compile &apos;com.jakewharton:butterknife:8.0.1&apos;</div><div class="line">	apt &apos;com.jakewharton:butterknife-compiler:8.0.1&apos;</div><div class="line"></div><div class="line">	// Chart</div><div class="line">    // https://github.com/diogobernardino/WilliamChart</div><div class="line">	// compile &apos;com.diogobernardino:williamchart:2.2&apos;</div><div class="line"></div><div class="line">    compile &apos;com.github.lecho:hellocharts-library:1.5.8@aar&apos;</div><div class="line"></div><div class="line">    // Drawer</div><div class="line">    //http://mikepenz.github.io/MaterialDrawer/</div><div class="line">    compile(&apos;com.mikepenz:materialdrawer:5.3.0@aar&apos;) &#123;</div><div class="line">        transitive = true</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // icon fonts used inside the sample</div><div class="line">    // https://github.com/mikepenz/Android-Iconics</div><div class="line">    // step 1</div><div class="line">    compile &quot;com.mikepenz:iconics-core:2.6.7@aar&quot;</div><div class="line">	compile &quot;com.android.support:appcompat-v7:$&#123;supportLibVersion&#125;&quot;</div><div class="line">    // setp 2</div><div class="line">    compile &apos;com.mikepenz:google-material-typeface:2.2.0.2.original@aar&apos; </div><div class="line">	compile &apos;com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:fontawesome-typeface:4.6.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:octicons-typeface:3.2.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:meteocons-typeface:1.1.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:community-material-typeface:1.5.54.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:weather-icons-typeface:2.0.10.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:typeicons-typeface:2.0.7.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:entypo-typeface:1.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:devicon-typeface:2.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:foundation-icons-typeface:3.0.0.2@aar&apos;</div><div class="line">	compile &apos;com.mikepenz:ionicons-typeface:2.0.1.2@aar&apos;</div><div class="line"></div><div class="line">    // About page</div><div class="line">    // https://github.com/medyo/android-about-page</div><div class="line">    compile &apos;com.github.medyo:android-about-page:1.0.8&apos;</div><div class="line">    // https://github.com/mikepenz/AboutLibraries</div><div class="line">    compile(&apos;com.mikepenz:aboutlibraries:5.7.1@aar&apos;) &#123;</div><div class="line">    	transitive = true</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    // Intro</div><div class="line">    // https://github.com/PaoloRotolo/AppIntro</div><div class="line">    compile &apos;com.github.paolorotolo:appintro:4.0.0&apos;</div><div class="line"></div><div class="line">    // Float button</div><div class="line">    compile &apos;info.hoang8f:fbutton:1.0.5&apos;</div><div class="line"></div><div class="line">    // Web</div><div class="line">    // https://github.com/square/retrofit</div><div class="line">    compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;</div><div class="line">    // https://github.com/ReactiveX/RxJava</div><div class="line">    // https://github.com/lzyzsd/Awesome-RxJava</div><div class="line">    compile &apos;io.reactivex:rxjava:1.1.7&apos;</div><div class="line"></div><div class="line">    // Pic</div><div class="line">    // https://github.com/square/picasso</div><div class="line">    compile &apos;com.squareup.picasso:picasso:2.5.2&apos;</div><div class="line">    // https://github.com/bumptech/glide</div><div class="line">    compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">  	compile &apos;com.android.support:support-v4:19.1.0&apos;</div><div class="line"></div><div class="line">    // Fragment</div><div class="line">    https://github.com/YoKeyword/Fragmentation</div><div class="line"></div><div class="line">    // Bugly</div><div class="line">    compile &apos;com.tencent.bugly:crashreport:latest.release&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="通过命令行创建Android工程"><a href="#通过命令行创建Android工程" class="headerlink" title="通过命令行创建Android工程"></a>通过命令行创建Android工程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android create project -a Main -k com.example.app -t 23 -g -v 2.1.2 -p AppWithGradleTemplate</div></pre></td></tr></table></figure>
-<p>“-g” 表示使用的Gradle模板</p>
-<p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">./android -h create project</div><div class="line"></div><div class="line">       Usage:</div><div class="line">       android [global options] create project [action options]</div><div class="line">       Global options:</div><div class="line">  -s --silent     : Silent mode, shows errors only.</div><div class="line">  -v --verbose    : Verbose mode, shows errors, warnings and all messages.</div><div class="line">     --clear-cache: Clear the SDK Manager repository manifest cache.</div><div class="line">  -h --help       : Help on a specific command.</div><div class="line"></div><div class="line">                         Action &quot;create project&quot;:</div><div class="line">  Creates a new Android project.</div><div class="line">Options:</div><div class="line">  -n --name          : Project name.</div><div class="line">  -a --activity      : Name of the default Activity that is created. [required]</div><div class="line">  -k --package       : Android package name for the application. [required]</div><div class="line">  -v --gradle-version: Gradle Android plugin version.</div><div class="line">  -t --target        : Target ID of the new project. [required]</div><div class="line">  -g --gradle        : Use gradle template.</div><div class="line">  -p --path          : The new project&apos;s directory. [required]</div></pre></td></tr></table></figure></p>
-<h1 id="避免工程每次都下载gradle-x-x-x-all-zip"><a href="#避免工程每次都下载gradle-x-x-x-all-zip" class="headerlink" title="避免工程每次都下载gradle-x.x.x-all.zip"></a>避免工程每次都下载gradle-x.x.x-all.zip</h1><p>首先从官方网站下载需要的版本<br><a href="http://services.gradle.org/distributions" target="_blank" rel="external">http://services.gradle.org/distributions</a><br>修改工程根目录/gradle/wrapper中的gradle-wrapper.properties文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip</div><div class="line">修改为：本地路径</div><div class="line">distributionUrl=file\:/Users/xg/Open/gradle2.10/gradle-2.10-all.zip</div></pre></td></tr></table></figure></p>
-<h1 id="sign-apk"><a href="#sign-apk" class="headerlink" title="sign apk"></a>sign apk</h1><p>Put this into ~/.gradle/gradle.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RELEASE_STORE_FILE=&#123;path to your keystore&#125;</div><div class="line">RELEASE_STORE_PASSWORD=*****</div><div class="line">RELEASE_KEY_ALIAS=*****</div><div class="line">RELEASE_KEY_PASSWORD=*****</div></pre></td></tr></table></figure></p>
-<p>Modify your build.gradle like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line"></div><div class="line">   release &#123;</div><div class="line">       storeFile file(RELEASE_STORE_FILE)</div><div class="line">       storePassword RELEASE_STORE_PASSWORD</div><div class="line">       keyAlias RELEASE_KEY_ALIAS</div><div class="line">       keyPassword RELEASE_KEY_PASSWORD</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            signingConfig signingConfigs.release</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Then you can run gradle assembleRelease</p>
-<h1 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h1><ul>
-<li>关于Gradle：<br><a href="https://gradle.org/getting-started-android-build/" target="_blank" rel="external">https://gradle.org/getting-started-android-build/</a></li>
-<li>关于Jcenter：<br><a href="https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html" target="_blank" rel="external">https://bintray.com/docs/usermanual/uploads/uploads_includingyourpackagesinjcenter.html</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -2078,7 +2409,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

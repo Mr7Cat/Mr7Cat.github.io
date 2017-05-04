@@ -1,0 +1,882 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="情景再现修改了很多文件的时候，添加文件到缓存区，但是只有部分文件需要提交，一个一个 “git add” 太麻烦，“git add .” 又会提交不需要的文件，使用-p选项可以分段Add，每一段都会询问你要不要添加
+1git add -p
+
+因为一个bug修改一个文件，发现修改的一点都没效果，从头再来吧，恢复到最后一次提交的改动：1git checkout -- [file_name]
+但是，需要注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git In Action">
+<meta property="og:url" content="http://mr7cat.com/2017/05/04/GitInAction/index.html">
+<meta property="og:site_name" content="Mr7Cat">
+<meta property="og:description" content="情景再现修改了很多文件的时候，添加文件到缓存区，但是只有部分文件需要提交，一个一个 “git add” 太麻烦，“git add .” 又会提交不需要的文件，使用-p选项可以分段Add，每一段都会询问你要不要添加
+1git add -p
+
+因为一个bug修改一个文件，发现修改的一点都没效果，从头再来吧，恢复到最后一次提交的改动：1git checkout -- [file_name]
+但是，需要注">
+<meta property="og:updated_time" content="2017-05-04T13:00:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git In Action">
+<meta name="twitter:description" content="情景再现修改了很多文件的时候，添加文件到缓存区，但是只有部分文件需要提交，一个一个 “git add” 太麻烦，“git add .” 又会提交不需要的文件，使用-p选项可以分段Add，每一段都会询问你要不要添加
+1git add -p
+
+因为一个bug修改一个文件，发现修改的一点都没效果，从头再来吧，恢复到最后一次提交的改动：1git checkout -- [file_name]
+但是，需要注">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mr7cat.com/2017/05/04/GitInAction/"/>
+
+
+
+
+
+  <title> Git In Action | Mr7Cat </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr7Cat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/04/GitInAction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git In Action
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T20:56:16+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/04/GitInAction/" class="leancloud_visitors" data-flag-title="Git In Action">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>修改了很多文件的时候，添加文件到缓存区，但是只有部分文件需要提交，一个一个 “git add” 太麻烦，“git add .” 又会提交不需要的文件，使用-p选项可以分段Add，每一段都会询问你要不要添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add -p</div></pre></td></tr></table></figure>
+<hr>
+<p>因为一个bug修改一个文件，发现修改的一点都没效果，从头再来吧，恢复到最后一次提交的改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- [file_name]</div></pre></td></tr></table></figure></p>
+<p>但是，需要注意的是，如果该文件已经 add 到暂存队列中，上面的命令就不灵光喽，需要先让这个<strong>文件取消暂存</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD -- [file_name]</div></pre></td></tr></table></figure></p>
+<p>然后再使用第一条命令。</p>
+<hr>
+<p>如果本地引入了很多新文件，但是这些文件后来发现并不需要，这个时候需要清理掉它们，然后继续开发，这时我们就需要使用clean命令了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git clean -dfx</div><div class="line"></div><div class="line">-d 删除掉目录</div><div class="line"></div><div class="line">-f 强制删除</div><div class="line"></div><div class="line">-x 即使在.gitignore中的文件也删除</div></pre></td></tr></table></figure></p>
+<hr>
+<p>测试发现当前版本出问题了，细心的你发现可能是某个文件出了问题，心想这个不是我修改的啊，这个锅应该甩给谁呢，看看这个文件的修改记录吧，一切罪证都将揭晓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log -p [file_name]</div></pre></td></tr></table></figure></p>
+<p>这个文件多人修改过，到底是那次出了问题呢？<br>挨个问问，发现大家都觉得不是自己到锅，这时候聪明的你需要找出强有力到证据才可以了。<br>checkout每个commit记录然后测试？这不是一个聪明到程序员该做到，运用二分法查找，查找出现错误的提交记录，毕竟Git也是一群更聪明到程序员创造的，使用bisect拯救你<br>开始查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect start</div></pre></td></tr></table></figure></p>
+<p>标记当前是坏的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect bad</div></pre></td></tr></table></figure></p>
+<p>标记一个好的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect good 7c0dcfa</div></pre></td></tr></table></figure></p>
+<p>git会选择两个点的中间一次提交，测试这个版本，如果测试通过，标记为good<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect good</div></pre></td></tr></table></figure></p>
+<p>如果测试不通过，标记为bad<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git bisect bad</div></pre></td></tr></table></figure></p>
+<p>一直测试下去，直到测试结束，罪魁祸首就找到了！</p>
+<p><a href="http://blog.rlmflores.me/git/2014/11/30/letting-git-bisect-help-you/" target="_blank" rel="external">Ref</a></p>
+<hr>
+<p>当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm file_path</div></pre></td></tr></table></figure></p>
+<p>当我们需要删除暂存区或分支上的文件, 但本地又需要使用, 只是不希望这个文件被版本控制, 可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached file_path</div></pre></td></tr></table></figure></p>
+<p>file_path 为文件路径<br>然后可以将不需要被版本控制的文件添加到.gitignore文件中，这样它就不会在来捣乱了。</p>
+<hr>
+<ul>
+<li>查看本地分支跟踪的远程分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -vv（两个v）</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="两个程序员的故事"><a href="#两个程序员的故事" class="headerlink" title="两个程序员的故事"></a>两个程序员的故事</h1><p>小A决定和小B一起开发一款App，他们选择了Git作为版本控制工具，至于他们为什么要用Git呢？<a href="http://baike.baidu.com/link?url=ZAhRv38Ce0awzCVoedMFdJg9t-r48f_o8KTAjofD-43qJmCO8Btsu9mGPdZkDasyQZX56NG2q5aL4_2IL1y07sCOlnEVi6pHwrmVyIOTjEK" target="_blank" rel="external">点我看看</a></p>
+<p><a href="https://www.baidu.com/" target="_blank" rel="external">如何安装Git</a></p>
+<p>首先我们来看看Git都有哪些配置，通过”git config –list”命令查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div><div class="line">credential.helper=osxkeychain</div><div class="line">user.email=</div><div class="line">user.name=</div><div class="line">core.excludesfile=/Users/Will/.gitignore_global</div><div class="line">difftool.sourcetree.cmd=opendiff &quot;$LOCAL&quot; &quot;$REMOTE&quot;</div><div class="line">difftool.sourcetree.path=</div><div class="line">mergetool.sourcetree.cmd=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh &quot;$LOCAL&quot; &quot;$REMOTE&quot; -ancestor &quot;$BASE&quot; -merge &quot;$MERGED&quot;</div><div class="line">mergetool.sourcetree.trustexitcode=true</div><div class="line">commit.template=/Users/Will/.stCommitMsg</div><div class="line">core.repositoryformatversion=0</div><div class="line">core.filemode=true</div><div class="line">core.bare=false</div><div class="line">core.logallrefupdates=true</div><div class="line">core.ignorecase=true</div><div class="line">core.precomposeunicode=true</div><div class="line">remote.origin.url=https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line">remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*</div><div class="line">branch.master.remote=origin</div><div class="line">branch.master.merge=refs/heads/master</div></pre></td></tr></table></figure>
+<p>配置个人信息，用于在提交记录中显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Xiao A”</div><div class="line"></div><div class="line">$ git config --global user.email &quot;xiaoa@example.com&quot;</div></pre></td></tr></table></figure>
+<p>在Github中新建一个仓库</p>
+<p>clone到本地的目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/Mr7Cat/GitPlayRoom.git</div></pre></td></tr></table></figure></p>
+<p>查看分支情况，包括本地分支和远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>origin一般是指原始仓库地址的别名</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git branch b_1</div><div class="line">$ git branch -a</div><div class="line">  b_1</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git branch b_2</div><div class="line">$ git branch -a</div><div class="line">  b_1</div><div class="line">  b_2</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<p>新建文件，查看状态，显示未追踪<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ touch Hello.txt</div><div class="line">$ ls</div><div class="line">Hello.txt	LICENSE		README.md</div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">Untracked files:</div><div class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</div><div class="line"></div><div class="line">	Hello.txt</div><div class="line"></div><div class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</div></pre></td></tr></table></figure></p>
+<p>添加文件到缓存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git add Hello.txt </div><div class="line"></div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">Changes to be committed:</div><div class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line"></div><div class="line">	new file:   Hello.txt</div></pre></td></tr></table></figure></p>
+<p>提交修改到本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &apos;add new file Hello.txt&apos;</div><div class="line">[master 21dc322] add new file Hello.txt</div><div class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</div><div class="line"> create mode 100644 Hello.txt</div><div class="line"> </div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is ahead of &apos;origin/master&apos; by 1 commit.</div><div class="line">  (use &quot;git push&quot; to publish your local commits)</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure></p>
+<p>提交修改到远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ git push</div><div class="line">Counting objects: 3, done.</div><div class="line">Delta compression using up to 8 threads.</div><div class="line">Compressing objects: 100% (2/2), done.</div><div class="line">Writing objects: 100% (3/3), 353 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">To https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line">   ce91a05..21dc322  master -&gt; master</div><div class="line">   </div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim Hello.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">$ git checkout b_1</div><div class="line">Switched to branch &apos;b_1&apos;</div><div class="line">$ git status</div><div class="line">On branch b_1</div><div class="line">nothing to commit, working tree clean</div><div class="line">$ ls</div><div class="line">LICENSE		README.md</div><div class="line">$ git log</div><div class="line">commit ce91a05727db25f6ecf848ebc52849474f4511eb</div><div class="line">Author: Mr7Cat &lt;flyhanwei@gmail.com&gt;</div><div class="line">Date:   Wed May 3 10:44:00 2017 +0800</div><div class="line"></div><div class="line">    Initial commit</div><div class="line">$ git branch</div><div class="line">* b_1</div><div class="line">  b_2</div><div class="line">  master</div><div class="line">$ touch b1_Hello.txt</div><div class="line">$ git add .</div><div class="line">$ git commit -m &apos;b1 add file&apos;</div><div class="line">[b_1 68dc8b6] b1 add file</div><div class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</div><div class="line"> create mode 100644 b1_Hello.txt</div></pre></td></tr></table></figure>
+<p>由于新建立到分支没有设置追踪，所以之间执行“git push”会报以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git push</div><div class="line">fatal: The current branch b_1 has no upstream branch.</div><div class="line">To push the current branch and set the remote as upstream, use</div><div class="line"></div><div class="line">    git push --set-upstream origin b_1</div></pre></td></tr></table></figure></p>
+<p>查看一下追踪，发现b_1分支并没有追踪任何远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -vv</div><div class="line">* b_1    68dc8b6 b1 add file</div><div class="line">  b_2    ce91a05 Initial commit</div><div class="line">  master 868960c [origin/master] modify Hello.txt</div></pre></td></tr></table></figure></p>
+<p>建立追踪关系的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --set-upstream [branch] [remote-branch]</div></pre></td></tr></table></figure></p>
+<p>可以push的同时建立追踪，通过”–set-upstream”参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git push --set-upstream origin b_1</div><div class="line">Counting objects: 3, done.</div><div class="line">Delta compression using up to 8 threads.</div><div class="line">Compressing objects: 100% (2/2), done.</div><div class="line">Writing objects: 100% (3/3), 272 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 1), reused 0 (delta 0)</div><div class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</div><div class="line">To https://github.com/Mr7Cat/GitPlayRoom.git</div><div class="line"> * [new branch]      b_1 -&gt; b_1</div><div class="line">Branch b_1 set up to track remote branch b_1 from origin.</div></pre></td></tr></table></figure>
+<p>查看一下追踪的情况，发现<strong>b_1</strong>分支已经追踪了远程的<strong>origin/b_1</strong>分支，以后就可以直接通过”git push”来提交修改了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git branch -vv</div><div class="line">* b_1    68dc8b6 [origin/b_1] b1 add file</div><div class="line">  b_2    ce91a05 Initial commit</div><div class="line">  master 868960c [origin/master] modify Hello.txt</div></pre></td></tr></table></figure></p>
+<hr>
+<p>重新clone一份工程到GitPlayRoom2目录，模拟用户B同时和之前的用户A开发一个项目。<br>在GitPlayRoom2目录下拉取更改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">remote: Counting objects: 5, done.</div><div class="line">remote: Compressing objects: 100% (2/2), done.</div><div class="line">remote: Total 5 (delta 2), reused 5 (delta 2), pack-reused 0</div><div class="line">Unpacking objects: 100% (5/5), done.</div><div class="line">From https://github.com/Mr7Cat/GitPlayRoom</div><div class="line">   21dc322..868960c  master     -&gt; origin/master</div><div class="line"> * [new branch]      b_1        -&gt; origin/b_1</div><div class="line">Updating 21dc322..868960c</div><div class="line">Fast-forward</div><div class="line"> Hello.txt | 1 +</div><div class="line"> 1 file changed, 1 insertion(+)</div></pre></td></tr></table></figure></p>
+<p>查看分支情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/b_1</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git checkout b_1</div><div class="line">Branch b_1 set up to track remote branch b_1 from origin.</div><div class="line">Switched to a new branch &apos;b_1&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git branch -a</div><div class="line">* b_1</div><div class="line">  master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/b_1</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">LICENSE		README.md	b1_Hello.txt</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://obzooc3zl.bkt.clouddn.com/wechat_qr.png" alt="Will wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Contact me with Wechat</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/04/GitBook/" rel="next" title="Git Book">
+                <i class="fa fa-chevron-left"></i> Git Book
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140"
+               alt="Will" />
+          <p class="site-author-name" itemprop="name">Will</p>
+           
+              <p class="site-description motion-element" itemprop="description">Where there is a will, there is a way.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#情景再现"><span class="nav-number">1.</span> <span class="nav-text">情景再现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两个程序员的故事"><span class="nav-number">2.</span> <span class="nav-text">两个程序员的故事</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Will</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("WGTaLHJXovcKixHvuzFdYoPy-gzGzoHsz", "c0dcQAYhRg9RCUGWtEJKJ1mN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
