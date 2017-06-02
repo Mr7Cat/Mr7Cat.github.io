@@ -686,8 +686,12 @@
       
         
           
-            <h1 id="Mac-上-react-native-8081端口被占用"><a href="#Mac-上-react-native-8081端口被占用" class="headerlink" title="Mac 上 react native 8081端口被占用"></a>Mac 上 react native 8081端口被占用</h1><p>1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL</p>
-<p>2使用kill -9 + pid </p>
+            <h1 id="Mac-上-react-native-8081端口被占用"><a href="#Mac-上-react-native-8081端口被占用" class="headerlink" title="Mac 上 react native 8081端口被占用"></a>Mac 上 react native 8081端口被占用</h1><ol>
+<li><p>命令 lsof -i tcp:port  （port替换成端口号，比如8081）</p>
+</li>
+<li><p>使用kill -9 + pid </p>
+</li>
+</ol>
 <h1 id="Android-Modal-doesn’t-handle-the-back-button"><a href="#Android-Modal-doesn’t-handle-the-back-button" class="headerlink" title="Android Modal doesn’t handle the back button"></a>Android Modal doesn’t handle the back button</h1><p>解决方法：实现onRequestClose方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Modal animationType=&apos;none&apos; visible=&#123;true&#125; transparent=&#123;true&#125;</div><div class="line">                        onRequestClose=&#123;() =&gt; &#123; // close modal&#125;&#125;&gt;</div><div class="line">....</div><div class="line">&lt;/Modal&gt;</div></pre></td></tr></table></figure></p>
 <h1 id="Image-default-source-placeholder"><a href="#Image-default-source-placeholder" class="headerlink" title="Image default source, placeholder"></a>Image default source, placeholder</h1><p>解决方法：<a href="https://github.com/TuNguyenThanh/react-native-image-placeholder" target="_blank" rel="external">https://github.com/TuNguyenThanh/react-native-image-placeholder</a></p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save react-native-image-placeholder</div></pre></td></tr></table></figure>
@@ -2286,9 +2290,6 @@
 
       
 
-    </div>
-    <div id="music163player">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=33418570&auto=0&height=66"></iframe>
     </div>
   </aside>
 
