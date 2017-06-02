@@ -260,6 +260,135 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/17/ReactNativeDataTransfer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr7Cat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/17/ReactNativeDataTransfer/" itemprop="url">
+                  React Native 数据传递
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-17T10:49:45+08:00">
+                2017-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/17/ReactNativeDataTransfer/" class="leancloud_visitors" data-flag-title="React Native 数据传递">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/Mr7Cat/ReactNativeDataTransfer" target="_blank" rel="external">https://github.com/Mr7Cat/ReactNativeDataTransfer</a></p>
+<h1 id="JS-gt-Native"><a href="#JS-gt-Native" class="headerlink" title="JS -&gt; Native"></a>JS -&gt; Native</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2017/05/08/ReactNativeIssue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,11 +477,47 @@
       
         
           
-            <ul>
-<li>Android Modal doesn’t handle the back button</li>
-</ul>
-<p>解决方法：实现onRequestClose方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Modal animationType=&apos;none&apos; visible=&#123;true&#125; transparent=&#123;true&#125;</div><div class="line">                        onRequestClose=&#123;() =&gt; &#123; // close modal&#125;&#125;&gt;</div><div class="line">....</div><div class="line">&lt;/Modal&gt;</div></pre></td></tr></table></figure></p>
-
+            <h1 id="Mac-上-react-native-8081端口被占用"><a href="#Mac-上-react-native-8081端口被占用" class="headerlink" title="Mac 上 react native 8081端口被占用"></a>Mac 上 react native 8081端口被占用</h1><p>1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL</p>
+<p>2使用kill -9 + pid </p>
+<h1 id="Android-Modal-doesn’t-handle-the-back-button"><a href="#Android-Modal-doesn’t-handle-the-back-button" class="headerlink" title="Android Modal doesn’t handle the back button"></a>Android Modal doesn’t handle the back button</h1><p>解决方法：实现onRequestClose方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Modal animationType=&apos;none&apos; visible=&#123;true&#125; transparent=&#123;true&#125;</div><div class="line">                        onRequestClose=&#123;() =&gt; &#123; // close modal&#125;&#125;&gt;</div><div class="line">....</div><div class="line">&lt;/Modal&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="Image-default-source-placeholder"><a href="#Image-default-source-placeholder" class="headerlink" title="Image default source, placeholder"></a>Image default source, placeholder</h1><p>解决方法：<a href="https://github.com/TuNguyenThanh/react-native-image-placeholder" target="_blank" rel="external">https://github.com/TuNguyenThanh/react-native-image-placeholder</a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save react-native-image-placeholder</div></pre></td></tr></table></figure>
+<p>Please file an issue if you have any trouble!</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ImageLoad <span class="keyword">from</span> <span class="string">'react-native-image-placeholder'</span>;</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">&lt;ImageLoad</div><div class="line">    style=&#123;&#123; <span class="attr">width</span>: <span class="number">320</span>, <span class="attr">height</span>: <span class="number">250</span> &#125;&#125;</div><div class="line">    loadingStyle=&#123;&#123; <span class="attr">size</span>: <span class="string">'large'</span>, <span class="attr">color</span>: <span class="string">'blue'</span> &#125;&#125;</div><div class="line">    source=&#123;&#123; <span class="attr">uri</span>: <span class="string">'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg'</span> &#125;&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>Supports all <a href="https://facebook.github.io/react-native/docs/images.html" target="_blank" rel="external">Image</a> properties.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placeholderSource</td>
+<td>require(‘./Images/empty-image.png’)</td>
+<td>Show <code>placeholderSource</code> if the <code>source</code> can’t be loaded or error.</td>
+</tr>
+<tr>
+<td>loadingStyle</td>
+<td>size: ‘small’; color: ‘gray’</td>
+<td>Style ActivityIndicator</td>
+</tr>
+<tr>
+<td>isShowActivity</td>
+<td>true</td>
+<td>Show ActivityIndicator loading</td>
+</tr>
+<tr>
+<td>placeholderStyle</td>
+<td></td>
+<td>Style placeholder image</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">import React, &#123; PropTypes &#125; from &apos;react&apos;;</div><div class="line">import &#123; Image, ActivityIndicator &#125; from &apos;react-native&apos;;</div><div class="line"></div><div class="line">class ImageLoad extends React.Component &#123;</div><div class="line">  static propTypes = &#123;</div><div class="line">    isShowActivity: PropTypes.bool,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  static defaultProps = &#123;</div><div class="line">    isShowActivity: true,</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.state = &#123;</div><div class="line">      isLoaded: false,</div><div class="line">      isError: false</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onLoadEnd()&#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isLoaded: true</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onError()&#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isError: true</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return(</div><div class="line">      &lt;Image</div><div class="line">        onLoadEnd=&#123;this.onLoadEnd.bind(this)&#125;</div><div class="line">        onError=&#123;this.onError.bind(this)&#125;</div><div class="line">        style=&#123;[this.props.style, &#123; alignItems: &apos;center&apos; &#125;]&#125;</div><div class="line">        source=&#123;this.props.source&#125;</div><div class="line">        resizeMode=&#123;this.props.resizeMode&#125;</div><div class="line">      &gt;</div><div class="line">        &#123;</div><div class="line">          this.state.isLoaded &amp;&amp; !this.state.isError ? null :</div><div class="line">          &lt;Image</div><div class="line">            style=&#123;[styles.imagePlaceholderStyles, this.props.placeholderStyle]&#125;</div><div class="line">            source=&#123;this.props.placeholderSource ? this.props.placeholderSource : require(&apos;./Images/empty-image.png&apos;)&#125;</div><div class="line">          &gt;</div><div class="line">            &#123;</div><div class="line">              this.props.children  ? this.props.children :</div><div class="line">              this.props.isShowActivity ?</div><div class="line">              &lt;ActivityIndicator</div><div class="line">                size=&#123;this.props.loadingStyle ? this.props.loadingStyle.size : &apos;small&apos;&#125;</div><div class="line">                color=&#123;this.props.loadingStyle ? this.props.loadingStyle.color : &apos;gray&apos;&#125;</div><div class="line">              /&gt; :</div><div class="line">              null</div><div class="line">            &#125;</div><div class="line">          &lt;/Image&gt;</div><div class="line">        &#125;</div><div class="line">      &lt;/Image&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const styles = &#123;</div><div class="line">  imagePlaceholderStyles: &#123;</div><div class="line">    flex: 1,</div><div class="line">    justifyContent: &apos;center&apos;,</div><div class="line">    alignItems: &apos;center&apos;,</div><div class="line">    backgroundColor: &apos;gray&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default ImageLoad;</div></pre></td></tr></table></figure>
+<h1 id="JS中判断字符串里是否含有Emoji表情"><a href="#JS中判断字符串里是否含有Emoji表情" class="headerlink" title="JS中判断字符串里是否含有Emoji表情"></a>JS中判断字符串里是否含有Emoji表情</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">You can use the following regex:</div><div class="line"></div><div class="line">/(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff])&#123;2&#125;|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g</div><div class="line"></div><div class="line">If you just want to remove it from the string, you can do something like this.</div><div class="line"></div><div class="line">function removeEmojis (string) &#123;</div><div class="line">  return string.replace(/(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff])&#123;2&#125;|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g, &apos;&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- 下面的方法过滤不全</div><div class="line">export function isEmojiCharacter(substring) &#123;  </div><div class="line">    for ( var i = 0; i &lt; substring.length; i++) &#123;  </div><div class="line">        var hs = substring.charCodeAt(i);  </div><div class="line">        if (0xd800 &lt;= hs &amp;&amp; hs &lt;= 0xdbff) &#123;  </div><div class="line">            if (substring.length &gt; 1) &#123;  </div><div class="line">                var ls = substring.charCodeAt(i + 1);  </div><div class="line">                var uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;  </div><div class="line">                if (0x1d000 &lt;= uc &amp;&amp; uc &lt;= 0x1f77f) &#123;  </div><div class="line">                    return true;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125; else if (substring.length &gt; 1) &#123;  </div><div class="line">            var ls = substring.charCodeAt(i + 1);  </div><div class="line">            if (ls == 0x20e3) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125;  </div><div class="line">        &#125; else &#123;  </div><div class="line">            if (0x2100 &lt;= hs &amp;&amp; hs &lt;= 0x27ff) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x2B05 &lt;= hs &amp;&amp; hs &lt;= 0x2b07) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x2934 &lt;= hs &amp;&amp; hs &lt;= 0x2935) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x3297 &lt;= hs &amp;&amp; hs &lt;= 0x3299) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030  </div><div class="line">                    || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b  </div><div class="line">                    || hs == 0x2b50) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -2044,259 +2209,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mr7cat.com/2016/12/06/BuildAndroid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr7Cat">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/06/BuildAndroid/" itemprop="url">
-                  BuildAndroid
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-06T11:01:59+08:00">
-                2016-12-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/12/06/BuildAndroid/" class="leancloud_visitors" data-flag-title="BuildAndroid">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="构建和运行Android应用（译）"><a href="#构建和运行Android应用（译）" class="headerlink" title="构建和运行Android应用（译）"></a>构建和运行Android应用（译）</h1><blockquote>
-<p>原文地址：<a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">https://developer.android.com/studio/build/index.html</a></p>
-</blockquote>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>刷新依赖关系缓存中的所有依赖关系</p>
-<p>–refresh-dependencies  Refresh the state of dependencies.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build --refresh-dependencies</div></pre></td></tr></table></figure>
-<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── gradle</div><div class="line">│   └── wrapper				//所使用的 Gradle 包装器配置</div><div class="line">├── .gradle					//所使用 Gradle 版本</div><div class="line">│   └── 2.8</div><div class="line">├── AsInDepth.iml</div><div class="line">├── app						//app module</div><div class="line">│   ├── app.iml</div><div class="line">│   ├── build</div><div class="line">│   ├── build.gradle		//app module 的 build.gradle</div><div class="line">│   ├── libs</div><div class="line">│   ├── proguard-rules.pro</div><div class="line">│   └── src</div><div class="line">├── build.gradle			//项目 build.gradle，通常配置项目全局配置，如 repositories 和 dependencies</div><div class="line">├── gradle.properties		//项目属性文件，通常可以放置一些常量</div><div class="line">├── gradlew					//Gradle 包装器可执行文件</div><div class="line">├── gradlew.bat				//Gradle 包装器可执行文件(Windows)</div><div class="line">├── lib						//lib module</div><div class="line">│   ├── build</div><div class="line">│   ├── build.gradle		//lib module 的 build.gradle</div><div class="line">│   ├── lib.iml</div><div class="line">│   ├── libs</div><div class="line">│   ├── proguard-rules.pro</div><div class="line">│   └── src</div><div class="line">├── local.properties		//项目的本地属性，通常是 sdk 所在位置</div><div class="line">└── settings.gradle			//项目总体设置，通常是配置项目中所有的 module</div></pre></td></tr></table></figure>
-<h1 id="Gradle-Commands"><a href="#Gradle-Commands" class="headerlink" title="Gradle Commands"></a>Gradle Commands</h1><h2 id="Help-Most-important-command"><a href="#Help-Most-important-command" class="headerlink" title="Help (Most important command)"></a>Help (Most important command)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -h</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">-?, -h, --help          Shows this help message.</div><div class="line">-a, --no-rebuild        Do not rebuild project dependencies.</div><div class="line">-b, --build-file        Specifies the build file.</div><div class="line">-c, --settings-file     Specifies the settings file.</div><div class="line">--configure-on-demand   Only relevant projects are configured in this build run. This means faster build for large multi-project builds. [incubating]</div><div class="line">--console               Specifies which type of console output to generate. Values are &apos;plain&apos;, &apos;auto&apos; (default) or &apos;rich&apos;.</div><div class="line">--continue              Continues task execution after a task failure.</div><div class="line">-D, --system-prop       Set system property of the JVM (e.g. -Dmyprop=myvalue).</div><div class="line">-d, --debug             Log in debug mode (includes normal stacktrace).</div><div class="line">--daemon                Uses the Gradle daemon to run the build. Starts the daemon if not running.</div><div class="line">--foreground            Starts the Gradle daemon in the foreground. [incubating]</div><div class="line">-g, --gradle-user-home  Specifies the gradle user home directory.</div><div class="line">--gui                   Launches the Gradle GUI.</div><div class="line">-I, --init-script       Specifies an initialization script.</div><div class="line">-i, --info              Set log level to info.</div><div class="line">-m, --dry-run           Runs the builds with all task actions disabled.</div><div class="line">--max-workers           Configure the number of concurrent workers Gradle is allowed to use. [incubating]</div><div class="line">--no-color              Do not use color in the console output. [deprecated - use --console=plain instead]</div><div class="line">--no-daemon             Do not use the Gradle daemon to run the build.</div><div class="line">--offline               The build should operate without accessing network resources.</div><div class="line">-P, --project-prop      Set project property for the build script (e.g. -Pmyprop=myvalue).</div><div class="line">-p, --project-dir       Specifies the start directory for Gradle. Defaults to current directory.</div><div class="line">--parallel              Build projects in parallel. Gradle will attempt to determine the optimal number of executor threads to use. [incubating]</div><div class="line">--parallel-threads      Build projects in parallel, using the specified number of executor threads. [deprecated - Please use --parallel, optionally in conjunction with --max-workers.] [incubating]</div><div class="line">--profile               Profiles build execution time and generates a report in the &lt;build_dir&gt;/reports/profile directory.</div><div class="line">--project-cache-dir     Specifies the project-specific cache directory. Defaults to .gradle in the root project directory.</div><div class="line">-q, --quiet             Log errors only.</div><div class="line">--recompile-scripts     Force build script recompiling.</div><div class="line">--refresh-dependencies  Refresh the state of dependencies.</div><div class="line">--rerun-tasks           Ignore previously cached task results.</div><div class="line">-S, --full-stacktrace   Print out the full (very verbose) stacktrace for all exceptions.</div><div class="line">-s, --stacktrace        Print out the stacktrace for all exceptions.</div><div class="line">--stop                  Stops the Gradle daemon if it is running.</div><div class="line">-u, --no-search-upward  Don&apos;t search in parent folders for a settings.gradle file.</div><div class="line">-v, --version           Print version info.</div><div class="line">-x, --exclude-task      Specify a task to be excluded from execution.</div></pre></td></tr></table></figure>
-<h2 id="Listing-projects"><a href="#Listing-projects" class="headerlink" title="Listing projects"></a>Listing projects</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q projects</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">:projects</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Root project</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Root project &apos;PushUpAndroid&apos;</div><div class="line">+--- Project &apos;:app&apos;</div><div class="line">+--- Project &apos;:hellocharts-library&apos;</div><div class="line">+--- Project &apos;:hellocharts-samples&apos;</div><div class="line">\--- Project &apos;:library&apos;</div></pre></td></tr></table></figure>
-<h2 id="Listing-tasks"><a href="#Listing-tasks" class="headerlink" title="Listing tasks"></a>Listing tasks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q tasks</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">:app:tasks</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">All tasks runnable from project :app</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Android tasks</div><div class="line">-------------</div><div class="line">androidDependencies - Displays the Android dependencies of the project.</div><div class="line">signingReport - Displays the signing info for each variant.</div><div class="line">sourceSets - Prints out all the source sets defined in this project.</div><div class="line"></div><div class="line">Build tasks</div><div class="line">-----------</div><div class="line">assemble - Assembles all variants of all applications and secondary packages.</div><div class="line">assembleAndroidTest - Assembles all the Test applications.</div><div class="line">assembleDebug - Assembles all Debug builds.</div><div class="line">assembleRelease - Assembles all Release builds.</div><div class="line">build - Assembles and tests this project.</div><div class="line">buildDependents - Assembles and tests this project and all projects that depend on it.</div><div class="line">buildNeeded - Assembles and tests this project and all projects it depends on.</div><div class="line">clean - Deletes the build directory.</div><div class="line">compileDebugAndroidTestSources</div><div class="line">compileDebugSources</div><div class="line">compileDebugUnitTestSources</div><div class="line">compileReleaseSources</div><div class="line">compileReleaseUnitTestSources</div><div class="line">mockableAndroidJar - Creates a version of android.jar that&apos;s suitable for unit tests.</div><div class="line"></div><div class="line">Help tasks</div><div class="line">----------</div><div class="line">buildEnvironment - Displays all buildscript dependencies declared in project &apos;:app&apos;.</div><div class="line">components - Displays the components produced by project &apos;:app&apos;. [incubating]</div><div class="line">dependencies - Displays all dependencies declared in project &apos;:app&apos;.</div><div class="line">dependencyInsight - Displays the insight into a specific dependency in project &apos;:app&apos;.</div><div class="line">help - Displays a help message.</div><div class="line">model - Displays the configuration model of project &apos;:app&apos;. [incubating]</div><div class="line">projects - Displays the sub-projects of project &apos;:app&apos;.</div><div class="line">properties - Displays the properties of project &apos;:app&apos;.</div><div class="line">tasks - Displays the tasks runnable from project &apos;:app&apos;.</div><div class="line"></div><div class="line">Install tasks</div><div class="line">-------------</div><div class="line">installDebug - Installs the Debug build.</div><div class="line">installDebugAndroidTest - Installs the android (on device) tests for the Debug build.</div><div class="line">installRelease - Installs the Release build.</div><div class="line">uninstallAll - Uninstall all applications.</div><div class="line">uninstallDebug - Uninstalls the Debug build.</div><div class="line">uninstallDebugAndroidTest - Uninstalls the android (on device) tests for the Debug build.</div><div class="line">uninstallRelease - Uninstalls the Release build.</div><div class="line"></div><div class="line">Verification tasks</div><div class="line">------------------</div><div class="line">check - Runs all checks.</div><div class="line">connectedAndroidTest - Installs and runs instrumentation tests for all flavors on connected devices.</div><div class="line">connectedCheck - Runs all device checks on currently connected devices.</div><div class="line">connectedDebugAndroidTest - Installs and runs the tests for debug on connected devices.</div><div class="line">deviceAndroidTest - Installs and runs instrumentation tests using all Device Providers.</div><div class="line">deviceCheck - Runs all device checks using Device Providers and Test Servers.</div><div class="line">lint - Runs lint on all variants.</div><div class="line">lintDebug - Runs lint on the Debug build.</div><div class="line">lintRelease - Runs lint on the Release build.</div><div class="line">test - Run unit tests for all variants.</div><div class="line">testDebugUnitTest - Run unit tests for the debug build.</div><div class="line">testReleaseUnitTest - Run unit tests for the release build.</div><div class="line"></div><div class="line">Other tasks</div><div class="line">-----------</div><div class="line">jarDebugClasses</div><div class="line">jarReleaseClasses</div><div class="line">transformResourcesWithMergeJavaResForDebugUnitTest</div><div class="line">transformResourcesWithMergeJavaResForReleaseUnitTest</div><div class="line"></div><div class="line">Rules</div><div class="line">-----</div><div class="line">Pattern: clean&lt;TaskName&gt;: Cleans the output files of a task.</div><div class="line">Pattern: build&lt;ConfigurationName&gt;: Assembles the artifacts of a configuration.</div><div class="line">Pattern: upload&lt;ConfigurationName&gt;: Assembles and uploads the artifacts belonging to a configuration.</div><div class="line"></div><div class="line">To see all tasks and more detail, run gradlew tasks --all</div><div class="line"></div><div class="line">To see more detail about a task, run gradlew help --task &lt;task&gt;</div></pre></td></tr></table></figure>
-<p>For more information</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q tasks --all</div></pre></td></tr></table></figure>
-<h2 id="Listing-androidDependencies"><a href="#Listing-androidDependencies" class="headerlink" title="Listing androidDependencies"></a>Listing androidDependencies</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q :app:androidDependencies</div></pre></td></tr></table></figure>
-<h2 id="Listing-project-properties"><a href="#Listing-project-properties" class="headerlink" title="Listing project properties"></a>Listing project properties</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -q api:properties</div></pre></td></tr></table></figure>
-<h2 id="Profiling-a-build"><a href="#Profiling-a-build" class="headerlink" title="Profiling a build"></a>Profiling a build</h2><p>生成一个build耗时报告，可以用来分析build流程，优化build。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build --profile</div></pre></td></tr></table></figure>
-<h1 id="Gradle-coding"><a href="#Gradle-coding" class="headerlink" title="Gradle coding"></a>Gradle coding</h1><p>println parameter</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">task hello &#123;  </div><div class="line">    doLast &#123;  </div><div class="line">        println &quot;projectDir=, $projectDir&quot;</div><div class="line">        println &quot;rootDir=, $rootDir&quot; </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile (project(&apos;:react-native-image-resizer&apos;))</div><div class="line">           &#123;</div><div class="line">               exclude module: &apos;support-v4&apos;</div><div class="line">               exclude group: &apos;com.android.support&apos;, module: &apos;appcompat-v7&apos;</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
-<h1 id="Configure-Your-Build"><a href="#Configure-Your-Build" class="headerlink" title="Configure Your Build"></a>Configure Your Build</h1><p>The Android build system compiles app resources and source code, and packages them into APKs that you can test, deploy, sign, and distribute. Android Studio uses <a href="http://www.gradle.org/" target="_blank" rel="external">Gradle</a>, an advanced build toolkit, to automate and manage the build process, while allowing you to define flexible custom build configurations. Each build configuration can define its own set of code and resources, while reusing the parts common to all versions of your app. The Android plugin for Gradle works with the build toolkit to provide processes and configurable settings that are specific to building and testing Android applications.</p>
-<p>Gradle and the Android plugin run independent of Android Studio. This means that you can build your Android apps from within Android Studio, the command line on your machine, or on machines where Android Studio is not installed (such as continuous integration servers). If you are not using Android Studio, you can learn how to <a href="https://developer.android.com/studio/build/building-cmdline.html" target="_blank" rel="external">build and run your app from the command line</a>. The output of the build is the same whether you are building a project from the command line, on a remote machine, or using Android Studio.</p>
-<p><strong>Note:</strong> Because Gradle and the Android plugin run independently from Android Studio, you need to update the build tools separately. Read the release notes to learn how to <a href="https://developer.android.com/studio/releases/gradle-plugin.html#updating-plugin" target="_blank" rel="external">update Gradle and the Android plugin</a>.</p>
-<p>The flexibility of the Android build system enables you to perform custom build configurations without modifying your app’s core source files. This section helps you understand how the Android build system works, and how it can help you customize and automate multiple build configurations. If you simply want to learn more about deploying your app, see <a href="https://developer.android.com/studio/run/index.html" target="_blank" rel="external">Building and Running from Android Studio</a>. To start creating custom build configurations right away using Android Studio, see <a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">Configuring Build Variants</a>.</p>
-<h2 id="The-Build-Process"><a href="#The-Build-Process" class="headerlink" title="The Build Process"></a>The Build Process</h2><hr>
-<p>The build process involves many tools and processes that convert your project into an Android Application Package (APK). The build process is very flexible, so it’s useful to understand some of what is happening under the hood.</p>
-<p><img src="http://obzooc3zl.bkt.clouddn.com/build-process_2x.png" alt=""></p>
-<p><strong>Figure 1.</strong> The build process of a typical Android app module.</p>
-<p>The build process for a typical Android app module, as shown in figure 1, follows these general steps:</p>
-<ol>
-<li>The compilers convert your source code into DEX (Dalvik Executable) files, which include the bytecode that runs on Android devices, and everything else into compiled resources.</li>
-<li>The APK Packager combines the DEX files and compiled resources into a single APK. Before your app can be installed and deployed onto an Android device, however, the APK must be signed.</li>
-<li>The APK Packager signs your APK using either the debug or release keystore:<ol>
-<li>If you are building a debug version of your app, that is, an app you intend only for testing and profiling, the packager signs your app with the debug keystore. Android Studio automatically configures new projects with a debug keystore.</li>
-<li>If you are building a release version of your app that you intend to release externally, the packager signs your app with the release keystore. To create a release keystore, read about <a href="https://developer.android.com/studio/publish/app-signing.html#studio" target="_blank" rel="external">signing your app in Android Studio</a>.</li>
-</ol>
-</li>
-<li>Before generating your final APK, the packager uses the <a href="https://developer.android.com/studio/command-line/zipalign.html" target="_blank" rel="external">zipalign</a> tool to optimize your app to use less memory when running on a device.</li>
-</ol>
-<p>At the end of the build process, you have either a debug APK or release APK of your app that you can use to deploy, test, or release to external users.</p>
-<h2 id="Custom-Build-Configurations"><a href="#Custom-Build-Configurations" class="headerlink" title="Custom Build Configurations"></a>Custom Build Configurations</h2><hr>
-<p>Gradle and the Android plugin help you configure the following aspects of your build:</p>
-<ul>
-<li><p><em>Build Types</em></p>
-<p>Build types define certain properties that Gradle uses when building and packaging your app, and are typically configured for different stages of your development lifecycle. For example, the debug build type enables debug options and signs the APK with the debug key, while the release build type may shrink, obfuscate, and sign your APK with a release key for distribution. You must define at least one build type in order to build your app—Android Studio creates the debug and release build types by default. To start customizing packaging settings for your app, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#build-types" target="_blank" rel="external">Configure Build Types</a>.</p>
-</li>
-<li><p><em>Product Flavors</em></p>
-<p>Product flavors represent different versions of your app that you may release to users, such as free and paid versions of your app. You can customize product flavors to use different code and resources, while sharing and reusing the parts that are common to all versions of your app. Product flavors are optional and you must create them manually. To start creating different versions of your app, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#product-flavors" target="_blank" rel="external">Configure Product Flavors</a>.</p>
-</li>
-<li><p><em>Build Variants</em></p>
-<p>A build variant is a cross product of a build type and product flavor, and is the configuration Gradle uses to build your app. Using build variants, you can build the debug version of your product flavors during development, or signed release versions of your product flavors for distribution. Although you do not configure build variants directly, you do configure the build types and product flavors that form them. Creating additional build types or product flavors also creates additional build variants. To learn how to create and manage build variants, read the <a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">Configure Build Variants</a> overview.</p>
-</li>
-<li><p><em>Manifest Entries</em></p>
-<p>You can specify values for some properties of the manifest file in the build variant configuration. These build values override the existing values in the manifest file. This is useful if you want to generate multiple APKs for your modules where each of the apk files has a different application name, minimum SDK version, or target SDK version. When multiple manifests are present, Gradle <a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="external">merges manifest settings</a>.</p>
-</li>
-<li><p><em>Dependencies</em></p>
-<p>The build system manages project dependencies from your local filesystem and from remote repositories. This prevents you from having to manually search, download, and copy binary packages of your dependencies into your project directory. To find out more, learn how to <a href="https://developer.android.com/studio/build/build-variants.html#dependencies" target="_blank" rel="external">Declare Dependencies</a>.</p>
-</li>
-<li><p><em>Signing</em></p>
-<p>The build system enables you to specify signing settings in the build configuration, and it can automatically sign your APKs during the build process. The build system signs the debug version with a default key and certificate using known credentials to avoid a password prompt at build time. The build system does not sign the release version unless you explicitly define a signing configuration for this build. If you do not have a release key, you can generate one as described in <a href="https://developer.android.com/studio/publish/app-signing.html" target="_blank" rel="external">Sign Your App</a>.</p>
-</li>
-<li><p><em>ProGuard</em></p>
-<p>The build system enables you to specify a different <a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="external">ProGuard</a> rules file for each build variant. The build system can run ProGuard to shrink and obfuscate your classes during the build process.</p>
-</li>
-<li><p><em>APK Splits</em></p>
-<p>The build system enables you to automatically build different APKs that each contain only the code and resources needed for a specific screen density or Application Binary Interface (ABI). For more information see <a href="https://developer.android.com/studio/build/configure-apk-splits.html" target="_blank" rel="external">Configure APK Splits</a>.</p>
-</li>
-</ul>
-<h2 id="Build-Configuration-Files"><a href="#Build-Configuration-Files" class="headerlink" title="Build Configuration Files"></a>Build Configuration Files</h2><hr>
-<p>Creating custom build configurations requires you to make changes to one or more build configuration files, or <code>build.gradle</code> files. These plain text files use Domain Specific Language (DSL) to describe and manipulate the build logic using <a href="http://groovy.codehaus.org/" target="_blank" rel="external">Groovy</a>, which is a dynamic language for the Java Virtual Machine (JVM). You don’t need to know Groovy to start configuring your build because the Android plugin for Gradle introduces most of the DSL elements you need. To learn more about the Android plugin DSL, read the <a href="http://google.github.io/android-gradle-dsl/current/index.html" target="_blank" rel="external">DSL reference documentation</a>.</p>
-<p>When starting a new project, Android Studio automatically creates some of these files for you, as shown in figure 2, and populates them based on<em>sensible defaults</em>.</p>
-<p><img src="http://obzooc3zl.bkt.clouddn.com/project-structure_2x.png" alt=""></p>
-<p><strong>Figure 2.</strong> The default project structure for an Android app module.</p>
-<p>There are a few Gradle build configuration files that are a part of the standard project structure for an Android app. Before you can start configuring your build, it is important to understand the scope and purpose of each of these files, and the basic DSL elements they should define.</p>
-<h3 id="The-Gradle-Settings-File"><a href="#The-Gradle-Settings-File" class="headerlink" title="The Gradle Settings File"></a>The Gradle Settings File</h3><p>The <code>settings.gradle</code> file, located in the root project directory, tells Gradle which modules it should include when building your app. For most projects, the file is simple and only includes the following:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include ‘:app’</div></pre></td></tr></table></figure>
-<p>However, multi-module projects need to specify each module that should go into the final build.</p>
-<h3 id="The-Top-level-Build-File"><a href="#The-Top-level-Build-File" class="headerlink" title="The Top-level Build File"></a>The Top-level Build File</h3><p>The top-level <code>build.gradle</code> file, located in the root project directory, defines build configurations that apply to all modules in your project. By default, the top-level build file uses the <code>buildscript {}</code> block to define the Gradle <em>repositories</em> and <em>dependencies</em> that are common to all modules in the project. The following code sample describes the default settings and DSL elements you can find in the top-level <code>build.gradle</code> after creating a new project.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * The buildscript &#123;&#125; block is where you configure the repositories and</div><div class="line"> * dependencies for Gradle itself--meaning, you should not include dependencies</div><div class="line"> * for your modules here. For example, this block includes the Android plugin for</div><div class="line"> * Gradle as a dependency because it provides the additional instructions Gradle</div><div class="line"> * needs to build Android app modules.</div><div class="line"> */</div><div class="line"></div><div class="line">buildscript &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * The repositories &#123;&#125; block configures the repositories Gradle uses to</div><div class="line">     * search or download the dependencies. Gradle pre-configures support for remote</div><div class="line">     * repositories such as JCenter, Maven Central, and Ivy. You can also use local</div><div class="line">     * repositories or define your own remote repositories. The code below defines</div><div class="line">     * JCenter as the repository Gradle should use to look for its dependencies.</div><div class="line">     */</div><div class="line"></div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * The dependencies &#123;&#125; block configures the dependencies Gradle needs to use</div><div class="line">     * to build your project. The following line adds Android plugin for Gradle</div><div class="line">     * version 2.2.0 as a classpath dependency.</div><div class="line">     */</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.0&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The allprojects &#123;&#125; block is where you configure the repositories and</div><div class="line"> * dependencies used by all modules in your project, such as third-party plugins</div><div class="line"> * or libraries. Dependencies that are not required by all the modules in the</div><div class="line"> * project should be configured in module-level build.gradle files. For new</div><div class="line"> * projects, Android Studio configures JCenter as the default repository, but it</div><div class="line"> * does not configure any dependencies.</div><div class="line"> */</div><div class="line"></div><div class="line">allprojects &#123;</div><div class="line">   repositories &#123;</div><div class="line">       jcenter()</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="The-Module-level-Build-File"><a href="#The-Module-level-Build-File" class="headerlink" title="The Module-level Build File"></a>The Module-level Build File</h3><p>The module-level <code>build.gradle</code> file, located in each <code>//</code> directory, allows you to configure build settings for the specific module it is located in. Configuring these build settings allows you to provide custom packaging options, such as additional build types and product flavors, and override settings in the <code>main/</code> app manifest or top-level <code>build.gradle</code> file.</p>
-<p>This sample Android app module <code>build.gradle</code> file outlines some of the basic DSL elements and settings that you should know.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * The first line in the build configuration applies the Android plugin for</div><div class="line"> * Gradle to this build and makes the android &#123;&#125; block available to specify</div><div class="line"> * Android-specific build options.</div><div class="line"> */</div><div class="line"></div><div class="line">apply plugin: &apos;com.android.application&apos;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The android &#123;&#125; block is where you configure all your Android-specific</div><div class="line"> * build options.</div><div class="line"> */</div><div class="line"></div><div class="line">android &#123;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * compileSdkVersion specifies the Android API level Gradle should use to</div><div class="line">   * compile your app. This means your app can use the API features included in</div><div class="line">   * this API level and lower.</div><div class="line">   *</div><div class="line">   * buildToolsVersion specifies the version of the SDK build tools, command-line</div><div class="line">   * utilities, and compiler that Gradle should use to build your app. You need to</div><div class="line">   * download the build tools using the SDK Manager.</div><div class="line">   */</div><div class="line"></div><div class="line">  compileSdkVersion 25</div><div class="line">  buildToolsVersion &quot;25.0.0&quot;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The defaultConfig &#123;&#125; block encapsulates default settings and entries for all</div><div class="line">   * build variants, and can override some attributes in main/AndroidManifest.xml</div><div class="line">   * dynamically from the build system. You can configure product flavors to override</div><div class="line">   * these values for different versions of your app.</div><div class="line">   */</div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * applicationId uniquely identifies the package for publishing.</div><div class="line">     * However, your source code should still reference the package name</div><div class="line">     * defined by the package attribute in the main/AndroidManifest.xml file.</div><div class="line">     */</div><div class="line"></div><div class="line">    applicationId &apos;com.example.myapp&apos;</div><div class="line"></div><div class="line">    // Defines the minimum API level required to run the app.</div><div class="line">    minSdkVersion 15</div><div class="line"></div><div class="line">    // Specifies the API level used to test the app.</div><div class="line">    targetSdkVersion 25</div><div class="line"></div><div class="line">    // Defines the version number of your app.</div><div class="line">    versionCode 1</div><div class="line"></div><div class="line">    // Defines a user-friendly version name for your app.</div><div class="line">    versionName &quot;1.0&quot;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The buildTypes &#123;&#125; block is where you can configure multiple build types.</div><div class="line">   * By default, the build system defines two build types: debug and release. The</div><div class="line">   * debug build type is not explicitly shown in the default build configuration,</div><div class="line">   * but it includes debugging tools and is signed with the debug key. The release</div><div class="line">   * build type applies Proguard settings and is not signed by default.</div><div class="line">   */</div><div class="line"></div><div class="line">  buildTypes &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * By default, Android Studio configures the release build type to enable code</div><div class="line">     * shrinking, using minifyEnabled, and specifies the Proguard settings file.</div><div class="line">     */</div><div class="line"></div><div class="line">    release &#123;</div><div class="line">        minifyEnabled true // Enables code shrinking for the release build type.</div><div class="line">        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The productFlavors &#123;&#125; block is where you can configure multiple product</div><div class="line">   * flavors. This allows you to create different versions of your app that can</div><div class="line">   * override defaultConfig &#123;&#125; with their own settings. Product flavors are</div><div class="line">   * optional, and the build system does not create them by default. This example</div><div class="line">   * creates a free and paid product flavor. Each product flavor then specifies</div><div class="line">   * its own application ID, so that they can exist on the Google Play Store, or</div><div class="line">   * an Android device, simultaneously.</div><div class="line">   */</div><div class="line"></div><div class="line">  productFlavors &#123;</div><div class="line">    free &#123;</div><div class="line">      applicationId &apos;com.example.myapp.free&apos;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    paid &#123;</div><div class="line">      applicationId &apos;com.example.myapp.paid&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * The splits &#123;&#125; block is where you can configure different APK builds that</div><div class="line">   * each contain only code and resources for a supported screen density or</div><div class="line">   * ABI. You&apos;ll also need to configure your build so that each APK has a</div><div class="line">   * different versionCode.</div><div class="line">   */</div><div class="line"></div><div class="line">  splits &#123;</div><div class="line">    // Screen density split settings</div><div class="line">    density &#123;</div><div class="line"></div><div class="line">      // Enable or disable the density split mechanism</div><div class="line">      enable false</div><div class="line"></div><div class="line">      // Exclude these densities from splits</div><div class="line">      exclude &quot;ldpi&quot;, &quot;tvdpi&quot;, &quot;xxxhdpi&quot;, &quot;400dpi&quot;, &quot;560dpi&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The dependencies &#123;&#125; block in the module-level build configuration file</div><div class="line"> * only specifies dependencies required to build the module itself.</div><div class="line"> */</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile project(&quot;:lib&quot;)</div><div class="line">    compile &apos;com.android.support:appcompat-v7:25.0.1&apos;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Gradle-Properties-Files"><a href="#Gradle-Properties-Files" class="headerlink" title="Gradle Properties Files"></a>Gradle Properties Files</h3><p>Gradle also includes two properties files, located in your root project directory, that you can use to specify settings for the Gradle build toolkit itself:</p>
-<ul>
-<li><p><code>gradle.properties</code></p>
-<p>This is where you can configure project-wide Gradle settings, such as the Gradle daemon’s maximum heap size. For more information, see <a href="https://docs.gradle.org/current/userguide/build_environment.html" target="_blank" rel="external">The Build Environment</a>.</p>
-</li>
-<li><p><code>local.properties</code></p>
-<p>Configures local environment properties for the build system, such as the path to the SDK installation. Because the content of this file is automatically generated by Android Studio and is specific to the local developer environment, you should not modify this file manually or check it into your version control system.</p>
-</li>
-</ul>
-<h3 id="Syncing-Project-with-Gradle-Files"><a href="#Syncing-Project-with-Gradle-Files" class="headerlink" title="Syncing Project with Gradle Files"></a>Syncing Project with Gradle Files</h3><p>When you make changes to the build configuration files in your project, Android Studio requires that you sync your project files so that it can import your build configuration changes and run some checks to make sure your configuration won’t create build errors.</p>
-<p>To sync your project files, click <strong>Sync Now</strong> in the notification bar that appears when you make a change, as shown in figure 3, or click <strong>Sync Project</strong> <img src="https://developer.android.com/studio/images/buttons/toolbar-sync-gradle.png" alt="img">from the menu bar. If Android Studio notices any errors with your configuration, for example, your source code uses API features that are only available in an API level higher than your <code>compileSdkVersion</code>, the <strong>Messages</strong> window appears to describe the issue.</p>
-<p><img src="http://obzooc3zl.bkt.clouddn.com/as-gradlesync.png" alt=""></p>
-<p><strong>Figure 3.</strong> Syncing the project with build configuration files in Android Studio.</p>
-<h3 id="Source-Sets"><a href="#Source-Sets" class="headerlink" title="Source Sets"></a>Source Sets</h3><p>Android Studio logically groups source code and resources for each module into <em>source sets</em>. A module’s <code>main/</code> source set includes the code and resources used by all its build variants. Additional source set directories are optional, and Android Studio does not automatically create them for you when you configure new build variants. However, creating source sets, similar to <code>main/</code>, helps organize files and resources that Gradle should only use when building certain versions of your app:</p>
-<ul>
-<li><p><code>src/main/</code></p>
-<p>This source set includes code and resources common to all build variants.</p>
-</li>
-<li><p><code>src//</code></p>
-<p>Create this source set to include code and resources only for a specific build type.</p>
-</li>
-<li><p><code>src//</code></p>
-<p>Create this source set to include code and resources only for a specific product flavor.</p>
-</li>
-<li><p><code>src//</code></p>
-<p>Create this source set to include code and resources only for a specific build variant.</p>
-</li>
-</ul>
-<p>For example, to generate the “fullDebug” version of your app, the build system merges code, settings, and resources from following source sets:</p>
-<ul>
-<li><code>src/fullDebug/</code> (the build variant source set)</li>
-<li><code>src/debug/</code> (the build type source set)</li>
-<li><code>src/full/</code> (the product flavor source set)</li>
-<li><code>src/main/</code> (the main source set)</li>
-</ul>
-<p><strong>Note:</strong> When you create a new file or directory in Android Studio, using the <strong>File &gt; New</strong> menu options, you can create it for a specific source set. The source sets you can choose from are based on your build configurations, and Android Studio automatically creates the required directories if they don’t already exist.</p>
-<p>If different source sets contain different versions of the same file, Gradle uses the following priority order when deciding which file to use (source sets on the left override the files and settings of source sets to the right):</p>
-<blockquote>
-<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
-</blockquote>
-<p>This allows Gradle to use files that are specific to the build variant you are trying to build while reusing activities, application logic, and resources that are common to other versions of your app. When <a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="external">merging multiple manifests</a>, Gradle uses the same priority order, so each build variant can define different components or permissions in the final manifest. To learn more about creating custom source sets, go to <a href="https://developer.android.com/studio/build/build-variants.html#sourcesets" target="_blank" rel="external">Create Source Sets for Build Variants</a>.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2346,7 +2258,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2372,6 +2284,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         
@@ -2656,6 +2574,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

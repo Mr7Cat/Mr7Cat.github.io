@@ -87,22 +87,22 @@
 
 
 
-<meta name="description" content="Android Modal doesn’t handle the back button
-
-解决方法：实现onRequestClose方法1234&amp;lt;Modal animationType=&amp;apos;none&amp;apos; visible=&amp;#123;true&amp;#125; transparent=&amp;#123;true&amp;#125;                        onReques">
+<meta name="description" content="Mac 上 react native 8081端口被占用1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL
+2使用kill -9 + pid 
+Android Modal doesn’t handle the back button解决方法：实现onRequestClose方法1234&amp;lt;Modal ani">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native 问题总结">
 <meta property="og:url" content="http://mr7cat.com/2017/05/08/ReactNativeIssue/index.html">
 <meta property="og:site_name" content="Mr7Cat">
-<meta property="og:description" content="Android Modal doesn’t handle the back button
-
-解决方法：实现onRequestClose方法1234&amp;lt;Modal animationType=&amp;apos;none&amp;apos; visible=&amp;#123;true&amp;#125; transparent=&amp;#123;true&amp;#125;                        onReques">
-<meta property="og:updated_time" content="2017-05-08T03:23:13.000Z">
+<meta property="og:description" content="Mac 上 react native 8081端口被占用1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL
+2使用kill -9 + pid 
+Android Modal doesn’t handle the back button解决方法：实现onRequestClose方法1234&amp;lt;Modal ani">
+<meta property="og:updated_time" content="2017-06-01T13:27:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 问题总结">
-<meta name="twitter:description" content="Android Modal doesn’t handle the back button
-
-解决方法：实现onRequestClose方法1234&amp;lt;Modal animationType=&amp;apos;none&amp;apos; visible=&amp;#123;true&amp;#125; transparent=&amp;#123;true&amp;#125;                        onReques">
+<meta name="twitter:description" content="Mac 上 react native 8081端口被占用1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL
+2使用kill -9 + pid 
+Android Modal doesn’t handle the back button解决方法：实现onRequestClose方法1234&amp;lt;Modal ani">
 
 
 
@@ -348,11 +348,47 @@
       
 
       
-        <ul>
-<li>Android Modal doesn’t handle the back button</li>
-</ul>
-<p>解决方法：实现onRequestClose方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Modal animationType=&apos;none&apos; visible=&#123;true&#125; transparent=&#123;true&#125;</div><div class="line">                        onRequestClose=&#123;() =&gt; &#123; // close modal&#125;&#125;&gt;</div><div class="line">....</div><div class="line">&lt;/Modal&gt;</div></pre></td></tr></table></figure></p>
-
+        <h1 id="Mac-上-react-native-8081端口被占用"><a href="#Mac-上-react-native-8081端口被占用" class="headerlink" title="Mac 上 react native 8081端口被占用"></a>Mac 上 react native 8081端口被占用</h1><p>1命令 lsof -i tcp:port  （port替换成端口号，比如8081）可以查看该端口被什么程序占用，并显示PID，方便KILL</p>
+<p>2使用kill -9 + pid </p>
+<h1 id="Android-Modal-doesn’t-handle-the-back-button"><a href="#Android-Modal-doesn’t-handle-the-back-button" class="headerlink" title="Android Modal doesn’t handle the back button"></a>Android Modal doesn’t handle the back button</h1><p>解决方法：实现onRequestClose方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Modal animationType=&apos;none&apos; visible=&#123;true&#125; transparent=&#123;true&#125;</div><div class="line">                        onRequestClose=&#123;() =&gt; &#123; // close modal&#125;&#125;&gt;</div><div class="line">....</div><div class="line">&lt;/Modal&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="Image-default-source-placeholder"><a href="#Image-default-source-placeholder" class="headerlink" title="Image default source, placeholder"></a>Image default source, placeholder</h1><p>解决方法：<a href="https://github.com/TuNguyenThanh/react-native-image-placeholder" target="_blank" rel="external">https://github.com/TuNguyenThanh/react-native-image-placeholder</a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save react-native-image-placeholder</div></pre></td></tr></table></figure>
+<p>Please file an issue if you have any trouble!</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ImageLoad <span class="keyword">from</span> <span class="string">'react-native-image-placeholder'</span>;</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">&lt;ImageLoad</div><div class="line">    style=&#123;&#123; <span class="attr">width</span>: <span class="number">320</span>, <span class="attr">height</span>: <span class="number">250</span> &#125;&#125;</div><div class="line">    loadingStyle=&#123;&#123; <span class="attr">size</span>: <span class="string">'large'</span>, <span class="attr">color</span>: <span class="string">'blue'</span> &#125;&#125;</div><div class="line">    source=&#123;&#123; <span class="attr">uri</span>: <span class="string">'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg'</span> &#125;&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>Supports all <a href="https://facebook.github.io/react-native/docs/images.html" target="_blank" rel="external">Image</a> properties.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placeholderSource</td>
+<td>require(‘./Images/empty-image.png’)</td>
+<td>Show <code>placeholderSource</code> if the <code>source</code> can’t be loaded or error.</td>
+</tr>
+<tr>
+<td>loadingStyle</td>
+<td>size: ‘small’; color: ‘gray’</td>
+<td>Style ActivityIndicator</td>
+</tr>
+<tr>
+<td>isShowActivity</td>
+<td>true</td>
+<td>Show ActivityIndicator loading</td>
+</tr>
+<tr>
+<td>placeholderStyle</td>
+<td></td>
+<td>Style placeholder image</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">import React, &#123; PropTypes &#125; from &apos;react&apos;;</div><div class="line">import &#123; Image, ActivityIndicator &#125; from &apos;react-native&apos;;</div><div class="line"></div><div class="line">class ImageLoad extends React.Component &#123;</div><div class="line">  static propTypes = &#123;</div><div class="line">    isShowActivity: PropTypes.bool,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  static defaultProps = &#123;</div><div class="line">    isShowActivity: true,</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.state = &#123;</div><div class="line">      isLoaded: false,</div><div class="line">      isError: false</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onLoadEnd()&#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isLoaded: true</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onError()&#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isError: true</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return(</div><div class="line">      &lt;Image</div><div class="line">        onLoadEnd=&#123;this.onLoadEnd.bind(this)&#125;</div><div class="line">        onError=&#123;this.onError.bind(this)&#125;</div><div class="line">        style=&#123;[this.props.style, &#123; alignItems: &apos;center&apos; &#125;]&#125;</div><div class="line">        source=&#123;this.props.source&#125;</div><div class="line">        resizeMode=&#123;this.props.resizeMode&#125;</div><div class="line">      &gt;</div><div class="line">        &#123;</div><div class="line">          this.state.isLoaded &amp;&amp; !this.state.isError ? null :</div><div class="line">          &lt;Image</div><div class="line">            style=&#123;[styles.imagePlaceholderStyles, this.props.placeholderStyle]&#125;</div><div class="line">            source=&#123;this.props.placeholderSource ? this.props.placeholderSource : require(&apos;./Images/empty-image.png&apos;)&#125;</div><div class="line">          &gt;</div><div class="line">            &#123;</div><div class="line">              this.props.children  ? this.props.children :</div><div class="line">              this.props.isShowActivity ?</div><div class="line">              &lt;ActivityIndicator</div><div class="line">                size=&#123;this.props.loadingStyle ? this.props.loadingStyle.size : &apos;small&apos;&#125;</div><div class="line">                color=&#123;this.props.loadingStyle ? this.props.loadingStyle.color : &apos;gray&apos;&#125;</div><div class="line">              /&gt; :</div><div class="line">              null</div><div class="line">            &#125;</div><div class="line">          &lt;/Image&gt;</div><div class="line">        &#125;</div><div class="line">      &lt;/Image&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const styles = &#123;</div><div class="line">  imagePlaceholderStyles: &#123;</div><div class="line">    flex: 1,</div><div class="line">    justifyContent: &apos;center&apos;,</div><div class="line">    alignItems: &apos;center&apos;,</div><div class="line">    backgroundColor: &apos;gray&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default ImageLoad;</div></pre></td></tr></table></figure>
+<h1 id="JS中判断字符串里是否含有Emoji表情"><a href="#JS中判断字符串里是否含有Emoji表情" class="headerlink" title="JS中判断字符串里是否含有Emoji表情"></a>JS中判断字符串里是否含有Emoji表情</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">You can use the following regex:</div><div class="line"></div><div class="line">/(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff])&#123;2&#125;|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g</div><div class="line"></div><div class="line">If you just want to remove it from the string, you can do something like this.</div><div class="line"></div><div class="line">function removeEmojis (string) &#123;</div><div class="line">  return string.replace(/(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff])&#123;2&#125;|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g, &apos;&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- 下面的方法过滤不全</div><div class="line">export function isEmojiCharacter(substring) &#123;  </div><div class="line">    for ( var i = 0; i &lt; substring.length; i++) &#123;  </div><div class="line">        var hs = substring.charCodeAt(i);  </div><div class="line">        if (0xd800 &lt;= hs &amp;&amp; hs &lt;= 0xdbff) &#123;  </div><div class="line">            if (substring.length &gt; 1) &#123;  </div><div class="line">                var ls = substring.charCodeAt(i + 1);  </div><div class="line">                var uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;  </div><div class="line">                if (0x1d000 &lt;= uc &amp;&amp; uc &lt;= 0x1f77f) &#123;  </div><div class="line">                    return true;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125; else if (substring.length &gt; 1) &#123;  </div><div class="line">            var ls = substring.charCodeAt(i + 1);  </div><div class="line">            if (ls == 0x20e3) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125;  </div><div class="line">        &#125; else &#123;  </div><div class="line">            if (0x2100 &lt;= hs &amp;&amp; hs &lt;= 0x27ff) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x2B05 &lt;= hs &amp;&amp; hs &lt;= 0x2b07) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x2934 &lt;= hs &amp;&amp; hs &lt;= 0x2935) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (0x3297 &lt;= hs &amp;&amp; hs &lt;= 0x3299) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125; else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030  </div><div class="line">                    || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b  </div><div class="line">                    || hs == 0x2b50) &#123;  </div><div class="line">                return true;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -396,6 +432,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/17/ReactNativeDataTransfer/" rel="prev" title="React Native 数据传递">
+                React Native 数据传递 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/1405850?v=3&u=b02f4267aea6f9d517c0c8cfb0f357f3df02112c&s=140"
@@ -481,7 +530,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -508,6 +557,12 @@
 
         
         
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
 
         
         
@@ -517,6 +572,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-上-react-native-8081端口被占用"><span class="nav-number">1.</span> <span class="nav-text">Mac 上 react native 8081端口被占用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Modal-doesn’t-handle-the-back-button"><span class="nav-number">2.</span> <span class="nav-text">Android Modal doesn’t handle the back button</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Image-default-source-placeholder"><span class="nav-number">3.</span> <span class="nav-text">Image default source, placeholder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">3.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.2.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Options"><span class="nav-number">3.3.</span> <span class="nav-text">Options</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS中判断字符串里是否含有Emoji表情"><span class="nav-number">4.</span> <span class="nav-text">JS中判断字符串里是否含有Emoji表情</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -795,6 +866,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
